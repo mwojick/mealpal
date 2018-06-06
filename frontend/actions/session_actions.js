@@ -7,37 +7,44 @@ export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 export const signup = (user) => dispatch => {
   return sessionApiUtil.signup(user).then((userS) => {
     return dispatch(receiveCurrentUser(userS));
-  }, (errors) => dispatch(receiveErrors(errors)) );
+  }, (errors) => dispatch(receiveErrors(errors.responseJSON)) );
 };
 
 export const login = (user) => dispatch => {
   return sessionApiUtil.login(user).then( (userS) => {
     return dispatch(receiveCurrentUser(userS));
-  }, (errors) => dispatch(receiveErrors(errors)) );
+  }, (errors) => dispatch(receiveErrors(errors.responseJSON)) );
 };
 
 export const logout = () => dispatch => {
   return sessionApiUtil.logout().then(() => {
     return dispatch(logoutCurrentUser());
-  }, (errors) => dispatch(receiveErrors(errors)) );
+  }, (errors) => dispatch(receiveErrors(errors.responseJSON)) );
 };
 
-export const receiveCurrentUser = (user) => {
+const receiveCurrentUser = (user) => {
   return {
     type: RECEIVE_CURRENT_USER,
     user
   };
 };
 
-export const logoutCurrentUser = () => {
+const logoutCurrentUser = () => {
   return {
     type: LOGOUT_CURRENT_USER
   };
 };
 
-export const receiveErrors = (errors) => {
+const receiveErrors = (errors) => {
   return {
     type: RECEIVE_SESSION_ERRORS,
     errors
+  };
+};
+
+export const clearErrors = () => {
+  return {
+    type: RECEIVE_SESSION_ERRORS,
+    errors: []
   };
 };
