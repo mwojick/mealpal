@@ -9,16 +9,18 @@
 ActiveRecord::Base.transaction do
   User.destroy_all
 
-  user = {
-    '1' => {
+  users = [
+    {
       'email' => 'email1',
       'password' => 123456
     },
-    '2' => {
+    {
       'email' => 'email2',
       'password' => 123456
     }
-  }
+  ]
 
-  User.create!(user)
+  users.each do |user|
+    User.create!(user)
+  end
 end

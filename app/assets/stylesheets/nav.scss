@@ -1,0 +1,39 @@
+$main: #fe422d;
+$black: #010101;
+$gray: #A2A2A2;
+
+//nav (main)
+.nav-main {
+  display: flex;
+  color: $main;
+  justify-content: space-between;
+  // border-bottom: 1px solid $gray;
+  padding: 10px;
+  font-family: sans-serif;
+  box-shadow: 0px 0px 8px $gray;
+}
+.nav-main strong {
+  font-weight: bold;
+}
+.nav-logo {
+  font-size: 25px;
+  padding: 0px;
+  padding-top: 5px;
+}
+.nav-route {
+  padding-top: 5px;
+  font-weight: lighter;
+}
+
+//nav login
+.nav-login {
+  display: flex;
+  // justify-content: space-between;
+}
+.nav-login * {
+  margin-right: 10px;
+  margin-left: 10px;
+  // justify-content: space-between;
+}
+
+//nav menu
