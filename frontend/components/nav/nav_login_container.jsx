@@ -4,12 +4,21 @@ import { Link, withRouter } from 'react-router-dom';
 import NavLogin from './nav_login';
 import { login } from '../../actions/session_actions';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
+
+  let logInSignUp;
+  if (ownProps.location.pathname === '/signup') {
+    logInSignUp = <Link to='/login'>LOG IN</Link>;
+  } else {
+    logInSignUp = <Link to='/signup'>SIGN UP</Link>;
+  }
+
   return {
     demoUser: {
       email: 'email1',
       password: 123456
-    }
+    },
+    logInSignUp: logInSignUp
   };
 };
 

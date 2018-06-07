@@ -25,6 +25,7 @@
   font-size: 25px;
   margin-top: 15px;
   margin-left: 10px;
+  letter-spacing: 1px;
 }
 
 .nav-route {
@@ -44,9 +45,15 @@
 //nav menu
 .nav-menu {
   display: flex;
+  letter-spacing: 0.5px;
+
 }
 .nav-menu * {
   margin-right: 10px;
   margin-left: 10px;
   margin-top: 20px;
+}
+
+.nav-menu-button {
+  cursor: pointer;
 }

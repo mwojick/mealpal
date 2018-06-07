@@ -4,7 +4,7 @@ import { Link, Route, Redirect } from 'react-router-dom';
 const Menu = (props) => {
   return (
     <div className="nav-menu">
-      <div>
+      <div className="nav-menu-button">
         MENU
       </div>
       <div>

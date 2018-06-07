@@ -43,22 +43,26 @@
   font-size: 18px;
   font-weight: lighter;
   color: $gray;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
 .login-form-box {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .login-errors {
-  margin-bottom: 5px;
+  position: absolute;
+  width: 100%;
+  bottom: 230px;
   color: red;
 }
 
 .login-errors {
   ul {
+    margin-bottom: 10px;
     align-items: center;
     display: flex;
     flex-direction: column;

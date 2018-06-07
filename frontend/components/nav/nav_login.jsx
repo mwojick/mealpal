@@ -14,7 +14,7 @@ class NavLogin extends React.Component {
     return (
       <div className="nav-login">
 
-        <Link to='/login'>LOG IN</Link>
+        {this.props.logInSignUp}
 
         <div >
           <Link to='/' onClick={() => this.demo()}>
@@ -26,8 +26,6 @@ class NavLogin extends React.Component {
   }
 
 }
-
-
 
 
 export default NavLogin;
