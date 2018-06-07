@@ -36,7 +36,7 @@ gem 'jquery-rails'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
-  
+
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-rails'
