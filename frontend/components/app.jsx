@@ -5,6 +5,7 @@ import LoginFormContainer from './session_form/login_form_container';
 import SignupFormContainer from './session_form/signup_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Nav from './nav/nav';
+import Footer from './footer/footer';
 
 const App = () => (
   <div>
@@ -12,14 +13,19 @@ const App = () => (
       <Nav />
     </header>
 
-    <main className="main-page">
-      <Switch>
-        <AuthRoute path="/login" component={LoginFormContainer} />
-        <AuthRoute path="/signup" component={SignupFormContainer} />
-        <ProtectedRoute path="/" component={GreetingContainer}/>
-      </Switch>
-    </main>
+    <div className="main-body">
+      <main className="main-page">
+        <Switch>
+          <AuthRoute path="/login" component={LoginFormContainer} />
+          <AuthRoute path="/signup" component={SignupFormContainer} />
+          <ProtectedRoute path="/" component={GreetingContainer}/>
+        </Switch>
+      </main>
 
+      <footer>
+        <Footer/>
+      </footer>
+    </div>
   </div>
 );
 

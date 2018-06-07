@@ -42,7 +42,7 @@ class SignupForm extends React.Component {
         <div className="login-form-container">
 
           <div className="login-welcome">
-            WELCOME TO TREATPAL
+            DESSERTS FOR LESS THAN $3
           </div>
 
           <div className="login-to-account">

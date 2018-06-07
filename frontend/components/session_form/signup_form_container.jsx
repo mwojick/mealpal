@@ -19,4 +19,5 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignupForm));
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(SignupForm));
