@@ -12,11 +12,13 @@ const App = () => (
       <Nav />
     </header>
 
-    <Switch>
-      <AuthRoute path="/login" component={LoginFormContainer} />
-      <AuthRoute path="/signup" component={SignupFormContainer} />
-      <ProtectedRoute path="/" component={GreetingContainer}/>
-    </Switch>
+    <main className="main-page">
+      <Switch>
+        <AuthRoute path="/login" component={LoginFormContainer} />
+        <AuthRoute path="/signup" component={SignupFormContainer} />
+        <ProtectedRoute path="/" component={GreetingContainer}/>
+      </Switch>
+    </main>
 
   </div>
 );

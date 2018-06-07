@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, Route, Redirect } from 'react-router-dom';
 import { NavRoute } from '../../util/route_util';
-import Menu from './menu';
 
 const Nav = () => (
   <div className="nav-main">
@@ -10,7 +9,7 @@ const Nav = () => (
     </div>
 
     <div className="nav-route">
-      <NavRoute menu={Menu} />
+      <NavRoute />
     </div>
 
   </div>

@@ -37,34 +37,59 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div className="login-form-container">
-        <form onSubmit={this.handleSubmit} className="login-form-box">
-          Welcome!
-          <br/>
-          Please {this.props.formType} or {this.props.navLink}
-          {this.renderErrors()}
-          <div className="login-form">
-            <br/>
-            <label>Email:
-              <input type="text"
-                value={this.state.email}
-                onChange={this.update('email')}
-                className="login-input"
-              />
-            </label>
-            <br/>
-            <label>Password:
-              <input type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-                className="login-input"
-              />
-            </label>
-            <br/>
-            <input className="session-submit" type="submit"
-              value={this.props.formType} />
+      <div className="login-page">
+
+        <div className="login-form-container">
+
+          <div className="login-welcome">
+            WELCOME BACK
           </div>
-        </form>
+
+          <div className="login-to-account">
+            Log in to your TreatPal account
+          </div>
+
+          <form onSubmit={this.handleSubmit} className="login-form-box">
+
+            <div className="login-errors">
+              {this.renderErrors()}
+            </div>
+
+            <div className="login-form">
+
+              <label className="login-label">
+                EMAIL ADDRESS:
+                <input type="text"
+                  value={this.state.email}
+                  onChange={this.update('email')}
+                  className="login-input"
+                />
+              </label>
+
+              <label className="login-label">
+                PASSWORD:
+                <input type="password"
+                  value={this.state.password}
+                  onChange={this.update('password')}
+                  className="login-input"
+                />
+              </label>
+
+              <button className="session-submit" type="submit" >
+                <div>
+                  {this.props.formType}
+                </div>
+              </button>
+            </div>
+
+          </form>
+          <div className="login-donthave">
+            Don't have a TreatPal account?
+          </div>
+          <div className="other-link">
+            {this.props.navLink}
+          </div>
+        </div>
       </div>
     );
   }

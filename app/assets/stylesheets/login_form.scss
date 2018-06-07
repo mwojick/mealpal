@@ -1,0 +1,129 @@
+$main: #fe422d;
+$black: #010101;
+$gray: #A2A2A2;
+$dark-gray: #767676;
+
+.login-page {
+
+  height: 900px;
+
+  background-image:  url("https://images.unsplash.com/photo-1494390248081-4e521a5940db?ixlib=rb-0.3.5&s=0fa9d8a83ef3345d0ef1f36446c90734&auto=format&fit=crop&w=1895&q=80");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: 'Lato', sans-serif;
+
+}
+
+.login-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background-color: white;
+  width: 500px;
+  height: 550px;
+}
+
+.login-welcome {
+  font-size: 25px;
+  font-weight: bolder;
+  color: $main;
+  margin-bottom: 10px;
+}
+.login-to-account {
+  font-size: 18px;
+  font-weight: lighter;
+  color: $gray;
+  margin-bottom: 40px;
+}
+
+.login-form-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-errors {
+  margin-bottom: 5px;
+  color: red;
+}
+
+.login-errors {
+  ul {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-label {
+    display: flex;
+    flex-direction: column;
+    color: $dark-gray;
+    width: 420px;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+
+    input {
+      color: black;
+      margin-top: 10px;
+      height: 35px;
+      border-radius: 5px;
+      border-style: solid;
+      border-color: $gray;
+
+    }
+}
+
+
+.session-submit {
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+
+  width: 420px;
+  height: 50px;
+
+  margin: 10px;
+  padding: 10px;
+
+  border: none;
+  color: white;
+  background-color: $main;
+
+  div {
+    margin: 0px;
+  }
+
+}
+
+.login-donthave {
+  font-size: 18px;
+  margin-top: 10px;
+  color: $gray;
+}
+
+.other-link {
+  font-size: 18px;
+  margin-top: 5px;
+  color: purple;
+
+  :hover {
+    text-decoration: underline;
+  }
+}
