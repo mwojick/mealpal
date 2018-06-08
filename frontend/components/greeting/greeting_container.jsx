@@ -1,17 +1,22 @@
 import { connect } from 'react-redux';
-import { logout } from '../../actions/session_actions';
+import { fetchTreats, searchTreats } from '../../actions/treat_actions';
 import { withRouter } from 'react-router-dom';
 import Greeting from './greeting';
 
 const msp = (state) => {
   return {
-    currentUser: state.entities.users[state.session.id]
+    currentUser: state.entities.users[state.session.id],
+    treats: state.entities.treats,
+    shops: state.entities.shops,
+    cities: state.entities.cities,
+    errors: state.errors.treats
   };
 };
 
 const mdp = (dispatch) => {
   return {
-    logout: () => dispatch(logout())
+    fetchTreats: (city) => dispatch(fetchTreats(city)),
+    searchTreats: (search) => dispatch(searchTreats(search)),
   };
 };
 
