@@ -14,4 +14,5 @@ class City < ApplicationRecord
   validates :name, :latitude, :longitude, presence: true
 
   has_many :shops
+  has_many :treats, through: :shops
 end
