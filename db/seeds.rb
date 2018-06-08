@@ -110,7 +110,7 @@ ActiveRecord::Base.transaction do
     randomNumber = rand(1..200)
     image_url = "https://source.unsplash.com/collection/#{collectionID}/#{imageWidth}x#{imageHeight}/?sig=#{randomNumber}"
 
-    shop_id = i
+    shop_id = shops[i].id
 
     treats << {
       name: name,
