@@ -9,7 +9,7 @@ class TreatIndexItem extends React.Component {
   render() {
     let { treat, shop } = this.props;
     return (
-      <div className="tr-col-xs tr-col-sm tr-col-md tr-col-lg treat-box">
+      <div className="treat-box">
 
         <div className="treat-box-title">
           <li>
@@ -18,7 +18,7 @@ class TreatIndexItem extends React.Component {
         </div>
 
 
-          <img src={treat.imageUrl}></img>
+        <img src={treat.imageUrl}></img>
 
 
         <div className="treat-box-description">
