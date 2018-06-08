@@ -1,7 +1,7 @@
 
 .login-page {
 
-  background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), image-url("login_page/photo-1494390248081-4e521a5940db.jpeg");
+  background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url("https://res.cloudinary.com/mwojick/image/upload/v1528409283/photo-1494390248081-4e521a5940db.jpg");
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
@@ -29,13 +29,15 @@
   border-radius: 10px;
 
   background-color: white;
-  width: 500px;
-  height: 550px;
+  width: 530px;
+  height: 100%;
+  padding: 50px 0px;
 }
 
 .login-welcome {
   font-size: 25px;
   font-weight: bolder;
+  letter-spacing: 1px;
   color: $main;
   margin-bottom: 10px;
 }
@@ -43,7 +45,7 @@
   font-size: 18px;
   font-weight: lighter;
   color: $gray;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
 
 .login-form-box {
@@ -54,9 +56,9 @@
 }
 
 .login-errors {
-  position: absolute;
-  width: 100%;
-  bottom: 230px;
+  // position: absolute;
+  // width: 100%;
+  // bottom: 230px;
   color: red;
 }
 
@@ -86,13 +88,26 @@
     input {
       color: black;
       margin-top: 10px;
-      height: 40px;
+      height: 30px;
+      outline: 0px;
       border-radius: 5px;
       border-style: solid;
       border-color: $gray;
       border-width: 1px;
-      padding-left: 15px;
+      padding-left: 10px;
     }
+
+    select {
+      margin-top: 10px;
+      padding: 5px 10px;
+      border-radius: 5px;
+
+
+    }
+}
+
+.login-label select:hover {
+  cursor: pointer;
 }
 
 .login-label input:focus {

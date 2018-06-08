@@ -6,7 +6,8 @@ class SignupForm extends React.Component {
     super(props);
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      preferredCity: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -23,6 +24,7 @@ class SignupForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    debugger;
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
   }
@@ -78,6 +80,19 @@ class SignupForm extends React.Component {
                   className="login-input"
                 />
               </label>
+
+              <label className="login-label">
+                LOCATION:
+                <select value={this.state.preferredCity}
+                  onChange={this.update('preferredCity')}>
+
+                  <option value="San Francisco">San Francisco</option>
+                  <option value="New York">New York</option>
+                  <option value="Boston">Boston</option>
+                </select>
+              </label>
+
+
 
               <button className="session-submit" type="submit" >
                 <div>

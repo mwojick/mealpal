@@ -15,7 +15,7 @@ const mapStateToProps = (state, ownProps) => {
 
   return {
     demoUser: {
-      email: 'email1',
+      email: 'demo',
       password: 123456
     },
     logInSignUp: logInSignUp
