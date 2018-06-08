@@ -1,14 +1,10 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
+import TreatIndexContainer from '../treat_listing/treat_index_container';
 
 class Greeting extends React.Component {
-
   constructor(props){
     super(props);
-  }
-
-  componentDidMount(){
-    this.props.fetchTreats(this.props.currentUser.preferredCity);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -18,13 +14,12 @@ class Greeting extends React.Component {
   }
 
   render() {
-    let { treats, shops, errors } = this.props;
-    treats = Object.values(treats);
+
     return (
       <div>
-        {treats.map((treat) => <li key={treat.id}>
-          <img src={treat.imageUrl}></img>
-        </li>)}
+
+        <TreatIndexContainer />
+
       </div>
     );
   }
