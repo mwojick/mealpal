@@ -79,8 +79,10 @@ ActiveRecord::Base.transaction do
     end
   end
 
-  shops.each do |shop|
+  shops.each_with_index do |shop, i|
     Shop.create!(shop)
+    sleep(1.0/10.0)
+    puts "created #{i} stores"
   end
 end
 

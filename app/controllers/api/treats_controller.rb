@@ -1,10 +1,17 @@
 class Api::TreatsController < ApplicationController
   def index
-    @treats = City.find_by(name: params[:city]).treats
-    if @treats
+    @city = City.find_by(name: params[:city])
+
+    if @city
+      @treats = @city.treats
+      @shops = []
+      @treats.each do |treat|
+        @shops << treat.shop
+      end
+
       render :index
     else
-      render json: ["No treats found"], status: 404
+      render json: ["No city/treats found"], status: 404
     end
   end
 
@@ -17,8 +24,12 @@ class Api::TreatsController < ApplicationController
       end
     end
 
-    if @treats
-      render :index
+    unless @treats.empty?
+      @shops = []
+      @treats.each do |treat|
+        @shops << treat.shop
+      end
+      render :search
     else
       render json: ["No treats found"], status: 404
     end

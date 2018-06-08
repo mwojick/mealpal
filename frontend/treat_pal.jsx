@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import {login, logout, signup} from './util/session_api_util';
-import {login} from './actions/session_actions';
+import {fetchTreats, searchTreats} from './actions/treat_actions';
+
+// import {fetchTreats, searchTreats} from './util/treat_api_util';
+
 import configureStore from './store/store';
 import Root from './components/root';
 
@@ -28,9 +30,9 @@ document.addEventListener('DOMContentLoaded', () => {
   //TESTING START:
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  window.login = login;
-  // window.logout = logout;
-  // window.signup = signup;
+  window.fetchTreats = fetchTreats;
+  window.searchTreats = searchTreats;
+
   //TESTING END:
 
   ReactDOM.render(<Root store={store}/>, root);

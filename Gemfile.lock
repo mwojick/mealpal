@@ -95,6 +95,7 @@ GEM
     faker (1.8.7)
       i18n (>= 0.7)
     ffi (1.9.25)
+    geocoder (1.4.9)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     i18n (1.0.1)
@@ -168,6 +169,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    redis (3.3.5)
     ruby_dep (1.5.0)
     rubyzip (1.2.1)
     sass (3.5.6)
@@ -229,6 +231,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   factory_bot_rails
   faker
+  geocoder
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
@@ -237,6 +240,7 @@ DEPENDENCIES
   puma (~> 3.11)
   rails (~> 5.2.0)
   random-location
+  redis (~> 3.3.5)
   sass-rails (~> 5.0)
   selenium-webdriver
   spring
