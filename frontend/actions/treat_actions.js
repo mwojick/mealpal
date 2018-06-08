@@ -5,22 +5,29 @@ export const RECEIVE_SEARCH_TREATS = "RECEIVE_SEARCH_TREATS";
 export const RECEIVE_TREAT_ERRORS = "RECEIVE_TREAT_ERRORS";
 
 export const fetchTreats = (city) => dispatch => {
-  return treatApiUtil.fetchTreats(city).then((treats) => {
-    return dispatch(receiveTreats(treats));
+  return treatApiUtil.fetchTreats(city).then((payload) => {
+    return dispatch(receiveTreats(payload));
   }, (errors) => dispatch(receiveErrors(errors.responseJSON)));
 };
 
 export const searchTreats = (search) => dispatch => {
-  return treatApiUtil.searcTreats(search).then((treats) => {
-    return dispatch(receiveTreats(treats));
+  return treatApiUtil.searchTreats(search).then((payload) => {
+    return dispatch(receiveTreatsSearch(payload));
   }, (errors) => dispatch(receiveErrors(errors.responseJSON)));
 };
 
 
-const receiveTreats = (treats) => {
+const receiveTreats = (payload) => {
   return {
     type: RECEIVE_ALL_TREATS,
-    treats
+    payload
+  };
+};
+
+const receiveTreatsSearch = (payload) => {
+  return {
+    type: RECEIVE_SEARCH_TREATS,
+    payload
   };
 };
 

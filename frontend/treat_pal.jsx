@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.dispatch = store.dispatch;
   window.fetchTreats = fetchTreats;
   window.searchTreats = searchTreats;
-
   //TESTING END:
 
   ReactDOM.render(<Root store={store}/>, root);
