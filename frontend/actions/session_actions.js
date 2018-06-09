@@ -48,3 +48,12 @@ export const clearErrors = () => {
     errors: []
   };
 };
+
+let demoUser = {
+  email: 'demo',
+  password: 123456
+};
+
+export const demo = () => {
+  return login(demoUser);
+};

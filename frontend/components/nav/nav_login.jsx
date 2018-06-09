@@ -6,10 +6,6 @@ class NavLogin extends React.Component {
     super(props);
   }
 
-  demo() {
-    this.props.login(this.props.demoUser);
-  }
-
   render() {
     return (
       <div className="nav-login">
@@ -17,7 +13,7 @@ class NavLogin extends React.Component {
         {this.props.logInSignUp}
 
         <div >
-          <Link to='/' onClick={() => this.demo()}>
+          <Link to='/' onClick={() => this.props.demo()}>
             DEMO
           </Link>
         </div>

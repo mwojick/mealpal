@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {fetchTreats, searchTreats} from './actions/treat_actions';
+import {fetchCities} from './actions/city_actions';
 
 // import {fetchTreats, searchTreats} from './util/treat_api_util';
 
@@ -32,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.dispatch = store.dispatch;
   window.fetchTreats = fetchTreats;
   window.searchTreats = searchTreats;
+  window.fetchCities = fetchCities;
   //TESTING END:
 
   ReactDOM.render(<Root store={store}/>, root);

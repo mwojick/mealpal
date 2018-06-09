@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import NavLogin from './nav_login';
-import { login } from '../../actions/session_actions';
+import { login, demo } from '../../actions/session_actions';
 
 const mapStateToProps = (state, ownProps) => {
 
@@ -14,17 +14,14 @@ const mapStateToProps = (state, ownProps) => {
   }
 
   return {
-    demoUser: {
-      email: 'demo',
-      password: 123456
-    },
     logInSignUp: logInSignUp
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    login: (user) => dispatch(login(user))
+    login: (user) => dispatch(login(user)),
+    demo: () => dispatch(demo())
   };
 };
 

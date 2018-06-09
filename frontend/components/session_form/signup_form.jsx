@@ -12,6 +12,10 @@ class SignupForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    this.props.fetchCities();
+  }
+
   componentWillUnmount() {
       this.props.clearErrors();
   }
@@ -42,7 +46,6 @@ class SignupForm extends React.Component {
   }
 
   render() {
-    // debugger;
     return (
       <div className="login-page">
 
@@ -87,9 +90,12 @@ class SignupForm extends React.Component {
                 <select value={this.state.preferredCity}
                   onChange={this.update('preferredCity')}>
                   <option hidden value={null}>-- Please Select --</option>
-                  <option value="San Francisco">San Francisco</option>
-                  <option value="New York">New York</option>
-                  <option value="Boston">Boston</option>
+
+                  {this.props.cities.map( (city) => {
+                    return <option key={city.id}
+                      value={city.name}>{city.name}</option>;
+                  })}
+
                 </select>
               </label>
 
