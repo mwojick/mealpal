@@ -4,10 +4,7 @@ class Api::TreatsController < ApplicationController
 
     if @city
       @treats = @city.treats
-      @shops = []
-      @treats.each do |treat|
-        @shops << treat.shop
-      end
+      @shops = @city.shops
 
       render :index
     else
@@ -25,10 +22,8 @@ class Api::TreatsController < ApplicationController
     end
 
     unless @treats.empty?
-      @shops = []
-      @treats.each do |treat|
-        @shops << treat.shop
-      end
+      @shops = @city.shops
+
       render :search
     else
       render json: ["No treats found"], status: 404
