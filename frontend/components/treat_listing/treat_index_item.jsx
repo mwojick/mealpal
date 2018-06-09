@@ -20,6 +20,17 @@ class TreatIndexItem extends React.Component {
 
         <img src={treat.imageUrl}></img>
 
+        <div className="hidden-description">
+          <ul>
+            <li className="hidden-treat-name">
+              {treat.name.toUpperCase()}
+            </li>
+            <li className="hidden-treat-desc">
+              {treat.description}
+            </li>
+          </ul>
+        </div>
+
 
         <div className="treat-box-description">
 

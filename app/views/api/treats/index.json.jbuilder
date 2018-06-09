@@ -14,9 +14,3 @@ json.shops do
     end
   end
 end
-
-json.cities do
-  json.set! @city.id do
-    json.extract! @city, :id, :name, :latitude, :longitude
-  end
-end

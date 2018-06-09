@@ -17,6 +17,7 @@ class SignupForm extends React.Component {
   }
 
   update(type) {
+
     return e => this.setState({
       [type]: e.currentTarget.value
     });
@@ -24,7 +25,6 @@ class SignupForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    debugger;
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
   }
@@ -42,6 +42,7 @@ class SignupForm extends React.Component {
   }
 
   render() {
+    // debugger;
     return (
       <div className="login-page">
 
@@ -85,7 +86,7 @@ class SignupForm extends React.Component {
                 LOCATION:
                 <select value={this.state.preferredCity}
                   onChange={this.update('preferredCity')}>
-
+                  <option hidden value={null}>-- Please Select --</option>
                   <option value="San Francisco">San Francisco</option>
                   <option value="New York">New York</option>
                   <option value="Boston">Boston</option>

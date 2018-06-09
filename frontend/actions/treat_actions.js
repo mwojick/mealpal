@@ -18,6 +18,7 @@ export const searchTreats = (search) => dispatch => {
 
 
 const receiveTreats = (payload) => {
+  console.log(payload);
   return {
     type: RECEIVE_ALL_TREATS,
     payload

@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
     resources :treats, only: [:index]
     get 'treats/search', to: 'treats#search'
+
+    resources :cities, only: [:index]
   end
 
 
