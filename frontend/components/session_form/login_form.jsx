@@ -95,7 +95,6 @@ class LoginForm extends React.Component {
               {this.props.navLink}
             </li>
             <li className="sign-up-separator">
-
             </li>
             <li>
               <Link to='/' onClick={() => this.props.demo()}>

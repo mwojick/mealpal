@@ -29,7 +29,7 @@
   border-radius: 10px;
 
   background-color: white;
-  width: 530px;
+  width: 550px;
   height: 100%;
   padding: 50px 0px;
 }
@@ -56,11 +56,27 @@
 }
 
 .login-errors {
-  // position: absolute;
-  // width: 100%;
-  // bottom: 230px;
+  position: absolute;
+  width: 100%;
+  bottom: 210px;
   color: red;
 }
+
+.signup-errors {
+  color: red;
+  letter-spacing: 0px;
+}
+
+.label-err {
+  display: flex;
+  flex-direction: row;
+}
+
+.session-error {
+  margin-left: 10px;
+  white-space: nowrap;
+}
+
 
 .login-errors {
   ul {
@@ -81,7 +97,7 @@
     display: flex;
     flex-direction: column;
     color: $dark-gray;
-    width: 420px;
+    width: 440px;
     margin-bottom: 10px;
     letter-spacing: 1px;
 
@@ -120,7 +136,7 @@
   justify-content: center;
   box-sizing: border-box;
 
-  width: 420px;
+  width: 440px;
   height: 50px;
 
   margin: 10px;
@@ -145,11 +161,13 @@
 .other-link {
   font-size: 18px;
   margin-top: 5px;
-  color: purple;
+  color: $accent;
+  width: 100%;
 
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
 
   :hover {
     text-decoration: underline;
@@ -158,9 +176,9 @@
 
 .sign-up-separator {
   height: 25px;
-  margin: 2px 10px;
-  width: 1px;
-  background-color: $gray;
+  margin: 0 0.75em;
+  border-left: 1px solid $gray;
+  border-right: 1px solid $gray;
 }
 
 @media (max-width: 800px) {

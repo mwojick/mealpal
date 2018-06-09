@@ -33,19 +33,28 @@ class SignupForm extends React.Component {
     this.props.processForm(user);
   }
 
-  renderErrors() {
-    return(
-      <ul>
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
-    );
-  }
-
   render() {
+
+    let emailError;
+    let pwError;
+    let cityError;
+
+    this.props.errors.map((error, i) => {
+      if (error.toLowerCase().includes("email")) {
+        emailError =  <div className="signup-errors" key={`error-${i}`}>
+          {error}
+        </div>;
+      } else if (error.toLowerCase().includes("password")) {
+        pwError = <div className="signup-errors" key={`error-${i}`}>
+          {error}
+        </div>;
+      } else if (error.toLowerCase().includes("city")) {
+        cityError = <div className="signup-errors" key={`error-${i}`}>
+          {error}
+        </div>;
+      }
+    });
+
     return (
       <div className="login-page">
 
@@ -61,14 +70,18 @@ class SignupForm extends React.Component {
 
           <form onSubmit={this.handleSubmit} className="login-form-box">
 
-            <div className="login-errors">
-              {this.renderErrors()}
-            </div>
 
             <div className="login-form">
 
               <label className="login-label">
-                EMAIL ADDRESS:
+                <ul className="label-err">
+                  <li>
+                    EMAIL ADDRESS:
+                  </li>
+                  <li className="session-error">
+                    {emailError}
+                  </li>
+                </ul>
                 <input type="text"
                   value={this.state.email}
                   onChange={this.update('email')}
@@ -77,7 +90,14 @@ class SignupForm extends React.Component {
               </label>
 
               <label className="login-label">
-                PASSWORD:
+                <ul className="label-err">
+                  <li>
+                    PASSWORD:
+                  </li>
+                  <li className="session-error">
+                    {pwError}
+                  </li>
+                </ul>
                 <input type="password"
                   value={this.state.password}
                   onChange={this.update('password')}
@@ -86,7 +106,14 @@ class SignupForm extends React.Component {
               </label>
 
               <label className="login-label">
-                LOCATION:
+                <ul className="label-err">
+                  <li>
+                    LOCATION:
+                  </li>
+                  <li className="session-error">
+                    {cityError}
+                  </li>
+                </ul>
                 <select value={this.state.preferredCity}
                   onChange={this.update('preferredCity')}>
                   <option hidden value={null}>-- Please Select --</option>
