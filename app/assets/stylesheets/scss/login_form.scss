@@ -10,7 +10,6 @@
   align-items: center;
   justify-content: center;
 
-
   padding-bottom: 0px;
   height: 100%;
   width: 100%;
@@ -20,7 +19,30 @@
 
 }
 
+//from https://github.com/daneden/animate.css
+.animated {
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 30%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInUp {
+  animation-name: fadeInUp;
+}
+
 .login-form-container {
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -152,10 +174,14 @@
   color: white;
   background-color: $main;
 
+
   div {
     letter-spacing: 2px;
   }
+}
 
+.session-submit:hover {
+  background-color: $accent;
 }
 
 .login-donthave {

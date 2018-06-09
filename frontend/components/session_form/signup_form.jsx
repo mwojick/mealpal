@@ -58,7 +58,7 @@ class SignupForm extends React.Component {
     return (
       <div className="login-page">
 
-        <div className="login-form-container">
+        <div className="login-form-container animated fadeInUp">
 
           <div className="login-welcome">
             DESSERTS FOR LESS THAN $3
