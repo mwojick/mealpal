@@ -15,9 +15,9 @@
 class Shop < ApplicationRecord
   validates :name, :latitude, :longitude, presence: true
 
-  # reverse_geocoded_by :latitude, :longitude
-  # # auto-fetch address
-  # after_validation :reverse_geocode
+  reverse_geocoded_by :latitude, :longitude
+  # auto-fetch address
+  after_validation :reverse_geocode
 
   has_many :treats
   belongs_to :city
