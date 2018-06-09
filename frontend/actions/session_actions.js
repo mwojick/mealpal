@@ -54,6 +54,27 @@ let demoUser = {
   password: 123456
 };
 
+// export const typeWriter = (state, setState) => {
+//
+//   let speed = 50;
+//
+//   let keys = Object.keys(demoUser);
+//   let values = Object.values(demoUser).map((v)=>String(v));
+//
+//   for (let i = 0; i < keys.length; i++) {
+//     let word = '';
+//     for (let j = 0; j < values[i].length; j++) {
+//       word += values[i][j];
+//       state[keys[i]].setState({[keys[i]]: word});
+//       setTimeout(typeWriter(state, setState), speed);
+//     }
+//   }
+// };
+
 export const demo = () => {
   return login(demoUser);
 };
+
+// export const demoLogin = (state, setState) {
+//
+// }

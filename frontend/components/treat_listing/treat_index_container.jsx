@@ -8,14 +8,14 @@ const msp = (state) => {
     currentUser: state.entities.users[state.session.id],
     treats: Object.values(state.entities.treats),
     shops: state.entities.shops,
-    errors: state.errors.treats
+    errors: state.errors.treats,
+    loading: state.ui.loading
   };
 };
 
 const mdp = (dispatch) => {
   return {
-    fetchTreats: (city) => dispatch(fetchTreats(city)),
-    searchTreats: (search) => dispatch(searchTreats(search)),
+    
   };
 };
 

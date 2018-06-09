@@ -8,10 +8,6 @@ class TreatIndex extends React.Component {
     super(props);
   }
 
-  componentDidMount(){
-    this.props.fetchTreats(this.props.currentUser.preferredCity);
-  }
-
   render() {
     let { treats, shops, errors } = this.props;
     return (
