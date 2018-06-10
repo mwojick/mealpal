@@ -10,11 +10,16 @@ class Greeting extends React.Component {
 
   componentDidMount(){
     this.props.fetchTreats(this.props.currentUser.preferredCity);
+    this.props.fetchCities();
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.location.pathname !== '/') {
       this.props.history.push('/');
+    }
+    if (nextProps.currentUser.preferredCity !==
+      this.props.currentUser.preferredCity) {
+        this.props.fetchTreats(nextProps.currentUser.preferredCity);
     }
   }
 
@@ -27,7 +32,14 @@ class Greeting extends React.Component {
     return (
       <div className="greeting-container">
 
-        <TreatIndexContainer />
+        <div className="search-bar">
+
+        </div>
+
+        <div className="treats-and-map">
+          <TreatIndexContainer />
+
+        </div>
 
       </div>
     );

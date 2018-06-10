@@ -24,7 +24,7 @@
 .nav-logo {
   font-size: 25px;
   margin-top: 15px;
-  margin-left: 10px;
+  margin-left: 20px;
   letter-spacing: 1px;
 }
 
@@ -49,14 +49,89 @@
   display: flex;
   letter-spacing: 0.5px;
   font-weight: bold;
+  height: 100%;
 
-}
-.nav-menu * {
-  margin-right: 10px;
-  margin-left: 10px;
-  margin-top: 20px;
 }
 
 .nav-menu-button {
   cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 20px;
+  position: relative;
+
+}
+
+.hamburger {
+  width: 25px;
+}
+
+.dropdown {
+  display: none;
+}
+
+.dropdown-active {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid $light-gray;
+  top: 40px;
+  right: 0px;
+  font-weight: lighter;
+  width: 170px;
+  letter-spacing: 1px;
+
+  li {
+    color: $gray-menu;
+    padding: 10px;
+    height: 30px;
+
+    div {
+      display: flex;
+      align-items: center;
+      height: 100%;
+
+      img {
+        height: 100%;
+        width: auto;
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+.dropdown-active li:hover {
+  color: $main;
+}
+
+// .arrow-up {
+//   width: 0;
+//   height: 0;
+//   border-left: 10px solid transparent;
+//   border-right: 10px solid transparent;
+//
+//   border-bottom: 10px solid $accent;
+//
+//   position: absolute;
+//   left: 130px;
+//   bottom: 195px;
+// }
+
+.menu-logout {
+  border-top: 1px solid $light-gray;
+}
+
+.login-link {
+  margin-right: 20px;
+  margin-top: 20px;
+
+  a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
 }
