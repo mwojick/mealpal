@@ -13,20 +13,27 @@ class Api::TreatsController < ApplicationController
   end
 
   def search
-    all_treats = City.find_by(name: params[:city]).treats
-    @treats = []
-    all_treats.each do |treat|
-      if treat.name.downcase.include?(params[:search.downcase])
-        @treats << treat
+    @city = City.find_by(name: params[:city])
+    if @city
+      all_treats = @city.treats
+      all_shops = @city.shops
+
+      @shops = all_shops
+      @treats = []
+      all_treats.each do |treat|
+        if treat.name.downcase.include?(params[:search.downcase])
+          @treats << treat
+        end
       end
-    end
 
-    unless @treats.empty?
-      @shops = @city.shops
+      unless @treats.empty?
+        render :search
+      else
+        render json: ["No treats found"], status: 404
+      end
 
-      render :search
     else
-      render json: ["No treats found"], status: 404
+      render json: ["No city found"], status: 404
     end
   end
 end

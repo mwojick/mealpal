@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {fetchTreats, searchTreats} from './actions/treat_actions';
 import {fetchCities} from './actions/city_actions';
 
-import {updateUser} from './util/user_api_util';
+import {updateUser} from './actions/user_actions';
 
 // import {fetchTreats, searchTreats} from './util/treat_api_util';
 
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.fetchTreats = fetchTreats;
   window.searchTreats = searchTreats;
   window.fetchCities = fetchCities;
-  
+
   window.updateUser = updateUser;
   //TESTING END:
 

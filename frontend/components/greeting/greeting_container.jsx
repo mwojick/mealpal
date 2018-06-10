@@ -7,7 +7,7 @@ import Greeting from './greeting';
 const msp = (state) => {
   return {
     currentUser: state.entities.users[state.session.id],
-    loading: state.ui.loading
+    loading: state.ui.loading.fetchLoading
   };
 };
 
