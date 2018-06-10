@@ -97,9 +97,9 @@ class LoginForm extends React.Component {
             <li className="sign-up-separator">
             </li>
             <li>
-              <Link to='/' onClick={() => this.props.demo()}>
+              <div onClick={() => this.props.demo()}>
                 Demo!
-              </Link>
+              </div>
             </li>
           </div>
         </div>

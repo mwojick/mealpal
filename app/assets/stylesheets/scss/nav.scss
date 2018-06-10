@@ -28,21 +28,31 @@
   letter-spacing: 1px;
 }
 
-.nav-route {
-  font-weight: lighter;
-}
 
 //nav login
 .nav-login {
   display: flex;
+  align-items: center;
+  height: 100%;
   letter-spacing: 0.5px;
   font-weight: bold;
+
+  div {
+    cursor: pointer;
+    margin-right: 20px;
+    padding: 10px 0px;
+  }
+
+  a {
+    margin-right: 20px;
+    padding: 10px 0px;
+  }
 }
-.nav-login * {
-  margin-right: 20px;
-  margin-left: 10px;
-  margin-top: 20px;
-}
+// .nav-login * {
+//   margin-right: 20px;
+//   margin-left: 10px;
+//   margin-top: 20px;
+// }
 
 //nav menu
 .nav-menu {

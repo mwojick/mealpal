@@ -12,11 +12,11 @@ class NavLogin extends React.Component {
 
         {this.props.logInSignUp}
 
-        <div >
-          <Link to='/' onClick={() => this.props.demo()}>
+
+          <div className="demo-button" onClick={() => this.props.demo()}>
             DEMO
-          </Link>
-        </div>
+          </div>
+
       </div>
     );
   }

@@ -179,6 +179,10 @@
   align-items: center;
   justify-content: center;
 
+  div {
+    cursor: pointer;
+  }
+
   :hover {
     text-decoration: underline;
   }
