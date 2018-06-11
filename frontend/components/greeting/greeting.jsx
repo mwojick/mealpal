@@ -43,6 +43,10 @@ class Greeting extends React.Component {
           <div className="map-container">
             <TreatMapContainer />
           </div>
+
+          <div id='map-bound'>
+          </div>
+          
         </div>
 
       </div>

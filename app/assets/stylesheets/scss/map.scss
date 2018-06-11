@@ -1,16 +1,21 @@
 .map-container {
-  display: flex;
 
   position: sticky;
   position: -webkit-sticky;
   align-self: flex-start;
+
   top: 60px;
 }
 
 #map {
   min-width: 30vw;
-  width: 100%;
 
   height: calc(100vh - 60px);
 
+}
+
+#map-bound {
+  // height: 100vh;
+  // width: 60vw;
+  // right: 0px;
 }

@@ -15,7 +15,7 @@ export default class MarkerManager {
       this.addMarkerWithTimeout({
         lat: this.shops[i].latitude,
         lng: this.shops[i].longitude
-      }, i * 50);
+      }, i * 20);
     }
   }
 

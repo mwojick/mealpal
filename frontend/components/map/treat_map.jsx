@@ -9,7 +9,6 @@ class TreatMap extends React.Component {
   }
 
   componentDidMount() {
-    // debugger;
     const mapOptions = {
       center: {
         lat: this.props.preferredCity.latitude,
@@ -35,7 +34,7 @@ class TreatMap extends React.Component {
           top: false,
           right: false,
           bottom: false,
-          left: true,
+          left: false,
           topRight: false,
           bottomRight: false,
           bottomLeft: false,

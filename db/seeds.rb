@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+# from https://stackoverflow.com/questions/43195899/how-to-generate-random-coordinates-within-a-circle-with-specified-radius
 def random_point_in_disk(max_radius)
   r = max_radius * rand**0.5
   theta = rand * 2 * Math::PI
@@ -41,6 +43,21 @@ ActiveRecord::Base.transaction do
       password: 123456,
       preferred_city: 'Boston'
     },
+    {
+      email: 'sea',
+      password: 123456,
+      preferred_city: 'Seattle'
+    },
+    {
+      email: 'chi',
+      password: 123456,
+      preferred_city: 'Chicago'
+    },
+    {
+      email: 'tor',
+      password: 123456,
+      preferred_city: 'Toronto'
+    },
   ]
 
   users.each do |user|
@@ -53,9 +70,14 @@ ActiveRecord::Base.transaction do
 
   cities = [
     {
-      name: "San Francisco",
-      latitude: 37.789232,
-      longitude: -122.409499
+      name: "Boston",
+      latitude: 42.360706,
+      longitude: -71.061102
+    },
+    {
+      name: "Chicago",
+      latitude: 41.883793,
+      longitude: -87.636438
     },
     {
       name: "New York",
@@ -63,9 +85,19 @@ ActiveRecord::Base.transaction do
       longitude: -73.989161
     },
     {
-      name: "Boston",
-      latitude: 42.360706,
-      longitude: -71.061102
+      name: "San Francisco",
+      latitude: 37.794112,
+      longitude: -122.405052
+    },
+    {
+      name: "Seattle",
+      latitude: 47.612927,
+      longitude: -122.334233
+    },
+    {
+      name: "Toronto",
+      latitude: 43.650943,
+      longitude: -79.388631
     }
   ]
 
@@ -80,10 +112,10 @@ ActiveRecord::Base.transaction do
   shops = []
   cities = City.all
 
-  3.times do |i|
+  (cities.length).times do |i|
     lat = cities[i][:latitude]
     long = cities[i][:longitude]
-    30.times do |j|
+    36.times do |j|
       loc = random_location(long, lat, 700)
       shop = {
         name: Faker::Company.name,
@@ -114,7 +146,7 @@ ActiveRecord::Base.transaction do
 
   shops = Shop.all
 
-  90.times do |i|
+  (shops.length).times do |i|
     name = Faker::Dessert.variety
 
     description = ''
