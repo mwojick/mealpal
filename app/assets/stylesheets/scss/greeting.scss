@@ -9,3 +9,11 @@
   flex-direction: row;
   position: relative;
 }
+
+@media (max-width: 800px) {
+  .treats-and-map {
+    display: flex;
+    flex-direction: column-reverse;
+    position: relative;
+  }
+}

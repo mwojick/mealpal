@@ -19,3 +19,17 @@
   // width: 60vw;
   // right: 0px;
 }
+
+@media (max-width: 800px) {
+  .map-container {
+
+    position: relative;
+    align-self: flex-start;
+
+    top: 0px;
+  }
+  #map {
+    width: 100vw;
+
+  }
+}
