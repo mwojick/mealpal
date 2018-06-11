@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import TreatIndexContainer from '../treat_listing/treat_index_container';
 import SearchContainer from '../search/search_container';
+import TreatMapContainer from '../map/treat_map_container';
 import LoadingIcon from './loading_icon';
 
 class Greeting extends React.Component {
@@ -39,7 +40,7 @@ class Greeting extends React.Component {
 
         <div className="treats-and-map">
           <TreatIndexContainer />
-
+          <TreatMapContainer />
         </div>
 
       </div>

@@ -9,13 +9,13 @@ const msp = (state) => {
     treats: Object.values(state.entities.treats),
     shops: state.entities.shops,
     errors: state.errors.treats,
-    loading: state.ui.loading
+    loading: state.ui.loading.searchLoading
   };
 };
 
 const mdp = (dispatch) => {
   return {
-    
+
   };
 };
 
