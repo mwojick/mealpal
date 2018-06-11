@@ -25,6 +25,12 @@ class TreatMap extends React.Component {
 
     this.MarkerManager.drop();
 
+    // this.MarkerManager.updateMarkers(Object.values(this.props.shops));
+
+  }
+
+  componentWillReceiveProps(newProps) {
+    this.MarkerManager.updateMarkers(Object.values(this.props.shops));
   }
 
   render() {

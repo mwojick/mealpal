@@ -75,7 +75,8 @@ class Search extends React.Component {
 
           <input type="text"
             value={this.state.search}
-            onChange={this.handleChange} />
+            onChange={this.handleChange}
+            placeholder="Search by treat or shop"/>
 
         </form>
 

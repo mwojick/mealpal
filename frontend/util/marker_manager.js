@@ -3,9 +3,10 @@ export default class MarkerManager {
     this.map = map;
     this.shops = shops;
     this.markers = [];
+    this.infoWindows = [];
   }
 
-  updateMarkers(treats) {
+  updateMarkers(shops) {
     console.log('time to update');
   }
 
@@ -17,6 +18,9 @@ export default class MarkerManager {
         lng: this.shops[i].longitude
       }, i * 25, this.shops[i]);
     }
+    google.maps.event.addListener(this.map, "click", (e) => {
+      this.infoWindows.forEach(win => win.close());
+    });
   }
 
   addMarkerWithTimeout(position, timeout, shop) {
@@ -26,9 +30,11 @@ export default class MarkerManager {
         `${shop.name}` +
         '</div >';
 
-      let infowindow = new google.maps.InfoWindow({
+      let infoWindow = new google.maps.InfoWindow({
         content: contentString
       });
+
+      this.infoWindows.push(infoWindow);
 
       let marker = new google.maps.Marker({
         position: position,
@@ -37,7 +43,7 @@ export default class MarkerManager {
       });
 
       marker.addListener('click', () => {
-        infowindow.open(this.map, marker);
+        infoWindow.open(this.map, marker);
       });
 
       this.markers.push(marker);
