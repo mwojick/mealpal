@@ -8,8 +8,11 @@
   color: $dark-gray2;
 
   width: 100%;
-  padding-top: 120px;
+  margin-top: 60px;
+  padding-top: 60px;
   padding-bottom: 60px;
+
+  box-shadow: 0 0 10px rgba(0,0,0,.25);
 
   nav {
     display: flex;

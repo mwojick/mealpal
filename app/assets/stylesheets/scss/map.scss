@@ -1,4 +1,6 @@
 .map-container {
+  display: flex;
+
   position: sticky;
   position: -webkit-sticky;
   align-self: flex-start;
@@ -6,6 +8,9 @@
 }
 
 #map {
-  width: 30vw;
+  min-width: 30vw;
+  width: 100%;
+
   height: calc(100vh - 60px);
+
 }

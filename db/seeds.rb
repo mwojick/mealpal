@@ -6,6 +6,22 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+def random_point_in_disk(max_radius)
+  r = max_radius * rand**0.5
+  theta = rand * 2 * Math::PI
+  [r * Math.cos(theta), r * Math.sin(theta)]
+end
+
+EarthRadius = 6371 # km
+OneDegree = EarthRadius * 2 * Math::PI / 360 * 1000 # 1° latitude in meters
+
+def random_location(lon, lat, max_radius)
+  dx, dy = random_point_in_disk(max_radius)
+  random_lat = lat + dy / OneDegree
+  random_lon = lon + dx / ( OneDegree * Math::cos(lat * Math::PI / 180) )
+  [random_lon, random_lat]
+end
+
 ActiveRecord::Base.transaction do
   User.destroy_all
 
@@ -68,11 +84,11 @@ ActiveRecord::Base.transaction do
     lat = cities[i][:latitude]
     long = cities[i][:longitude]
     30.times do |j|
-      loc = RandomLocation.near_by(lat, long, 700)
+      loc = random_location(long, lat, 700)
       shop = {
         name: Faker::Company.name,
-        latitude: loc[0],
-        longitude: loc[1],
+        latitude: loc[1],
+        longitude: loc[0],
         city_id: cities[i].id
       }
       shops << shop
@@ -81,7 +97,7 @@ ActiveRecord::Base.transaction do
 
   shops.each_with_index do |shop, i|
     Shop.create!(shop)
-    sleep(1)
+    sleep(0)
     puts "created #{i} stores"
   end
 end

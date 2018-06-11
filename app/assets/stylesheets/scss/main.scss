@@ -1,6 +1,8 @@
 
 .main-page {
   position: relative;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   top: 60px;
 }

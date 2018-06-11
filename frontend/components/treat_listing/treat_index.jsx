@@ -12,10 +12,12 @@ class TreatIndex extends React.Component {
     let { treats, shops, errors } = this.props;
 
     if (errors.length !== 0) {
-      return <div className="treat-errors">
-        {errors.map((err, i) => {
-          return <li key={i}>{err}</li>;
-        })}
+      return <div className="treat-listing treat-errors">
+          Sorry, no treats found.
+          Please try the following:
+          Zoom out the map
+          Search for something else
+          Change your filters
       </div>;
     }
 
