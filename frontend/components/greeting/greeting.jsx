@@ -40,7 +40,9 @@ class Greeting extends React.Component {
 
         <div className="treats-and-map">
           <TreatIndexContainer />
-          <TreatMapContainer />
+          <div className="map-container">
+            <TreatMapContainer />
+          </div>
         </div>
 
       </div>

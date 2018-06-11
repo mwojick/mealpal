@@ -1,5 +1,11 @@
-#map-container {
-  // position: fixed;
-  width: 800px;
-  height: 800px;
+.map-container {
+  position: sticky;
+  position: -webkit-sticky;
+  align-self: flex-start;
+  top: 60px;
+}
+
+#map {
+  width: 30vw;
+  height: calc(100vh - 60px);
 }
