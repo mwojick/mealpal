@@ -42,7 +42,7 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div className="login-page">
-
+      <div className="login-form-main" >
         <div className="login-form-container animated fadeInUp">
 
           <div className="login-welcome">
@@ -103,6 +103,7 @@ class LoginForm extends React.Component {
             </li>
           </div>
         </div>
+      </div>
       </div>
     );
   }

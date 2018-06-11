@@ -19,7 +19,13 @@
 
 }
 
+.login-form-main {
+  min-width: 10vw;
+  width: 550px;
+}
+
 .login-form-container {
+  box-sizing: border-box;
 
   display: flex;
   flex-direction: column;
@@ -29,9 +35,11 @@
   border-radius: 10px;
 
   background-color: white;
-  width: 550px;
+  // max-width: 40%;
+  // max-width: 30vw;
+  // width: 50%;
   height: 100%;
-  padding: 50px 0px;
+  padding: 70px 70px;
 }
 
 .login-welcome {
@@ -53,6 +61,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .login-errors {
@@ -91,13 +100,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .login-label {
     display: flex;
     flex-direction: column;
     color: $dark-gray;
-    width: 440px;
+    width: 90%;
     margin-bottom: 10px;
     letter-spacing: 1px;
 
@@ -142,7 +152,10 @@
 
   border-radius: 5px;
 
-  width: 440px;
+  // width: 440px;
+  // max-width: 30vw;
+  width: 90%;
+
   height: 50px;
 
   margin: 10px;
