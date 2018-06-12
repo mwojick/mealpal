@@ -3,8 +3,11 @@
   position: sticky;
   // position: -webkit-sticky;
   align-self: flex-start;
-
+  // width: 100%;
   top: 60px;
+
+  display: flex;
+  justify-content: center;
 }
 
 #map {
@@ -29,6 +32,8 @@
     top: 0px;
   }
   #map {
-    width: calc(100vw - 5%);
+    height: 60vh;
+    width: calc(95vw);
+    margin-left: 1.5vw;
   }
 }

@@ -13,15 +13,28 @@ class TreatIndex extends React.Component {
 
     if (errors.length !== 0 || treats.length === 0) {
       return <div className="treat-errors">
-        <div>
-          Sorry, no treats found.
-          Please try the following:
-          Zoom out the map
-          Search for something else
-          Change your filters
+        <div className="treat-errors-text">
+          <div className="treat-errors-sorry">
+            Sorry, no treats found.
+          </div>
+          <div className="treat-errors-try">
+            Please try the following:
+          </div>
+          <div className="treat-errors-list">
+            <li>
+              Zoom out the map
+            </li>
+            <li>
+              Search for something else
+            </li>
+            <li>
+              Change your filters
+            </li>
+          </div>
         </div>
-        <button onClick={()=>this.props.changeFilter("center",true)}>
-          Reset Map!
+        <button onClick={()=>this.props.changeFilter("center", true)}
+          className="treat-errors-reset">
+          RESET MAP!
         </button>
       </div>;
     }

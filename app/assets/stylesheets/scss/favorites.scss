@@ -1,0 +1,63 @@
+
+.favorites-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.favorites-container {
+  border: 1px solid $light-gray;
+  border-radius: 5px;
+  padding: 35px 50px;
+  margin: 30px;
+  width: 35%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+
+}
+
+.favorites-title {
+  font-weight: bold;
+  color: $main;
+  font-size: 20px;
+}
+
+.favorites-list {
+  width: 100%;
+}
+
+.favorite-item {
+  width: 100%;
+}
+
+.fav-title-icon {
+  width: 100%;
+  border-top: 1px solid $light-gray;
+  margin-top: 20px;
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fav-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: $darkest-gray;
+}
+
+.fav-icon {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
+
+.fav-address {
+  color: $dark-gray;
+}
