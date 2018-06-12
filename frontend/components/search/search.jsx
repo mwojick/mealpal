@@ -70,27 +70,33 @@ class Search extends React.Component {
     return (
       <div className="search-component">
 
-        <select value={this.state.city}
-          onChange={ (e) => this.updatePreferredCity(e)}>
+        <div className="search-city">
+          <select value={this.state.city}
+            onChange={ (e) => this.updatePreferredCity(e)}>
 
-          {this.props.cities.map( (city) => {
-            return <option key={city.id}
-              value={city.name}>{city.name}</option>;
-          })}
-        </select>
+            {this.props.cities.map( (city) => {
+              return <option key={city.id}
+                value={city.name}>{city.name}</option>;
+            })}
+          </select>
+        </div>
 
-        <form onSubmit={this.handleSearch}>
+        <div className="search-form">
+          <form onSubmit={this.handleSearch}>
 
-          <input type="text"
-            value={this.state.search}
-            onChange={this.handleChange}
-            placeholder="Search by treat or shop"/>
+            <input type="text"
+              value={this.state.search}
+              onChange={this.handleChange}
+              placeholder="Search by treat or shop"/>
 
-        </form>
+          </form>
+        </div>
 
-        <button onClick={()=>this.toggleFav()}>
-          TOGGLEFAV
-        </button>
+        <div className="search-fav-toggle">
+          <button onClick={()=>this.toggleFav()}>
+            TOGGLEFAV
+          </button>
+        </div>
 
       </div>
     );

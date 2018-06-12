@@ -1,4 +1,29 @@
 
 .search-component {
   background: $lightest-gray;
+  height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Lato', sans-serif;
+
+  div {
+    margin: 0px 20px;
+  }
+}
+
+.search-city select{
+  background-color: white;
+  padding: 7px;
+  text-transform: uppercase;
+  color: $accent;
+  font-size: 16px;
+
+}
+
+.search-form input {
+  border: none;
+  padding: 7px;
+  border: 1px solid $gray;
+  
 }
