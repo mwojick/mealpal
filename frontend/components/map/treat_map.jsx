@@ -3,6 +3,11 @@ import { Link, Redirect } from 'react-router-dom';
 import MarkerManager from '../../util/marker_manager';
 import Resizable from 're-resizable';
 
+const getCoordsObj = latLng => ({
+  lat: latLng.lat(),
+  lng: latLng.lng()
+});
+
 class TreatMap extends React.Component {
   constructor(props){
     super(props);
@@ -23,14 +28,31 @@ class TreatMap extends React.Component {
     this.MarkerManager =
       new MarkerManager(this.map, Object.values(this.props.shops));
 
-    this.MarkerManager.drop();
+    // this.MarkerManager.drop();
+    this.MarkerManager.updateMarkers(Object.values(this.props.shops));
 
-    // this.MarkerManager.updateMarkers(Object.values(this.props.shops));
+
+    this.registerListeners();
 
   }
 
-  componentWillReceiveProps(newProps) {
+  componentDidUpdate() {
     this.MarkerManager.updateMarkers(Object.values(this.props.shops));
+
+    // this.registerListeners();
+
+  }
+
+
+  registerListeners() {
+    google.maps.event.addListener(this.map, 'idle', () => {
+      const { north, south, east, west } = this.map.getBounds().toJSON();
+      const bounds = {
+        northEast: { lat: north, lng: east },
+        southWest: { lat: south, lng: west } };
+      this.props.updateFilter(
+        this.props.preferredCity.name, '', 'bounds', bounds);
+    });
   }
 
   render() {

@@ -7,7 +7,8 @@ import Search from './search';
 const msp = (state) => {
   return {
     currentUser: state.entities.users[state.session.id],
-    cities: Object.values(state.entities.cities)
+    cities: Object.values(state.entities.cities),
+    bounds: state.ui.filters.bounds
   };
 };
 

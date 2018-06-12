@@ -29,7 +29,7 @@ class Search extends React.Component {
 
   handleSearch(e) {
     e.preventDefault();
-    let search = Object.assign({}, this.state);
+    let search = Object.assign({}, this.state, {bounds: this.props.bounds});
     this.props.searchTreats(search);
   }
 
@@ -37,7 +37,7 @@ class Search extends React.Component {
     const val = e.currentTarget.value;
     this.setState({ search: val }, () => {
 
-      let search = Object.assign({}, this.state);
+      let search = Object.assign({}, this.state, {bounds: this.props.bounds});
       this.props.searchTreats(search);
 
     });

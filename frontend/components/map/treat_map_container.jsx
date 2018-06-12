@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 
 import { withRouter } from 'react-router-dom';
 import TreatMap from './treat_map';
+import { updateFilter } from '../../actions/filter_actions';
 
 const msp = ({entities: {users, treats, shops, cities}, session}) => {
 
@@ -23,7 +24,8 @@ const msp = ({entities: {users, treats, shops, cities}, session}) => {
 
 const mdp = (dispatch) => {
   return {
-
+    updateFilter: (city, search, filter, bounds) =>
+     dispatch(updateFilter(city, search, filter, bounds))
   };
 };
 

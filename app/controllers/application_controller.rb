@@ -20,4 +20,8 @@ class ApplicationController < ActionController::Base
     session[:session_token] = nil
   end
 
+  def require_login
+    render json: ["Unauthorized"] unless logged_in?
+  end
+
 end

@@ -20,6 +20,7 @@ class Shop < ApplicationRecord
   after_validation :reverse_geocode
 
   has_many :treats
+  has_many :favorites
   belongs_to :city
 
   def self.in_bounds(bounds)

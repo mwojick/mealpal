@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import {fetchTreats, searchTreats} from './actions/treat_actions';
 import {fetchCities} from './actions/city_actions';
 
+import {changeFilter} from './actions/filter_actions';
+
 import {updateUser} from './actions/user_actions';
 
 // import {fetchTreats, searchTreats} from './util/treat_api_util';
@@ -31,13 +33,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   //TESTING START:
-  window.getState = store.getState;
+  // window.cf = changeFilter;
+  window.gs = store.getState;
   window.dispatch = store.dispatch;
-  window.fetchTreats = fetchTreats;
-  window.searchTreats = searchTreats;
-  window.fetchCities = fetchCities;
-
-  window.updateUser = updateUser;
+  // window.fetchTreats = fetchTreats;
+  // window.searchTreats = searchTreats;
+  // window.fetchCities = fetchCities;
+  //
+  // window.updateUser = updateUser;
   //TESTING END:
 
   ReactDOM.render(<Root store={store}/>, root);

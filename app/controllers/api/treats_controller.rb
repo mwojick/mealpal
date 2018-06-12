@@ -5,6 +5,7 @@ class Api::TreatsController < ApplicationController
     if @city
 
       @treats = @city.treats
+
       @shops = bounds ? Shop.in_bounds(bounds) : @city.shops
       shop_ids = @shops.map {|s| s.id}
 

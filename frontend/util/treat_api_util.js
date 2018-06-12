@@ -13,7 +13,8 @@ export const searchTreats = (search) => {
     url: `/api/treats/search`,
     data: {
       city: search.city,
-      search: search.search
+      search: search.search,
+      bounds: search.bounds
     }
   });
 };
