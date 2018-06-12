@@ -3,15 +3,24 @@ import { fetchTreats, searchTreats } from '../../actions/treat_actions';
 import { changeFilter } from '../../actions/filter_actions';
 import { withRouter } from 'react-router-dom';
 import TreatIndex from './treat_index';
-import { getPreferredCity } from '../../util/selectors';
+import { getPreferredCity,
+   getFavorites,
+   getFavTreats } from '../../util/selectors';
 
 const msp = ({entities:
-  {users, treats, shops, cities},
-  session, errors, ui}) => {
+  {users, treats, shops, cities, favorites},
+  session, errors, ui, filters}) => {
+
+  let isFav = filters ? filters.favorite : false;
+
+  let favs = getFavorites(favorites);
+  let treatsFavs = getFavTreats(Object.values(treats), favs, isFav);
+
   return {
     currentUser: users[session.id],
-    treats: Object.values(treats),
+    treats: treatsFavs,
     shops: shops,
+    favorites: favs,
     errors: errors.treats,
     loading: ui.loading.searchLoading,
     preferredCity: getPreferredCity(session, users, cities)

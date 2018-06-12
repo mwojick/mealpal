@@ -15,7 +15,6 @@ export const updateFilter = (city, search, filter, value) =>
 
   dispatch(changeFilter(filter, value));
 
-
   return searchTreats({
     bounds: getState().ui.filters.bounds,
     city: city,

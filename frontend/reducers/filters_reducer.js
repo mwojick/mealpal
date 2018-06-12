@@ -3,7 +3,12 @@ import {
 } from '../actions/filter_actions';
 import merge from 'lodash/merge';
 
-const filtersReducer = (state = {}, action) => {
+const defaultState = {
+  'center': false,
+  'favorite': false
+};
+
+const filtersReducer = (state = defaultState, action) => {
   Object.freeze(state);
   switch (action.type) {
     case UPDATE_FILTER:

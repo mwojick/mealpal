@@ -5,7 +5,8 @@ import TreatIndexItem from './treat_index_item';
 const msp = (state, ownProps) => {
   return {
     treat: ownProps.treat,
-    shop: ownProps.shop
+    shop: ownProps.shop,
+    favorite: ownProps.favorite
   };
 };
 

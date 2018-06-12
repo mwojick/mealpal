@@ -13,6 +13,7 @@ class Greeting extends React.Component {
   componentDidMount(){
     this.props.fetchTreats(this.props.currentUser.preferredCity);
     this.props.fetchCities();
+    this.props.fetchFavorites();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -46,7 +47,7 @@ class Greeting extends React.Component {
 
           <div id='map-bound'>
           </div>
-          
+
         </div>
 
       </div>

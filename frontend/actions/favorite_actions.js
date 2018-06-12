@@ -26,14 +26,14 @@ export const deleteFavorite = (id) => dispatch => {
 
 const receiveAllFavorites = (favs) => {
   return {
-    type: REMOVE_FAVORITE,
+    type: RECEIVE_ALL_FAVORITES,
     favs
   };
 };
 
 const receiveFavorite = (fav) => {
   return {
-    type: REMOVE_FAVORITE,
+    type: RECEIVE_FAVORITE,
     fav
   };
 };

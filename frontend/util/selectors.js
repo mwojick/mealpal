@@ -10,3 +10,31 @@ export const getPreferredCity = (session, users, cities) => {
 
   return preferredCity;
 };
+
+export const getFavorites = (favorites) => {
+  let favArr = Object.values(favorites);
+  let favs = {};
+
+  favArr.forEach((f) => {
+    favs[f.shopId] = true;
+  });
+
+  return favs;
+};
+
+export const getFavTreats = (treats, favs, isFav) => {
+  if (isFav) {
+
+    let treatsFav = [];
+    treats.forEach((tr) => {
+      if (favs[tr.shopId]) {
+        treatsFav.push(tr);
+      }
+    });
+
+    return treatsFav;
+
+  } else {
+    return treats;
+  }
+};

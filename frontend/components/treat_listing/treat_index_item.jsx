@@ -7,13 +7,16 @@ class TreatIndexItem extends React.Component {
   }
 
   render() {
-    let { treat, shop } = this.props;
+    let { treat, shop, favorite } = this.props;
     return (
       <div className="treat-box">
 
         <div className="treat-box-title">
           <li>
             DESSERT
+          </li>
+          <li>
+            {favorite ? "YES" : "NO"}
           </li>
         </div>
 
