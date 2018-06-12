@@ -9,12 +9,15 @@ import { getPreferredCity,
 
 const msp = ({entities:
   {users, treats, shops, cities, favorites},
-  session, errors, ui, filters}) => {
+  session, errors, ui}) => {
 
-  let isFav = filters ? filters.favorite : false;
+  let isFav = ui.filters.favorite;
 
   let favs = getFavorites(favorites);
   let treatsFavs = getFavTreats(Object.values(treats), favs, isFav);
+
+  // console.log(ui);
+  // console.log(isFav);
 
   return {
     currentUser: users[session.id],

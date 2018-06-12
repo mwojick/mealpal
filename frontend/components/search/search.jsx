@@ -57,6 +57,14 @@ class Search extends React.Component {
     });
   }
 
+  toggleFav() {
+    if (this.props.favorite) {
+      this.props.changeFilter('favorite', false);
+    } else {
+      this.props.changeFilter('favorite', true);
+    }
+  }
+
   render() {
 
     return (
@@ -79,6 +87,10 @@ class Search extends React.Component {
             placeholder="Search by treat or shop"/>
 
         </form>
+
+        <div onClick={()=>this.toggleFav()}>
+          TOGGLEFAV
+        </div>
 
       </div>
     );
