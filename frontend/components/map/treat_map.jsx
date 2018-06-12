@@ -11,9 +11,6 @@ const getCoordsObj = latLng => ({
 class TreatMap extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      center: this.props.center
-    };
   }
 
   componentDidMount() {
@@ -36,7 +33,6 @@ class TreatMap extends React.Component {
 
     this.registerListeners();
 
-    // this.props.storeMap(this.map);
   }
 
   componentDidUpdate() {
@@ -45,22 +41,16 @@ class TreatMap extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    console.log("HERE");
 
-    this.setState({ center: newProps.center },
-      () => {
+    if (newProps.center) {
+      let latLng = new google.maps.LatLng(
+        this.props.preferredCity.latitude,
+        this.props.preferredCity.longitude);
 
-        if (this.state.center) {
-          let latLng = new google.maps.LatLng(
-            this.props.preferredCity.latitude,
-            this.props.preferredCity.longitude);
-
-            this.map.setCenter(latLng);
-            this.props.changeFilter("center",false);
-          }
-      }
-    );
-
+      this.map.setCenter(latLng);
+      this.map.setZoom(15);
+      this.props.changeFilter("center", false);
+    }
   }
 
 
