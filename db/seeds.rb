@@ -134,7 +134,7 @@ ActiveRecord::Base.transaction do
   end
 end
 
-# https://source.unsplash.com/collection/941995/480x480/?sig=1
+# https://source.unsplash.com/collection/941995/480x480/?sig=1/
 
 ActiveRecord::Base.transaction do
   Treat.destroy_all
@@ -174,4 +174,17 @@ ActiveRecord::Base.transaction do
   treats.each do |treat|
     Treat.create!(treat)
   end
+end
+
+ActiveRecord::Base.transaction do
+  Favorite.destroy_all
+  demo = User.find_by(email: 'demo')
+  shops = Shop.all
+
+  shops.each do |s|
+    if (rand(1..10) < 4)
+      Favorite.create!({shop_id: s.id, user_id: demo.id})
+    end
+  end
+
 end

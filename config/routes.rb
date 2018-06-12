@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     get 'treats/search', to: 'treats#search'
 
     resources :cities, only: [:index]
+    resources :favorites, only: [:index, :create, :destroy]
   end
 
 

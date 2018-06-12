@@ -2,22 +2,16 @@ import { connect } from 'react-redux';
 
 import { withRouter } from 'react-router-dom';
 import TreatMap from './treat_map';
-import { updateFilter } from '../../actions/filter_actions';
+import { updateFilter, changeFilter } from '../../actions/filter_actions';
+import { getPreferredCity } from '../../util/selectors';
 
-const msp = ({entities: {users, treats, shops, cities}, session}) => {
-
-  let currentUser = users[session.id];
-
-  let preferredCity = Object.values(cities).filter(city =>
-    currentUser.preferredCity === city.name);
-
-  preferredCity = preferredCity[Object.keys(preferredCity)[0]]
-  || { latitude: 37.789232, longitude: -122.409499};
+const msp = ({entities: {users, treats, shops, cities}, session, ui}) => {
 
   return {
     treats: Object.values(treats),
     shops: shops,
-    preferredCity: preferredCity
+    preferredCity: getPreferredCity(session, users, cities),
+    center: ui.filters.center
   };
 };
 
@@ -25,7 +19,8 @@ const msp = ({entities: {users, treats, shops, cities}, session}) => {
 const mdp = (dispatch) => {
   return {
     updateFilter: (city, search, filter, bounds) =>
-     dispatch(updateFilter(city, search, filter, bounds))
+     dispatch(updateFilter(city, search, filter, bounds)),
+    changeFilter: (filter, value) => dispatch(changeFilter(filter, value))
   };
 };
 

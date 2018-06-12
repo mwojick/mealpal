@@ -28,19 +28,28 @@ class TreatMap extends React.Component {
     this.MarkerManager =
       new MarkerManager(this.map, Object.values(this.props.shops));
 
-    // this.MarkerManager.drop();
-    this.MarkerManager.updateMarkers(Object.values(this.props.shops));
-
+    this.MarkerManager.drop();
+    // this.MarkerManager.updateMarkers(Object.values(this.props.shops));
 
     this.registerListeners();
 
+    // this.props.storeMap(this.map);
   }
 
   componentDidUpdate() {
-    this.MarkerManager.updateMarkers(Object.values(this.props.shops));
 
-    // this.registerListeners();
+    // this.MarkerManager.updateMarkers(Object.values(this.props.shops));
+  }
 
+  componentWillReceiveProps(newProps) {
+
+    if (this.props.center) {
+      let latLng = new google.maps.LatLng(
+        this.props.preferredCity.latitude, this.props.preferredCity.longitude);
+
+      this.map.setCenter(latLng);
+      this.props.changeFilter("center",false);
+    }
   }
 
 

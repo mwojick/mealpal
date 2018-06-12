@@ -20,6 +20,9 @@ class TreatIndex extends React.Component {
           Search for something else
           Change your filters
         </div>
+        <div onClick={()=>this.props.changeFilter("center",true)}>
+          Reset Map
+        </div>
       </div>;
     }
 
