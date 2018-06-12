@@ -29,6 +29,7 @@
 .treat-box {
   box-sizing: border-box;
   margin: 10px;
+  position: relative;
 
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,.25);
@@ -66,7 +67,7 @@
 }
 
 .treat-box-title {
-
+  height: 30px;
   width: 100%;
   background-color: $main;
   padding: 5px 10px;
@@ -80,7 +81,8 @@
   li {
     letter-spacing: 1px;
     display: flex;
-    justify-content : center;
+    align-items: center;
+    justify-content: center;
   }
 
 }
@@ -148,7 +150,21 @@
 
 }
 
+
+
 .treat-errors {
   width: 100%;
 
+}
+
+
+#favorite-button {
+
+  border: none;
+  background: none;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 5px;
+  z-index: 2;
 }

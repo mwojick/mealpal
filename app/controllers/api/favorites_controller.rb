@@ -24,9 +24,8 @@ class Api::FavoritesController < ApplicationController
 
   def destroy
     @favorite = current_user.favorites.find(params[:id])
-
     @favorite.destroy
-    render json: {}
+    render :show
   end
 
   private

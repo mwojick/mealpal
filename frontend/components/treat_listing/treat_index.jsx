@@ -9,7 +9,7 @@ class TreatIndex extends React.Component {
   }
 
   render() {
-    let { treats, shops, errors, favorites } = this.props;
+    let { treats, shops, errors, favorites, favIds } = this.props;
 
     if (errors.length !== 0 || treats.length === 0) {
       return <div className="treat-errors">
@@ -20,9 +20,9 @@ class TreatIndex extends React.Component {
           Search for something else
           Change your filters
         </div>
-        <div onClick={()=>this.props.changeFilter("center",true)}>
+        <button onClick={()=>this.props.changeFilter("center",true)}>
           Reset Map!
-        </div>
+        </button>
       </div>;
     }
 
@@ -33,7 +33,8 @@ class TreatIndex extends React.Component {
             key={treat.id}
             treat={treat}
             shop={shops[treat.shopId]}
-            favorite={favorites[treat.shopId]}/>;
+            favorite={favorites[treat.shopId]}
+            favId={favIds[treat.shopId]}/>;
         })}
       </div>
     );

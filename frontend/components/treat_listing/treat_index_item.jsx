@@ -6,17 +6,33 @@ class TreatIndexItem extends React.Component {
     super(props);
   }
 
+  handleToggle(){
+
+    if (this.props.favorite) {
+      this.props.deleteFavorite(this.props.favId);
+    } else {
+      this.props.createFavorite(
+        {userId: this.props.currentUser.id,
+          shopId: this.props.shop.id
+        });
+    }
+  }
+
   render() {
     let { treat, shop, favorite } = this.props;
     return (
       <div className="treat-box">
+        <button
+          className={favorite ? "favorited" : "unfavorited"}
+          onClick={()=>this.handleToggle()}
+          id="favorite-button">
+          <img src={favorite ? "https://res.cloudinary.com/mwojick/image/upload/v1528825174/favorited.png" : "https://res.cloudinary.com/mwojick/image/upload/v1528825174/unfavorited.png"}>
+          </img>
+        </button>
 
         <div className="treat-box-title">
           <li>
             DESSERT
-          </li>
-          <li>
-            {favorite ? "YES" : "NO"}
           </li>
         </div>
 

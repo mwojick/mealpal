@@ -88,9 +88,9 @@ class Search extends React.Component {
 
         </form>
 
-        <div onClick={()=>this.toggleFav()}>
+        <button onClick={()=>this.toggleFav()}>
           TOGGLEFAV
-        </div>
+        </button>
 
       </div>
     );

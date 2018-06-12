@@ -11,6 +11,16 @@ export const getPreferredCity = (session, users, cities) => {
   return preferredCity;
 };
 
+export const getFavIds = (favorites) => {
+  let favArr = Object.values(favorites);
+  let favs = {};
+
+  favArr.forEach((f) => {
+    favs[f.shopId] = f.id;
+  });
+  return favs;
+};
+
 export const getFavorites = (favorites) => {
   let favArr = Object.values(favorites);
   let favs = {};
@@ -18,7 +28,6 @@ export const getFavorites = (favorites) => {
   favArr.forEach((f) => {
     favs[f.shopId] = true;
   });
-
   return favs;
 };
 

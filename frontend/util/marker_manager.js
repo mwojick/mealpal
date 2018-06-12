@@ -94,6 +94,7 @@ export default class MarkerManager {
         position: position,
         map: this.map,
         shopId: shop.id,
+        icon: 'http://maps.google.com/mapfiles/ms/icons/purple-dot.png',
         animation: google.maps.Animation.DROP
       });
 
