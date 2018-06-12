@@ -53,7 +53,11 @@
     border: none;
     padding: 7px;
     border: 1px solid $gray;
+
     // overflow: hidden;
+  }
+  form {
+    position: relative;
   }
 }
 
@@ -82,4 +86,14 @@
 
 .button-unfav button {
 
+}
+
+.search-icon {
+
+  position: absolute;
+  padding: 10px;
+  right: -17px;
+  bottom: -2px;
+  height: 20px;
+  width: 20px;
 }

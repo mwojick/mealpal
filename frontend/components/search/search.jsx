@@ -89,6 +89,7 @@ class Search extends React.Component {
               onChange={this.handleChange}
               placeholder="Search by treat or shop"/>
 
+            <img className="search-icon" src="https://res.cloudinary.com/mwojick/image/upload/v1528698043/search-icon.png"></img>
           </form>
         </div>
 
