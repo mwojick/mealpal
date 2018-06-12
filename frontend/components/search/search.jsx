@@ -92,9 +92,11 @@ class Search extends React.Component {
           </form>
         </div>
 
-        <div className="search-fav-toggle">
-          <button onClick={()=>this.toggleFav()}>
-            TOGGLEFAV
+        <div className={this.props.favorite ?
+            "search-fav-toggle button-fav" : "search-fav-toggle button-unfav"}>
+          <button
+            onClick={()=>this.toggleFav()}>
+            Favorites
           </button>
         </div>
 

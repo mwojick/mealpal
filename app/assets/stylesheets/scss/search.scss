@@ -12,18 +12,74 @@
   }
 }
 
-.search-city select{
+@media (max-width: 600px) {
+  .search-component {
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+
+    div {
+      margin-bottom: 10px;
+      width: 65%;
+    }
+  }
+
+  .search-city {
+    select {
+      margin-top: 10px;
+    }
+  }
+
+
+}
+
+.search-city {
+  width: 10%;
+  select {
   background-color: white;
   padding: 7px;
   text-transform: uppercase;
   color: $accent;
   font-size: 16px;
+  width: 100%;
+  }
 
 }
 
-.search-form input {
-  border: none;
-  padding: 7px;
-  border: 1px solid $gray;
-  
+.search-form {
+  width: 20%;
+  input {
+    width: 100%;
+    border: none;
+    padding: 7px;
+    border: 1px solid $gray;
+    // overflow: hidden;
+  }
+}
+
+.search-form input:focus {
+  border: 1px solid $accent;
+}
+
+.search-fav-toggle  {
+  width: 10%;
+  button {
+    overflow: hidden;
+    width: 100%;
+    border: none;
+    padding: 7px;
+    border: 1px solid $gray;
+    background-color: white;
+    color: $dark-gray;
+  }
+
+}
+
+.button-fav button {
+  background-color: $accent;
+  color: white;
+}
+
+.button-unfav button {
+
 }

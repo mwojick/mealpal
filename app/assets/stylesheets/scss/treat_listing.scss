@@ -54,6 +54,12 @@
   }
 }
 
+@media (max-width: 800px) {
+  .treat-listing {
+    width: auto;
+  }
+}
+
 @media (min-width: 1000px) {
   .treat-listing {
     grid-template-columns: repeat(3, 1fr);
