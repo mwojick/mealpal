@@ -18,6 +18,9 @@ export const fetchTreats = (city) => dispatch => {
 export const searchTreats = (search) => dispatch => {
   dispatch(startLoadingSearchTreats());
   return treatApiUtil.searchTreats(search).then((payload) => {
+    if (payload.constructor === Array) {
+      return dispatch(receiveErrors(payload));
+    }
     return dispatch(receiveTreatsSearch(payload));
   }, (errors) => dispatch(receiveErrors(errors.responseJSON)));
 };
@@ -31,6 +34,7 @@ const receiveTreats = (payload) => {
 };
 
 const receiveTreatsSearch = (payload) => {
+  // debugger;
   return {
     type: RECEIVE_SEARCH_TREATS,
     payload

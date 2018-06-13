@@ -19,7 +19,8 @@ class TreatMap extends React.Component {
         lat: this.props.preferredCity.latitude,
         lng: this.props.preferredCity.longitude
       },
-      zoom: 15
+      zoom: 15,
+      clickableIcons: false
     };
 
     const map = this.refs.map;

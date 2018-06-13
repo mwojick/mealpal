@@ -31,10 +31,11 @@ class Api::TreatsController < ApplicationController
 
       @treats = []
       all_treats.each do |treat|
-        if treat.name.downcase.include?(params[:search.downcase])
+        if treat.name.downcase.include?(params[:search].downcase)
+
           @treats << treat
         end
-        if treat.shop.name.downcase.include?(params[:search.downcase])
+        if treat.shop.name.downcase.include?(params[:search].downcase)
           @treats << treat
         end
       end
@@ -43,11 +44,11 @@ class Api::TreatsController < ApplicationController
       unless @treats.empty?
         render :search
       else
-        render json: ["No treats found"], status: 404
+        render json: ["No treats found"], status: 200
       end
 
     else
-      render json: ["No city found"], status: 404
+      render json: ["No city found"], status: 200
     end
   end
 
