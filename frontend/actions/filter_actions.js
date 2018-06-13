@@ -10,10 +10,10 @@ export const changeFilter = (filter, value) => {
   };
 };
 
-export const updateFilter = (city, search, filter, value) =>
+export const updateFilter = (city, search, filter, bounds) =>
  (dispatch, getState) => {
 
-  dispatch(changeFilter(filter, value));
+  dispatch(changeFilter(filter, bounds));
 
   return searchTreats({
     bounds: getState().ui.filters.bounds,

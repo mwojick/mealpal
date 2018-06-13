@@ -47,3 +47,7 @@ export const getFavTreats = (treats, favs, isFav) => {
     return treats;
   }
 };
+
+export const getCityReservations = (reservations, treats) => {
+
+};

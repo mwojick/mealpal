@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { fetchTreats, searchTreats } from '../../actions/treat_actions';
 import { fetchCities } from '../../actions/city_actions';
 import { fetchFavorites } from '../../actions/favorite_actions';
+import { fetchReservations } from '../../actions/reservation_actions';
 import { withRouter } from 'react-router-dom';
 import Greeting from './greeting';
 
@@ -16,7 +17,8 @@ const mdp = (dispatch) => {
   return {
     fetchTreats: (city) => dispatch(fetchTreats(city)),
     fetchCities: () => dispatch(fetchCities()),
-    fetchFavorites: () => dispatch(fetchFavorites())
+    fetchFavorites: () => dispatch(fetchFavorites()),
+    fetchReservations: () => dispatch(fetchReservations())
   };
 };
 

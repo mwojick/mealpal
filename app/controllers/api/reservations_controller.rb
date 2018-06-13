@@ -13,8 +13,19 @@ class Api::ReservationsController < ApplicationController
   end
 
   def create
-    date = Date.today + 1
-    @reservation = Reservation.new(reservation_params, date: date)
+
+    if params[:date]
+      date = params[:date]
+    else
+      date = Date.today + 1
+    end
+
+    @reservation = Reservation.new(
+      user_id: params[:user_id],
+      treat_id: params[:treat_id],
+      time: params[:time],
+      date: date
+      )
 
     if @reservation.save
       render :show
@@ -27,8 +38,18 @@ class Api::ReservationsController < ApplicationController
   def update
     @reservation = current_user.reservations.find(params[:id])
 
-    date = Date.today + 1
-    if @reservation.update_attributes(reservation_params, date: date)
+    if params[:date]
+      date = params[:date]
+    else
+      date = Date.today + 1
+    end
+
+    if @reservation.update_attributes(
+      user_id: params[:user_id],
+      treat_id: params[:treat_id],
+      time: params[:time],
+      date: date
+      )
       render :show
     else
       render json: @reservation.errors.full_messages, status: 422
@@ -45,7 +66,7 @@ class Api::ReservationsController < ApplicationController
   private
 
   def reservation_params
-    params.require(:reservation).permit(:user_id, :treat_id, :time)
+    params.require(:reservation).permit(:user_id, :treat_id, :time, :date)
   end
 
 end
