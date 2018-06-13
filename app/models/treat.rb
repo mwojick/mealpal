@@ -17,4 +17,6 @@ class Treat < ApplicationRecord
 
   belongs_to :shop
   has_one :city, through: :shop
+
+  has_many :reservations
 end

@@ -34,7 +34,6 @@ const receiveTreats = (payload) => {
 };
 
 const receiveTreatsSearch = (payload) => {
-  // debugger;
   return {
     type: RECEIVE_SEARCH_TREATS,
     payload

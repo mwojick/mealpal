@@ -24,6 +24,7 @@ class User < ApplicationRecord
   attr_reader :password
 
   has_many :favorites
+  has_many :reservations
 
   def password=(password)
     @password = password

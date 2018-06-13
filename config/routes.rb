@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
     resources :cities, only: [:index]
     resources :favorites, only: [:index, :create, :destroy]
+    resources :reservations, only: [:index, :create, :update, :destroy]
   end
 
 
