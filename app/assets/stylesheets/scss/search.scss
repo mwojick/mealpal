@@ -6,9 +6,11 @@
   justify-content: center;
   align-items: center;
   font-family: 'Lato', sans-serif;
+  left: 0px;
 
   div {
     margin: 0px 20px;
+    display: flex;
   }
 }
 
@@ -19,14 +21,17 @@
     width: 100%;
 
     div {
+      margin: 0;
       margin-bottom: 10px;
-      width: 65%;
+      width: 85%;
+      display: flex;
     }
   }
 
   .search-city {
     select {
       margin-top: 10px;
+      width: 100%;
     }
   }
 
@@ -56,6 +61,8 @@
   }
   form {
     position: relative;
+    display: flex;
+    width: 100%;
   }
 }
 
@@ -65,7 +72,7 @@
 }
 
 .search-fav-toggle  {
-  width: 10%;
+  width: 8%;
   button {
     overflow: hidden;
     width: 100%;
@@ -91,7 +98,7 @@
 
   position: absolute;
   padding: 10px;
-  right: -17px;
+  right: 0px;
   bottom: -2px;
   height: 20px;
   width: 20px;

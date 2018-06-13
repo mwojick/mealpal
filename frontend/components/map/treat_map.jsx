@@ -82,9 +82,11 @@ class TreatMap extends React.Component {
       }
 
       >
+      <div className="map-resize">
         <div id='map' ref='map'>
 
         </div>
+      </div>
       </Resizable>
     );
   }

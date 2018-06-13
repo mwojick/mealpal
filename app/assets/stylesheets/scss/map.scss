@@ -5,6 +5,8 @@
   align-self: flex-start;
   // width: 100%;
   top: 60px;
+  // width: 100%;
+
 
   display: flex;
   justify-content: center;
@@ -27,15 +29,19 @@
   .map-container {
 
     position: relative;
-    align-self: flex-start;
-
     top: 0px;
+    width: 100%;
+    margin-top: 20px;
   }
+
+  .map-resize {
+    display: flex;
+    justify-content: center;
+  }
+
   #map {
     height: 60vh;
-    width: calc(94vw);
-    margin-left: 2vw;
-    margin-top: 1.5vh;
+    width: 92vw;
     box-shadow: 0 0 10px rgba(0,0,0,.25);
 
   }
