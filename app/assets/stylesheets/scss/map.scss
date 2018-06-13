@@ -33,7 +33,10 @@
   }
   #map {
     height: 60vh;
-    width: calc(95vw);
-    margin-left: 1.5vw;
+    width: calc(94vw);
+    margin-left: 2vw;
+    margin-top: 1.5vh;
+    box-shadow: 0 0 10px rgba(0,0,0,.25);
+
   }
 }

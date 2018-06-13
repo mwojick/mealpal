@@ -17,8 +17,13 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
 
-
+@media (max-width: 800px) {
+  .favorites-container {
+    width: 100%;
+    padding: 35px 10px;
+  }
 }
 
 .favorites-title {
