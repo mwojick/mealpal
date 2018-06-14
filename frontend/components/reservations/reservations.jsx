@@ -5,23 +5,29 @@ import { times, timeVals } from '../../util/time_vars.js';
 class Reservations extends React.Component {
   constructor(props){
     super(props);
-    let resTime;
-    if (this.props.reservations.length !== 0 ) {
-      if (this.props.reservations[0].length !== 0) {
-        resTime = this.props.reservations[0].time;
-      } else {
-        resTime = '';
+
+    this.state = {
+      resTime: this.props.resTime
+    };
+  }
+
+  componentDidMount(){
+    if (this.state.resTime !== undefined) {
+      if (this.state.resTime.constructor !== Array){
+        this.props.changeFilter('restoday', true);
       }
     }
-    this.state = {
-      resTime: resTime
-    };
   }
 
   componentWillReceiveProps(newProps) {
     if (newProps.reservations.length !== 0) {
       if (this.state.resTime !== newProps.reservations[0].time) {
         this.setState({resTime: newProps.reservations[0].time});
+      }
+    }
+    if (this.state.resTime !== undefined) {
+      if (this.state.resTime.constructor === Array){
+        this.props.changeFilter('restoday', false);
       }
     }
   }
@@ -106,6 +112,7 @@ class Reservations extends React.Component {
                 {treats[res.treatId].name}
                 {shops[treats[res.treatId].shopId].name}
                 {shops[treats[res.treatId].shopId].address}
+
 
 
 

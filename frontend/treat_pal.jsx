@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {fetchTreats, searchTreats} from './actions/treat_actions';
 import {fetchCities} from './actions/city_actions';
 
-import {changeFilter} from './actions/filter_actions';
+// import {changeFilter} from './actions/filter_actions';
 
 import {updateUser} from './actions/user_actions';
 

@@ -6,6 +6,7 @@ import {
   deleteReservation
 } from '../../actions/reservation_actions';
 import { getCityReservations, getPastFive } from '../../util/selectors';
+import { changeFilter } from '../../actions/filter_actions';
 
 const msp = ({entities: {users, treatRes, shopRes, reservations}, session}) => {
 
@@ -22,18 +23,30 @@ const msp = ({entities: {users, treatRes, shopRes, reservations}, session}) => {
     pastFive = getPastFive(cityReservations);
   }
 
+
+  let resTime;
+  if (pastFive.length !== 0 ) {
+    if (pastFive[0].length !== 0) {
+      resTime = pastFive[0].time;
+    } else {
+      resTime = [];
+    }
+  }
+
   return {
     currentUser: users[session.id],
     reservations: pastFive,
     treats: treatRes,
-    shops: shopRes
+    shops: shopRes,
+    resTime: resTime
   };
 };
 
 const mdp = (dispatch) => {
   return {
     updateReservation: (res) => dispatch(updateReservation(res)),
-    deleteReservation: (id) => dispatch(deleteReservation(id))
+    deleteReservation: (id) => dispatch(deleteReservation(id)),
+    changeFilter: (filter, value) => dispatch(changeFilter(filter, value))
   };
 };
 

@@ -1,4 +1,5 @@
 import * as reservationApiUtil from '../util/reservation_api_util';
+import { changeFilter } from './filter_actions';
 
 export const RECEIVE_RESERVATION = "RECEIVE_RESERVATION";
 export const RECEIVE_ALL_RESERVATIONS = "RECEIVE_ALL_RESERVATIONS";
@@ -13,6 +14,7 @@ export const fetchReservations = () => dispatch => {
 };
 
 export const createReservation = (res) => dispatch => {
+  dispatch(changeFilter('restoday', true));
   return reservationApiUtil.createReservation(res).then((payload) => {
     return dispatch(receiveReservation(payload));
   }, (errors) => dispatch(receiveErrors(errors.responseJSON)));
@@ -25,6 +27,7 @@ export const updateReservation = (res) => dispatch => {
 };
 
 export const deleteReservation = (id) => dispatch => {
+  dispatch(changeFilter('restoday', false));
   return reservationApiUtil.deleteReservation(id).then((payload) => {
     return dispatch(removeReservation(payload));
   }, (errors) => dispatch(receiveErrors(errors.responseJSON)));

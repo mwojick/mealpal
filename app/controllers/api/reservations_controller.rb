@@ -60,7 +60,8 @@ class Api::ReservationsController < ApplicationController
       time: time,
       date: date
       )
-      render :update
+      @user = current_user
+      render :show
     else
       render json: @reservation.errors.full_messages, status: 422
     end
