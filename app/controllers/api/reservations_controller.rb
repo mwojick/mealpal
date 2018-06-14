@@ -14,6 +14,10 @@ class Api::ReservationsController < ApplicationController
 
   def create
 
+    if current_user.treats_left < 1
+      render json: ["No treats left!"], status: 422
+    end
+
     if params[:reservation][:date]
       date = params[:reservation][:date]
     else
@@ -30,6 +34,8 @@ class Api::ReservationsController < ApplicationController
       )
 
     if @reservation.save
+      current_user.update_attributes(treats_left: current_user.treats_left - 1)
+      @user = current_user
       render :show
     else
       render json: @reservation.errors.full_messages, status: 422
@@ -54,7 +60,7 @@ class Api::ReservationsController < ApplicationController
       time: time,
       date: date
       )
-      render :show
+      render :update
     else
       render json: @reservation.errors.full_messages, status: 422
     end
@@ -64,6 +70,8 @@ class Api::ReservationsController < ApplicationController
   def destroy
     @reservation = current_user.reservations.find(params[:id])
     @reservation.destroy
+    current_user.update_attributes(treats_left: current_user.treats_left + 1)
+    @user = current_user
     render :show
   end
 

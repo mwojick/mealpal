@@ -13,20 +13,20 @@ export const fetchReservations = () => dispatch => {
 };
 
 export const createReservation = (res) => dispatch => {
-  return reservationApiUtil.createReservation(res).then((resS) => {
-    return dispatch(receiveReservation(resS));
+  return reservationApiUtil.createReservation(res).then((payload) => {
+    return dispatch(receiveReservation(payload));
   }, (errors) => dispatch(receiveErrors(errors.responseJSON)));
 };
 
 export const updateReservation = (res) => dispatch => {
-  return reservationApiUtil.updateReservation(res).then((resS) => {
-    return dispatch(receiveReservation(resS));
+  return reservationApiUtil.updateReservation(res).then((payload) => {
+    return dispatch(receiveReservation(payload));
   }, (errors) => dispatch(receiveErrors(errors.responseJSON)));
 };
 
 export const deleteReservation = (id) => dispatch => {
-  return reservationApiUtil.deleteReservation(id).then((resS) => {
-    return dispatch(removeReservation(resS.id));
+  return reservationApiUtil.deleteReservation(id).then((payload) => {
+    return dispatch(removeReservation(payload));
   }, (errors) => dispatch(receiveErrors(errors.responseJSON)));
 };
 
@@ -37,17 +37,19 @@ const receiveAllReservations = (reses) => {
   };
 };
 
-const receiveReservation = (res) => {
+const receiveReservation = (payload) => {
   return {
     type: RECEIVE_RESERVATION,
-    res
+    res: payload.res,
+    user: payload.user
   };
 };
 
-const removeReservation = (id) => {
+const removeReservation = (payload) => {
   return {
     type: REMOVE_RESERVATION,
-    resId: id
+    resId: payload.res.id,
+    user: payload.user
   };
 };
 
