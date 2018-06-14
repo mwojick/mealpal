@@ -137,9 +137,10 @@ class Reservations extends React.Component {
                 </ul>
 
 
-                <img src={treats[res.treatId].imageUrl}></img>
+                <img className="resed-img"
+                  src={treats[res.treatId].imageUrl}></img>
 
-                <select className="resed-img"
+                <select  className="update-res"
                   value={selResTime}
                   onChange={ (e) => this.updateRes(e)}>
                     {timeVals.map( (tv, idx) => {
@@ -148,7 +149,9 @@ class Reservations extends React.Component {
                     })}
                 </select>
 
-                <button onClick={()=>this.props.deleteReservation(res.id)}>
+                <button
+                  className="cancel-reservation"
+                   onClick={()=>this.props.deleteReservation(res.id)}>
                   Cancel
                 </button>
 
@@ -159,7 +162,7 @@ class Reservations extends React.Component {
         </div>
         <div className="res-savings">
           <li>
-            Holy Fudge!
+
           </li>
           <li>
             You'll be saving an estimated

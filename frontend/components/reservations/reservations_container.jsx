@@ -24,12 +24,10 @@ const msp = ({entities: {users, treatRes, shopRes, reservations}, session}) => {
   }
 
 
-  let resTime;
+  let resTime =[];
   if (pastFive.length !== 0 ) {
     if (pastFive[0].length !== 0) {
       resTime = pastFive[0].time;
-    } else {
-      resTime = [];
     }
   }
 
