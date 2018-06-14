@@ -25,16 +25,19 @@ class Reservations extends React.Component {
         this.setState({resTime: newProps.reservations[0].time});
       }
     }
+  }
+
+  componentDidUpdate() {
     if (this.state.resTime !== undefined) {
       if (this.state.resTime.constructor === Array){
         this.props.changeFilter('restoday', false);
       }
     }
   }
-
   updateRes(e) {
     let newRes = Object.assign({}, this.props.reservations[0]);
     newRes.time = e.currentTarget.value;
+    newRes.treatId = this.props.reservations[0].treatId;
     this.props.updateReservation(newRes);
   }
 
@@ -95,7 +98,7 @@ class Reservations extends React.Component {
 
                   <img src={treats[res.treatId].imageUrl}
                     className="resed-img"></img>
-      
+
                 <div className="treat-you-had">
                   You had {shops[treats[res.treatId].shopId].name} on {fiveDays[id]}
                 </div>
@@ -103,7 +106,7 @@ class Reservations extends React.Component {
             }
 
           }) }
-        </div>
+
         <div className="res-today">
           { reservations.slice().reverse().slice(-1).map((res, id) => {
 
@@ -136,7 +139,7 @@ class Reservations extends React.Component {
 
                 <img src={treats[res.treatId].imageUrl}></img>
 
-                <select
+                <select className="resed-img"
                   value={selResTime}
                   onChange={ (e) => this.updateRes(e)}>
                     {timeVals.map( (tv, idx) => {
@@ -168,7 +171,7 @@ class Reservations extends React.Component {
             on treats this week!
           </li>
         </div>
-
+      </div>
       </div>
     );
   }

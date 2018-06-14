@@ -2,15 +2,26 @@
   display: flex;
   flex-direction: row;
   height: 240px;
+  font-family: $main-font-family;
+  text-align: center;
+  letter-spacing: 0.5px;
+  margin: 20px;
 
 }
 
 .reservations-component {
   display: flex;
-
+  justify-content: space-around;
+  width: 100%;
 }
 
 .res-items {
+  display: flex;
+  justify-content: space-around;
+    width: 100%;
+}
+
+.res-resed-cont {
   display: flex;
 }
 
@@ -18,44 +29,69 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 240px;
+  max-height: 240px;
+  position: relative;
 
 }
-// .resed-img-wrap {
-//   max-height: 100%;
-//
-// }
+
+.treat-you-had {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+
+  width: 80%;
+  right: 10%;
+  left: 10%;
+}
+
 .resed-img {
   max-height: 100%;
-  max-width: 200px;
+  max-width: 100%;
 }
 
 
-
+.day-of-week {
+  color: white;
+  font-weight: bold;
+  width: 100%;
+  background: $main;
+}
 
 
 /////////
 
 .resed-today, .not-resed-today {
+  position: relative;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 180px;
+  max-height: 240px;
 }
 
 .resed-today {
-  // height: 100%;
-  display: flex;
-  flex-direction: column;
 
-  img {
-    height: 40px;
-  }
+
 }
 
 .resed-today-desc {
   display: flex;
   flex-direction: column;
-  // justify-content: center;
   align-items: center;
+  justify-content: center;
+  position: absolute;
+
+  width: 80%;
+  right: 10%;
+  left: 10%;
+  // margin-left: 20%;
+  // margin-right: 20%;
+
+
 }
 
 .res-savings {
