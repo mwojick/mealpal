@@ -49,5 +49,58 @@ export const getFavTreats = (treats, favs, isFav) => {
 };
 
 export const getCityReservations = (reservations, treats) => {
+  let treatIds = [];
+  Object.values(treats).forEach((tr) => {
+    treatIds.push(tr.id);
+  });
 
+  let cityReses = [];
+  Object.values(reservations).forEach((res) => {
+    if (treatIds.includes(res.treatId)) {
+      cityReses.push(res);
+    }
+  });
+  return cityReses;
 };
+
+Date.prototype.addDays = function(days) {
+  var dat = new Date(this.valueOf());
+  dat.setDate(dat.getDate() + days);
+  return dat;
+};
+
+const compareDates = (dr, djs) => {
+
+  djs = djs.toJSON().split("T")[0];
+
+  if (djs !== dr) {
+    return false;
+  }
+
+  return true;
+};
+
+export const getPastFive = (reses) => {
+  let djs = new Date().addDays(1);
+
+  let fiveReses = [];
+  let j = 0;
+  for (let i = 0; i < 5; i++) {
+
+    if ( compareDates(reses[j].date, djs) ) {
+      fiveReses.push(reses[j]);
+      j = j + 1;
+    } else {
+      fiveReses.push(null);
+    }
+    djs = djs.addDays(-1);
+  }
+
+  return fiveReses;
+};
+
+
+
+
+
+//

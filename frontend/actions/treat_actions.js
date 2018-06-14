@@ -22,7 +22,7 @@ export const searchTreats = (search) => dispatch => {
       return dispatch(receiveErrors(payload));
     }
     return dispatch(receiveTreatsSearch(payload));
-  }, (errors) => dispatch(receiveErrors(errors.responseJSON)));
+  });
 };
 
 
