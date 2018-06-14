@@ -9,6 +9,14 @@ class Reservations extends React.Component {
   render() {
     let { reservations, treats, shops } = this.props;
 
+    let times = [];
+    let timeVals = ['11:00','11:30','12:00','12:30',
+    '13:00','13:30','14:00','14:30','15:00','15:30',
+    '16:00','16:30'];
+
+    let days = ["Sunday", "Monday", "Tuesday",
+     "Wednesday", "Thursday", "Friday", "Saturday"];
+
     let savings = 0;
     reservations.forEach((res) => {
       if (res === null) {
@@ -24,13 +32,19 @@ class Reservations extends React.Component {
           { reservations.slice(1).reverse().map((res, id) => {
 
             if (res === null) {
+
               return <div key={id} className="res-nonresed">
                 You didn't have a treat on this day.
 
               </div>;
             } else {
               return <div key={id} className="res-resed">
-                You had ... this day.
+
+                <img src={treats[res.treatId].imageUrl}></img>
+                You had
+                {shops[treats[res.treatId].shopId].name}
+                on
+                {}
 
               </div>;
             }
@@ -38,14 +52,24 @@ class Reservations extends React.Component {
           }) }
         </div>
         <div className="res-today">
-          { [reservations[0]].map((res, id) => {
+          { reservations.slice().reverse().slice(-1).map((res, id) => {
+
             if (res === null) {
               return <div key={id} className="not-resed-today">
-                Reserve something!
+                Try something new today!
               </div>;
             } else {
+
               return <div key={id} className="resed-today">
-                this is what you will get tomorrow..
+                {treats[res.treatId].name}
+                {shops[treats[res.treatId].shopId].name}
+                {shops[treats[res.treatId].shopId].address}
+                <img src={treats[res.treatId].imageUrl}></img>
+
+                <select>
+
+                </select>
+
               </div>;
             }
           })}

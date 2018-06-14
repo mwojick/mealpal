@@ -13,7 +13,7 @@ class Api::TreatsController < ApplicationController
 
       render :index
     else
-      render json: ["No treats found"], status: 404
+      render json: ["No treats found"], status: 200
     end
   end
 

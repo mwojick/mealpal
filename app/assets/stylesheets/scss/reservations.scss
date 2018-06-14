@@ -1,0 +1,21 @@
+.reservations-component {
+
+  display: flex;
+  flex-direction: row;
+  height: 240px;
+
+}
+
+.res-items {
+  height: 100%;
+  display: flex;
+}
+
+.res-resed {
+  height: 100%;
+  display: flex;
+  img {
+    height: 100%;
+    width: 100%;
+  }
+}

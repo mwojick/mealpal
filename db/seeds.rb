@@ -200,13 +200,13 @@ ActiveRecord::Base.transaction do
 
     date = Date.today
     20.times do |t|
-      date = date - 1
 
-      if (rand(1..10) < 8)
+      if (rand(1..10) < 10)
         treat_id = treats.sample.id
         time = (date.to_s + " " + times.sample).to_time
         Reservation.create!({treat_id: treat_id, user_id: demo.id, time: time, date: date})
       end
+      date = date - 1
     end
   end
 

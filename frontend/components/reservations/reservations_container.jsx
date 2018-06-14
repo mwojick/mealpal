@@ -7,7 +7,7 @@ import {
 } from '../../actions/reservation_actions';
 import { getCityReservations, getPastFive } from '../../util/selectors';
 
-const msp = ({entities: {users, treatRes, shops, reservations}, session}) => {
+const msp = ({entities: {users, treatRes, shopRes, reservations}, session}) => {
 
   let cityReservations = getCityReservations(reservations, treatRes);
 
@@ -26,7 +26,7 @@ const msp = ({entities: {users, treatRes, shops, reservations}, session}) => {
     currentUser: users[session.id],
     reservations: pastFive,
     treats: treatRes,
-    shops: shops
+    shops: shopRes
   };
 };
 

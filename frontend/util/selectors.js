@@ -71,7 +71,7 @@ Date.prototype.addDays = function(days) {
 
 const compareDates = (dr, djs) => {
 
-  djs = djs.toJSON().split("T")[0];
+  djs = djs.split("T")[0];
 
   if (djs !== dr) {
     return false;
@@ -83,6 +83,8 @@ const compareDates = (dr, djs) => {
 export const getPastFive = (reses) => {
   let djs = new Date().addDays(1);
 
+  djs = new Date(djs.getTime() - (djs.getTimezoneOffset() * 60000)).toJSON();
+
   let fiveReses = [];
   let j = 0;
   for (let i = 0; i < 5; i++) {
@@ -93,7 +95,9 @@ export const getPastFive = (reses) => {
     } else {
       fiveReses.push(null);
     }
+    djs = new Date(djs);
     djs = djs.addDays(-1);
+    djs = djs.toJSON();
   }
 
   return fiveReses;
