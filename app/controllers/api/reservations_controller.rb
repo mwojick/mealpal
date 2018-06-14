@@ -14,16 +14,18 @@ class Api::ReservationsController < ApplicationController
 
   def create
 
-    if params[:date]
-      date = params[:date]
+    if params[:reservation][:date]
+      date = params[:reservation][:date]
     else
       date = Date.today + 1
     end
 
+    time = params[:reservation][:time].to_time
+
     @reservation = Reservation.new(
-      user_id: params[:user_id],
-      treat_id: params[:treat_id],
-      time: params[:time],
+      user_id: params[:reservation][:user_id],
+      treat_id: params[:reservation][:treat_id],
+      time: time,
       date: date
       )
 
@@ -38,16 +40,18 @@ class Api::ReservationsController < ApplicationController
   def update
     @reservation = current_user.reservations.find(params[:id])
 
-    if params[:date]
-      date = params[:date]
+    if params[:reservation][:date]
+      date = params[:reservation][:date]
     else
       date = Date.today + 1
     end
 
+    time = params[:reservation][:time].to_time
+
     if @reservation.update_attributes(
-      user_id: params[:user_id],
-      treat_id: params[:treat_id],
-      time: params[:time],
+      user_id: params[:reservation][:user_id],
+      treat_id: params[:reservation][:treat_id],
+      time: time,
       date: date
       )
       render :show

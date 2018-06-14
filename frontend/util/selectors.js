@@ -93,7 +93,7 @@ export const getPastFive = (reses) => {
       fiveReses.push(reses[j]);
       j = j + 1;
     } else {
-      fiveReses.push(null);
+      fiveReses.push([]);
     }
     djs = new Date(djs);
     djs = djs.addDays(-1);

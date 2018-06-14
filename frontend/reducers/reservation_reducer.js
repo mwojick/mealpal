@@ -15,7 +15,7 @@ const reservationReducer = (oldState = {}, action) => {
       newState[action.res.id] = action.res;
       return newState;
     case REMOVE_RESERVATION:
-      delete newState[action.favId];
+      delete newState[action.resId];
       return newState;
     default:
       return oldState;
