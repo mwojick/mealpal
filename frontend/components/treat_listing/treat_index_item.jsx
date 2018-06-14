@@ -1,9 +1,34 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
+import { times, timeVals } from '../../util/time_vars';
 
 class TreatIndexItem extends React.Component {
   constructor(props){
     super(props);
+    this.state = {
+      seltime: ''
+    };
+  }
+
+  update(type) {
+    return e => this.setState({
+      [type]: e.currentTarget.value
+    });
+  }
+
+  handleReserve(e) {
+    if (this.props.resToday) {
+      let newRes = Object.assign({}, this.props.resToday);
+      newRes.treatId = this.props.treat.id;
+      newRes.time = this.state.seltime;
+
+      this.props.updateReservation(newRes);
+    } else {
+      let newRes = {userId: this.props.currentUser.id,
+                    treatId: this.props.treat.id,
+                    time: this.state.seltime};
+      this.props.createReservation(newRes);
+    }
   }
 
   handleToggle(){
@@ -29,6 +54,29 @@ class TreatIndexItem extends React.Component {
           <img src={favorite ? "https://res.cloudinary.com/mwojick/image/upload/v1528825174/favorited.png" : "https://res.cloudinary.com/mwojick/image/upload/v1528825174/unfavorited.png"}>
           </img>
         </button>
+
+
+        <select
+          value={this.state.seltime}
+          onChange={this.update('seltime')}
+          className="select-time">
+            <option hidden value={null}>Pickup Time</option>
+            {timeVals.map( (tv, idx) => {
+              return <option key={idx}
+              value={tv}>{times[idx]}</option>;
+            })}
+        </select>
+
+        <button
+          className={this.state.seltime === '' ?
+            "reserve-btn time-not-selected" : "reserve-btn time-selected"}
+          onClick={()=>this.handleReserve()}
+          id={`reserve-button`}
+          disabled={this.state.seltime === ''}>
+          RESERVE NOW
+        </button>
+
+
 
         <div className="treat-box-title">
           <li>

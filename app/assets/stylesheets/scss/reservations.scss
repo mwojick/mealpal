@@ -19,3 +19,13 @@
     width: 100%;
   }
 }
+
+.resed-today {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  img {
+    height: 20px;
+  }
+}

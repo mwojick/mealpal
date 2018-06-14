@@ -14,7 +14,7 @@ class Reservations extends React.Component {
   componentDidMount(){
     if (this.state.resTime !== undefined) {
       if (this.state.resTime.constructor !== Array){
-        this.props.changeFilter('restoday', true);
+        this.props.changeFilter('restoday', this.props.reservations[0]);
       }
     }
   }
@@ -114,7 +114,7 @@ class Reservations extends React.Component {
                 {shops[treats[res.treatId].shopId].address}
 
 
-
+                <img src={treats[res.treatId].imageUrl}></img>
 
                 <select
                   value={selResTime}

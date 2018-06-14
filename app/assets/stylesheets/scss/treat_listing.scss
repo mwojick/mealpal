@@ -206,7 +206,7 @@
   color: white;
 }
 
-
+//////////////////////////////////////
 
 #favorite-button {
 
@@ -217,4 +217,27 @@
   position: absolute;
   right: 5px;
   z-index: 2;
+}
+
+
+//////////////////////////////////////
+
+.select-time {
+  position: absolute;
+  z-index: 3;
+  top: 20px;
+}
+
+.reserve-btn {
+  position: absolute;
+  z-index: 3;
+  top: 40px;
+}
+
+.time-selected {
+
+}
+
+.time-not-selected {
+  cursor: not-allowed;
 }
