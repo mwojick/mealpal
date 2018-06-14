@@ -56,6 +56,7 @@ class TreatIndexItem extends React.Component {
         </button>
 
 
+        <div className="select-time-wrap">
         <select
           value={this.state.seltime}
           onChange={this.update('seltime')}
@@ -66,6 +67,7 @@ class TreatIndexItem extends React.Component {
               value={tv}>{times[idx]}</option>;
             })}
         </select>
+        </div>
 
         <button
           className={this.state.seltime === '' ?

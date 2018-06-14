@@ -221,23 +221,48 @@
 
 
 //////////////////////////////////////
-
+// .select-time-wrap {
+//   border: 5px solid $main;
+//   position: absolute;
+// }
 .select-time {
+  color: $accent;
+  background: white;
   position: absolute;
+  padding-left: 10px;
+  border: none;
   z-index: 3;
-  top: 20px;
+  bottom: 75px;
+  height: 30px;
+  width: 80%;
+  right: 10%;
+  left: 10%;
 }
 
 .reserve-btn {
+  color: white;
+  background: $accent;
   position: absolute;
+  border: none;
   z-index: 3;
-  top: 40px;
+  bottom: 25px;
+  height: 40px;
+  width: 80%;
+  right: 10%;
+  left: 10%;
+  text-align: center;
 }
 
 .time-selected {
 
 }
+.time-selected:hover {
+  background-color: $accent-light;
+}
 
 .time-not-selected {
+  cursor: not-allowed;
+}
+.time-not-selected:hover {
   cursor: not-allowed;
 }

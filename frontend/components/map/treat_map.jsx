@@ -20,7 +20,9 @@ class TreatMap extends React.Component {
         lng: this.props.preferredCity.longitude
       },
       zoom: 15,
-      clickableIcons: false
+      clickableIcons: false,
+      mapTypeControlOptions: {
+        style: google.maps.MapTypeControlStyle.DROPDOWN_MENU }
     };
 
     const map = this.refs.map;
