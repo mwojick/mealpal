@@ -50,7 +50,9 @@ export default class MarkerManager {
     });
 
     marker.addListener('click', () => {
+      this.infoWindows.forEach(win => win.close());
       infoWindow.open(this.map, marker);
+      this.infoWindows.push(infoWindow);
     });
 
     this.markers[shop.id] = marker;

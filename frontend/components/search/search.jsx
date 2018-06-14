@@ -48,8 +48,8 @@ class Search extends React.Component {
     const val = e.currentTarget.value;
     this.setState({ search: val }, () => {
 
-      let search = Object.assign({}, this.state);
       debounce( () => {
+        let search = Object.assign({}, this.state);
         this.props.searchTreats(search);
       }
       , 2000)();

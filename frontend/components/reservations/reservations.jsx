@@ -78,20 +78,27 @@ class Reservations extends React.Component {
 
             if (res.length === 0) {
               return <div key={id} className="res-nonresed">
-                {fiveDays[id]}
-                You didn't have a treat on this day.
+                <div className="day-of-week">
+                  {fiveDays[id]}
+                </div>
+                <div className="no-treat-this-day">
+                  You didn't have a treat on this day.
+                </div>
 
               </div>;
             } else {
               return <div key={id} className="res-resed">
-                {fiveDays[id]}
+                <div className="day-of-week">
+                  {fiveDays[id]}
+                </div>
 
-                <img src={treats[res.treatId].imageUrl}></img>
-                You had
-                {shops[treats[res.treatId].shopId].name}
-                on
-                {fiveDays[id]}
 
+                  <img src={treats[res.treatId].imageUrl}
+                    className="resed-img"></img>
+      
+                <div className="treat-you-had">
+                  You had {shops[treats[res.treatId].shopId].name} on {fiveDays[id]}
+                </div>
               </div>;
             }
 
@@ -102,16 +109,29 @@ class Reservations extends React.Component {
 
             if (res.length === 0) {
               return <div key={id} className="not-resed-today">
-                {fiveDays.slice(-1)[0]}
+                <div className="day-of-week">
+                  {fiveDays.slice(-1)[0]}
+                </div>
                 Try something new today!
               </div>;
             } else {
 
               return <div key={id} className="resed-today">
-                {fiveDays.slice(-1)[0]}
-                {treats[res.treatId].name}
-                {shops[treats[res.treatId].shopId].name}
-                {shops[treats[res.treatId].shopId].address}
+                <div className="day-of-week">
+                  {fiveDays.slice(-1)[0]}
+                </div>
+
+                <ul className="resed-today-desc">
+                  <li>
+                    {treats[res.treatId].name}
+                  </li>
+                  <li>
+                    {shops[treats[res.treatId].shopId].name}
+                  </li>
+                  <li>
+                    {shops[treats[res.treatId].shopId].address}
+                  </li>
+                </ul>
 
 
                 <img src={treats[res.treatId].imageUrl}></img>
@@ -135,9 +155,18 @@ class Reservations extends React.Component {
 
         </div>
         <div className="res-savings">
-          Holy Guacamole!
-          You'll be saving an estimated ${savings.toFixed(2)}
-          on treats this week!
+          <li>
+            Holy Fudge!
+          </li>
+          <li>
+            You'll be saving an estimated
+          </li>
+          <li>
+            ${savings.toFixed(2)}
+          </li>
+          <li>
+            on treats this week!
+          </li>
         </div>
 
       </div>

@@ -1,31 +1,64 @@
-.reservations-component {
-
+.reservations-container {
   display: flex;
   flex-direction: row;
   height: 240px;
 
 }
 
+.reservations-component {
+  display: flex;
+
+}
+
 .res-items {
-  height: 100%;
   display: flex;
 }
 
-.res-resed {
-  height: 100%;
+.res-resed, .res-nonresed {
   display: flex;
-  img {
-    height: 100%;
-    width: 100%;
-  }
+  flex-direction: column;
+  align-items: center;
+
+}
+// .resed-img-wrap {
+//   max-height: 100%;
+//
+// }
+.resed-img {
+  max-height: 100%;
+  max-width: 200px;
+}
+
+
+
+
+
+/////////
+
+.resed-today, .not-resed-today {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .resed-today {
-  height: 100%;
+  // height: 100%;
   display: flex;
   flex-direction: column;
 
   img {
-    height: 20px;
+    height: 40px;
   }
+}
+
+.resed-today-desc {
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  align-items: center;
+}
+
+.res-savings {
+  display: flex;
+  flex-direction: column;
 }

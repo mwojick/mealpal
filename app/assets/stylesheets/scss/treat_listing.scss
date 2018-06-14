@@ -23,6 +23,14 @@
 
       background: rgba(255, 255, 255, 0.75);
     }
+
+    .reserve-btn {
+      display: block;
+    }
+    .select-time {
+      display: block;
+
+    }
   }
 }
 
@@ -221,11 +229,14 @@
 
 
 //////////////////////////////////////
+
 // .select-time-wrap {
 //   border: 5px solid $main;
 //   position: absolute;
 // }
+
 .select-time {
+  display: none;
   color: $accent;
   background: white;
   position: absolute;
@@ -233,13 +244,23 @@
   border: none;
   z-index: 3;
   bottom: 75px;
-  height: 30px;
+  height: 35px;
   width: 80%;
   right: 10%;
   left: 10%;
+  appearance: none;
+
+  border: 1px solid $gray;
+
 }
 
+// .select-time:hover {
+//   border: none;
+//   appearance: none;
+// }
+
 .reserve-btn {
+  display: none;
   color: white;
   background: $accent;
   position: absolute;
@@ -254,15 +275,15 @@
 }
 
 .time-selected {
-
 }
+
 .time-selected:hover {
   background-color: $accent-light;
 }
 
 .time-not-selected {
-  cursor: not-allowed;
 }
+
 .time-not-selected:hover {
   cursor: not-allowed;
 }

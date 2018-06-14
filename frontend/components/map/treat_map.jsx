@@ -11,6 +11,8 @@ const getCoordsObj = latLng => ({
 class TreatMap extends React.Component {
   constructor(props){
     super(props);
+
+    this.updateBounds = this.updateBounds.bind(this);
   }
 
   componentDidMount() {
@@ -56,16 +58,20 @@ class TreatMap extends React.Component {
     }
   }
 
+  updateBounds() {
+    const { north, south, east, west } = this.map.getBounds().toJSON();
+    const bounds = {
+      northEast: { lat: north, lng: east },
+      southWest: { lat: south, lng: west } };
+    this.props.updateFilter(
+      this.props.preferredCity.name, '', 'bounds', bounds);
+  }
+
 
   registerListeners() {
-    google.maps.event.addListener(this.map, 'idle', () => {
-      const { north, south, east, west } = this.map.getBounds().toJSON();
-      const bounds = {
-        northEast: { lat: north, lng: east },
-        southWest: { lat: south, lng: west } };
-      this.props.updateFilter(
-        this.props.preferredCity.name, '', 'bounds', bounds);
-    });
+    google.maps.event.addListener(this.map, 'dragend', this.updateBounds);
+    google.maps.event.addListener(this.map, 'zoom_changed', this.updateBounds);
+
   }
 
   render() {
