@@ -5,7 +5,7 @@ class History extends React.Component {
   constructor(props){
     super(props);
   }
-
+ 
   componentDidMount(){
     this.props.fetchTreats(this.props.currentUser.preferredCity);
     this.props.fetchFavorites();
