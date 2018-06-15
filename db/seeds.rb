@@ -36,7 +36,8 @@ ActiveRecord::Base.transaction do
     {
       email: 'ny',
       password: 123456,
-      preferred_city: 'New York'
+      preferred_city: 'New York',
+      treats_left: 1
     },
     {
       email: 'bos',

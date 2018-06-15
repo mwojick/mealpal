@@ -16,29 +16,31 @@ class Api::ReservationsController < ApplicationController
 
     if current_user.treats_left < 1
       render json: ["No treats left!"], status: 422
-    end
-
-    if params[:reservation][:date]
-      date = params[:reservation][:date]
     else
-      date = Date.today + 1
-    end
 
-    time = params[:reservation][:time].to_time
+      if params[:reservation][:date]
+        date = params[:reservation][:date]
+      else
+        date = Date.today + 1
+      end
 
-    @reservation = Reservation.new(
-      user_id: params[:reservation][:user_id],
-      treat_id: params[:reservation][:treat_id],
-      time: time,
-      date: date
-      )
+      time = params[:reservation][:time].to_time
 
-    if @reservation.save
-      current_user.update_attributes(treats_left: current_user.treats_left - 1)
-      @user = current_user
-      render :show
-    else
-      render json: @reservation.errors.full_messages, status: 422
+      @reservation = Reservation.new(
+        user_id: params[:reservation][:user_id],
+        treat_id: params[:reservation][:treat_id],
+        time: time,
+        date: date
+        )
+
+      if @reservation.save
+        current_user.update_attributes(treats_left: current_user.treats_left - 1)
+        @user = current_user
+        render :show
+      else
+        render json: @reservation.errors.full_messages, status: 422
+      end
+
     end
 
   end
