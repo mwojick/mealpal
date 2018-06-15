@@ -46,7 +46,7 @@ A few of the things you can do with TreatPal:
 
 ##### Google map updates bounds in state and sends a search request:
 
-
+In order to search for places within the bounds of the map, I add two event listeners when the map mounts on the page. One is for after the user drags somewhere else on the map, and one handles zooming. They execute the updateBounds function, which gets the bounds from the map. Then it calls updateFilter, which sends an action to update the bounds in the store (which is also used by the search bar). Then it makes an AJAX request to the server with information about the current city, search query, and map bounds. The treats/shops are filtered on the back-end based on this information and then sent back.
 
 ```javascript
 
@@ -57,7 +57,7 @@ registerListeners() {
 }
 
 updateBounds() {
-  window.scrollTo(0,360);
+  window.scrollTo(0, 280);
   const { north, south, east, west } = this.map.getBounds().toJSON();
   const bounds = {
     northEast: { lat: north, lng: east },
@@ -66,10 +66,23 @@ updateBounds() {
       this.props.preferredCity.name, '', 'bounds', bounds);
     }
 
-    ```
+export const updateFilter = (city, search, filter, bounds) =>
+ (dispatch, getState) => {
 
-##### Selecting reservations for the past 5 days:
+  dispatch(changeFilter(filter, bounds));
 
+  return searchTreats({
+    bounds: bounds,
+    city: city,
+    search: search
+  })(dispatch);
+};
+
+```
+
+##### Timezones, and selecting reservations for the past 5 days:
+
+The differences in the way Ruby and Javascript handle timezones made it difficult to take times and dates from the back-end (Rails) and filter them on the front-end (JS/React), since by default the ruby methods for getting date/time are based on local time, whereas JS uses UTC. In order to get the reservations in the past 5 days, I had to create new date objects in JS and convert them to local time using getTimezoneOffset before comparing the current date with the ones received from Rails. I also had to change the timezone in my Heroku database to local time, since by default it uses UTC.
 
 
 ```javascript
