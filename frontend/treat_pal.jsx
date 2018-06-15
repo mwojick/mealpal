@@ -34,9 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //TESTING START:
   // window.cf = changeFilter;
-  window.rt = () => store.getState().ui.filters.restoday;
-  window.gs = store.getState;
-  window.dispatch = store.dispatch;
+  // window.rt = () => store.getState().ui.filters.restoday;
+  // window.gs = store.getState;
+  // window.dispatch = store.dispatch;
   // window.fetchTreats = fetchTreats;
   // window.searchTreats = searchTreats;
   // window.fetchCities = fetchCities;
