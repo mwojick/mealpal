@@ -54,10 +54,10 @@
 .resed-img {
   height: 220px;
   max-width: 100%;
-  opacity: 0.2;
+  opacity: 0.3;
 }
 .resed-img-today {
-  max-height: 220px;
+  height: 220px;
   max-width: 100%;
   filter: brightness(70%);
 }
@@ -96,12 +96,13 @@
   width: 100%;
   border: none;
   background: $main;
-  border: 1px solid white;
+  border-bottom: 2px solid white;
   text-align-last:center;
   position: absolute;
   z-index: 5;
-  bottom: 20px;
+  bottom: 18px;
   left: 0px;
+  color: white;
 }
 .update-res:hover {
   cursor: pointer;
@@ -109,7 +110,7 @@
 }
 
 .cancel-reservation {
-  border: 1px solid white;
+  border: 2px solid white;
   width: 100%;
   border: none;
   background: $main;
@@ -117,6 +118,7 @@
   z-index: 5;
   bottom: 0px;
   left: 0px;
+  color: white;
 }
 
 .res-savings {
@@ -182,6 +184,11 @@
   .no-treat-this-day {
     margin-top: 40px;
 
+  }
+  .resed-img-today {
+    max-height: 140px;
+    max-width: 100%;
+    filter: brightness(70%);
   }
 
 }
