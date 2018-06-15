@@ -12,9 +12,10 @@ class Reservations extends React.Component {
   }
 
   componentDidMount(){
-
     if (this.props.reservations[0].constructor !== Array){
       this.props.changeFilter('restoday', this.props.reservations[0]);
+    } else {
+      this.props.changeFilter('restoday', []);
     }
 
   }
