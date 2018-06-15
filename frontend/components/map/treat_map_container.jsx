@@ -11,7 +11,8 @@ const msp = ({entities: {users, treats, shops, cities}, session, ui}) => {
     treats: Object.values(treats),
     shops: shops,
     preferredCity: getPreferredCity(session, users, cities),
-    center: ui.filters.center
+    center: ui.filters.center,
+    search: ui.filters.search
   };
 };
 

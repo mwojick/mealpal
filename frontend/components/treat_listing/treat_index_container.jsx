@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchTreats, searchTreats } from '../../actions/treat_actions';
-import { changeFilter } from '../../actions/filter_actions';
+import { resetFilter } from '../../actions/filter_actions';
 import { withRouter } from 'react-router-dom';
 import TreatIndex from './treat_index';
 import { getPreferredCity,
@@ -33,7 +33,7 @@ const msp = ({entities:
 
 const mdp = (dispatch) => {
   return {
-    changeFilter: (filter, value) => dispatch(changeFilter(filter, value))
+    resetFilter: () => dispatch(resetFilter(dispatch))
   };
 };
 

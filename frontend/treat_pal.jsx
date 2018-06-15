@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // window.cf = changeFilter;
   // window.rt = () => store.getState().ui.filters.restoday;
   window.f = () => store.getState().ui.filters;
-  // window.gs = store.getState;
+  window.gs = store.getState;
   // window.dispatch = store.dispatch;
   // window.fetchTreats = fetchTreats;
   // window.searchTreats = searchTreats;

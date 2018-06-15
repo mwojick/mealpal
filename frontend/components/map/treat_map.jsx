@@ -52,24 +52,29 @@ class TreatMap extends React.Component {
   componentWillReceiveProps(newProps) {
 
     if (newProps.center) {
+
       let latLng = new google.maps.LatLng(
         this.props.preferredCity.latitude,
         this.props.preferredCity.longitude);
 
       this.map.setCenter(latLng);
       this.map.setZoom(15);
+
+      this.updateBounds(newProps.search);
+
       this.props.changeFilter("center", false);
     }
   }
 
-  updateBounds() {
+  updateBounds(search = this.props.search) {
+
     window.scrollTo(0, 280);
     const { north, south, east, west } = this.map.getBounds().toJSON();
     const bounds = {
       northEast: { lat: north, lng: east },
       southWest: { lat: south, lng: west } };
     this.props.updateFilter(
-      this.props.preferredCity.name, '', 'bounds', bounds);
+      this.props.preferredCity.name, search, 'bounds', bounds);
   }
 
 

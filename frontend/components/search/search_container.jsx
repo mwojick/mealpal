@@ -10,7 +10,8 @@ const msp = (state) => {
     currentUser: state.entities.users[state.session.id],
     cities: Object.values(state.entities.cities),
     bounds: state.ui.filters.bounds,
-    favorite: state.ui.filters.favorite
+    favorite: state.ui.filters.favorite,
+    search: state.ui.filters.search
   };
 };
 

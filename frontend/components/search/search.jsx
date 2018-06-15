@@ -7,12 +7,18 @@ class Search extends React.Component {
     super(props);
     this.state = {
       city: this.props.currentUser.preferredCity,
-      search: ''
+      search: this.props.search
     };
 
     this.handleSearch = this.handleSearch.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleChangeDebounce = this.handleChangeDebounce.bind(this);
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (newProps.search !== this.props.search) {
+      this.setState({search: newProps.search});
+    }
   }
 
   updatePreferredCity(e) {
@@ -29,13 +35,17 @@ class Search extends React.Component {
 
   handleSearch(e) {
     e.preventDefault();
+    this.props.changeFilter('search', this.state.search);
+
     let search = Object.assign({}, this.state, {bounds: this.props.bounds});
     this.props.searchTreats(search);
   }
 
   handleChange(e) {
     const val = e.currentTarget.value;
+
     this.setState({ search: val }, () => {
+      this.props.changeFilter('search', this.state.search);
 
       let search = Object.assign({}, this.state, {bounds: this.props.bounds});
       this.props.searchTreats(search);

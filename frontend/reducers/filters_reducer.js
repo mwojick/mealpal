@@ -1,12 +1,15 @@
 import {
-  UPDATE_FILTER
+  UPDATE_FILTER,
+  RESET_FILTER
 } from '../actions/filter_actions';
 import merge from 'lodash/merge';
 
 const defaultState = {
   'center': false,
   'favorite': false,
-  'restoday': []
+  'restoday': [],
+  'bounds': {},
+  'search': ''
 };
 
 const filtersReducer = (state = defaultState, action) => {
@@ -14,6 +17,8 @@ const filtersReducer = (state = defaultState, action) => {
   switch (action.type) {
     case UPDATE_FILTER:
       return Object.assign({}, state, { [action.filter]: action.value });
+    case RESET_FILTER:
+      return Object.assign({}, state, action.value);
     default:
       return state;
   }

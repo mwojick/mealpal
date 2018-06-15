@@ -32,9 +32,9 @@ class TreatIndex extends React.Component {
             </li>
           </div>
         </div>
-        <button onClick={()=>this.props.changeFilter("center", true)}
+        <button onClick={()=>this.props.resetFilter()}
           className="treat-errors-reset">
-          RESET MAP!
+          RESET ALL!
         </button>
       </div>;
     }
