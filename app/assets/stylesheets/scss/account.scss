@@ -1,0 +1,158 @@
+
+.account-page {
+  font-family: $main-font-family;
+  display: flex;
+  flex-direction: column;
+  letter-spacing: 0.5px;
+  color: $darkest-gray;
+  strong {
+    font-weight: bold;
+  }
+}
+
+.account-page input {
+  color: black;
+  margin-top: 10px;
+  height: 30px;
+  outline: 0px;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: $gray;
+  border-width: 1px;
+  padding-left: 10px;
+  text-overflow: ellipsis;
+}
+
+.account-page input:focus {
+  border-color: $main;
+}
+
+.account-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.account-hi {
+  font-weight: bold;
+  font-size: 18px;
+  margin: 60px 0 10px;
+}
+
+.account-plan {
+  font-size: 18px;
+  margin-bottom: 5px;
+  span {
+    color: $main;
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+
+.account-cycle {
+  font-size: 18px;
+  margin-bottom: 5px;
+  span {
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+
+.account-icons {
+  margin: 20px 0 10px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.account-icons img {
+  width: 50px;
+  height: 50px;
+}
+
+.acc-info {
+  width: 95%;
+  text-align: center;
+  border-bottom: 1px solid $light-gray;
+  line-height: 0.1em;
+  margin: 30px 0 40px;
+  font-weight: bold;
+}
+
+.acc-info span {
+  background:#fff;
+  padding:0 15px;
+
+}
+
+
+////////////
+
+
+.account-bottom {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.account-image img {
+  border-radius: 50%;
+  margin: 20px 0 10px;
+}
+
+.account-image {
+  margin-right: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.account-text {
+  display: flex;
+  flex-direction: column;
+}
+.account-name {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.account-email {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.account-company {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.acc-update {
+  color: white;
+  background: $accent;
+  height: 35px;
+  border: none;
+  border-radius: 5px;
+
+  text-align: center;
+}
+
+.acc-update:active {
+  background-color: $accent-light;
+  box-shadow: 0 3px #ffff;
+  transform: translateY(4px);
+}
+
+
+@media (max-width: $media1) {
+  .account-bottom {
+    flex-direction: column;
+  }
+  .account-image {
+    margin: 10px 0 40px;
+  }
+}

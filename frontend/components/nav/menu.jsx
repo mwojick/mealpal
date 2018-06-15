@@ -5,8 +5,18 @@ class Menu extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      active: false
+      active: false,
+      disabled: false
     };
+    this.handleLogout = this.handleLogout.bind(this);
+  }
+
+  componentDidMount() {
+    this.setState({ disabled: false});
+  }
+
+  handleLogout() {
+    this.setState({ disabled: true }, () => this.props.logout());
   }
 
   toggleClass() {
@@ -28,7 +38,7 @@ class Menu extends React.Component {
               <div><img src="https://res.cloudinary.com/mwojick/image/upload/v1528591565/Moon-512.png"></img>Dessert</div>
             </li>
 
-            <li>
+            <li onClick={() => this.props.history.push('/account')}>
               <div><img src="https://res.cloudinary.com/mwojick/image/upload/v1528590607/profile.png"></img>My Account</div>
             </li>
 
@@ -40,16 +50,16 @@ class Menu extends React.Component {
               <div><img src="https://res.cloudinary.com/mwojick/image/upload/v1528591997/history.png"></img>History</div>
             </li>
 
-            <li onClick={()=>this.props.logout()} className="menu-logout">
+            <li onClick={this.handleLogout} className="menu-logout">
               <div><img src="https://res.cloudinary.com/mwojick/image/upload/v1528590545/logout.png"></img>Logout</div>
             </li>
 
           </ul>
         </div>
         <div className="login-link">
-          <Link to='/login' onClick={()=>this.props.logout()}>
+          <div onClick={this.handleLogout}>
             LOGOUT
-          </Link>
+          </div>
         </div>
       </div>
     );

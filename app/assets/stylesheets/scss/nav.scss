@@ -133,10 +133,14 @@
 
 .login-link {
   margin-right: 20px;
-  margin-top: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 
-  a {
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
+}
+
+.login-link div:hover {
+  cursor: pointer;
+}
+.login-link div {
+  padding: 10px 0;
 }
