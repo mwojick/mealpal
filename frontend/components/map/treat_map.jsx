@@ -59,6 +59,7 @@ class TreatMap extends React.Component {
   }
 
   updateBounds() {
+    window.scrollTo(0,360);
     const { north, south, east, west } = this.map.getBounds().toJSON();
     const bounds = {
       northEast: { lat: north, lng: east },

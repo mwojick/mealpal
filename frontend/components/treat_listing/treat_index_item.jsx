@@ -17,6 +17,7 @@ class TreatIndexItem extends React.Component {
   }
 
   handleReserve(e) {
+    window.scrollTo(0,0);
     if (this.props.resToday.constructor !== Array) {
       let newRes = Object.assign({}, this.props.resToday);
       newRes.treatId = this.props.treat.id;
