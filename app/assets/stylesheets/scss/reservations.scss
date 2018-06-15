@@ -93,6 +93,21 @@
 
 }
 
+.resed-today-desc1 {
+  font-weight: 400;
+  font-size: 16px;
+}
+.resed-today-desc2 {
+  font-weight: bold;
+  font-size: 18px;
+
+}
+.resed-today-desc3 {
+  font-weight: lighter;
+  font-size: 14px;
+
+}
+
 .update-res {
   width: 100%;
   border: none;
@@ -125,9 +140,11 @@
 .res-savings {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   border: 1px solid $light-gray;
   max-width: 340px;
-  max-height: 240px;
+  height: 242px;
+  box-sizing: border-box;
   position: relative;
   margin: 0 10px;
   padding: 15px 20px;
@@ -176,11 +193,15 @@
     margin: 5px;
   }
   .res-savings {
-
-    padding: 15px 5px;
+    box-sizing: border-box;
+    height: 182px;
+    padding: 15px 10px;
   }
-.res-resed {
+  .res-resed {
     height: 180px;
+  }
+  .resed-today {
+    max-width: 220px;
   }
   .no-treat-this-day {
     margin-top: 40px;

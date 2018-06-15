@@ -21,19 +21,16 @@ class Reservations extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if (this.state.resTime !== newProps.reservations[0].time) {
+    if (this.props.resTime !== newProps.reservations[0].time) {
       this.setState({resTime: newProps.reservations[0].time});
+    }
+
+    if (this.props.reservations[0].constructor === Array &&
+      newProps.reservations[0].constructor !== Array) {
+      this.props.changeFilter('restoday', newProps.reservations[0]);
     }
   }
 
-
-  // componentDidUpdate() {
-  //   if (this.state.resTime !== undefined) {
-  //     if (this.state.resTime.constructor === Array){
-  //       this.props.changeFilter('restoday', false);
-  //     }
-  //   }
-  // }
 
   updateRes(e) {
     let newRes = Object.assign({}, this.props.reservations[0]);
@@ -128,13 +125,13 @@ class Reservations extends React.Component {
                 </div>
 
                 <ul className="resed-today-desc">
-                  <li>
+                  <li className="resed-today-desc1">
                     {treats[res.treatId].name}
                   </li>
-                  <li>
+                  <li className="resed-today-desc2">
                     {shops[treats[res.treatId].shopId].name}
                   </li>
-                  <li>
+                  <li className="resed-today-desc3">
                     {shops[treats[res.treatId].shopId].address}
                   </li>
                 </ul>
@@ -143,7 +140,7 @@ class Reservations extends React.Component {
                 <img className="resed-img-today"
                   src={treats[res.treatId].imageUrl}></img>
 
-              
+
                 <select  className="update-res"
                   value={selResTime}
                   onChange={ (e) => this.updateRes(e)}>

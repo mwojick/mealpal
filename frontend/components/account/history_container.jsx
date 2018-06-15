@@ -14,6 +14,9 @@ const msp = ({entities:
   session, errors, ui}) => {
 
   let cityReses = getCityReservations(reservations, treats, false);
+  cityReses = cityReses.sort((a,b) => {
+    return new Date(b.date) - new Date(a.date);
+  });
 
   let favIds = getFavIds(favorites);
 
