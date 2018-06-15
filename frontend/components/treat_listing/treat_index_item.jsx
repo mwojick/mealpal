@@ -17,7 +17,7 @@ class TreatIndexItem extends React.Component {
   }
 
   handleReserve(e) {
-    if (this.props.resToday) {
+    if (this.props.resToday.constructor !== Array) {
       let newRes = Object.assign({}, this.props.resToday);
       newRes.treatId = this.props.treat.id;
       newRes.time = this.state.seltime;

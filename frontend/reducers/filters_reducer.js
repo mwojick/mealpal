@@ -6,7 +6,7 @@ import merge from 'lodash/merge';
 const defaultState = {
   'center': false,
   'favorite': false,
-  'restoday': false
+  'restoday': []
 };
 
 const filtersReducer = (state = defaultState, action) => {

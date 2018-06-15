@@ -29,7 +29,7 @@ export const updateReservation = (res) => dispatch => {
 };
 
 export const deleteReservation = (id) => dispatch => {
-  dispatch(changeFilter('restoday', false));
+  dispatch(changeFilter('restoday', []));
   return reservationApiUtil.deleteReservation(id).then((payload) => {
     return dispatch(removeReservation(payload));
   }, (errors) => dispatch(receiveErrors(errors.responseJSON)));

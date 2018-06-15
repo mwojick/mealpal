@@ -12,7 +12,10 @@ class Reservations extends React.Component {
   }
 
   componentDidMount(){
+    if (this.state.resTime.constructor === Array) {
+    }
     if (this.state.resTime !== undefined) {
+
       if (this.state.resTime.constructor !== Array){
         this.props.changeFilter('restoday', this.props.reservations[0]);
       }
@@ -27,13 +30,14 @@ class Reservations extends React.Component {
     }
   }
 
-  componentDidUpdate() {
-    if (this.state.resTime !== undefined) {
-      if (this.state.resTime.constructor === Array){
-        this.props.changeFilter('restoday', false);
-      }
-    }
-  }
+  // componentDidUpdate() {
+  //   if (this.state.resTime !== undefined) {
+  //     if (this.state.resTime.constructor === Array){
+  //       this.props.changeFilter('restoday', false);
+  //     }
+  //   }
+  // }
+
   updateRes(e) {
     let newRes = Object.assign({}, this.props.reservations[0]);
     newRes.time = e.currentTarget.value;
@@ -80,7 +84,7 @@ class Reservations extends React.Component {
           { reservations.slice(1).reverse().map((res, id) => {
 
             if (res.length === 0) {
-              return <div key={id} className="res-nonresed">
+              return <div key={id} className="res-nonresed hidden-res">
                 <div className="day-of-week">
                   {fiveDays[id]}
                 </div>
@@ -90,7 +94,7 @@ class Reservations extends React.Component {
 
               </div>;
             } else {
-              return <div key={id} className="res-resed">
+              return <div key={id} className="res-resed hidden-res">
                 <div className="day-of-week">
                   {fiveDays[id]}
                 </div>
@@ -107,7 +111,7 @@ class Reservations extends React.Component {
 
           }) }
 
-        <div className="res-today">
+        <div className="res-resed">
           { reservations.slice().reverse().slice(-1).map((res, id) => {
 
             if (res.length === 0) {
@@ -137,7 +141,7 @@ class Reservations extends React.Component {
                 </ul>
 
 
-                <img className="resed-img"
+                <img className="resed-img-today"
                   src={treats[res.treatId].imageUrl}></img>
 
                 <select  className="update-res"
@@ -161,16 +165,16 @@ class Reservations extends React.Component {
 
         </div>
         <div className="res-savings">
-          <li>
-
+          <li className="sav-holy">
+            Holy Fudge!
           </li>
-          <li>
+          <li className="sav-est">
             You'll be saving an estimated
           </li>
-          <li>
+          <li className="sav-num">
             ${savings.toFixed(2)}
           </li>
-          <li>
+          <li className="sav-week">
             on treats this week!
           </li>
         </div>
