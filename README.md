@@ -64,7 +64,7 @@ updateBounds() {
     southWest: { lat: south, lng: west } };
     this.props.updateFilter(
       this.props.preferredCity.name, '', 'bounds', bounds);
-    }
+}
 
 export const updateFilter = (city, search, filter, bounds) =>
  (dispatch, getState) => {

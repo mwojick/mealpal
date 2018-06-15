@@ -24,7 +24,11 @@ class TreatMap extends React.Component {
       zoom: 15,
       clickableIcons: false,
       mapTypeControlOptions: {
-        style: google.maps.MapTypeControlStyle.DROPDOWN_MENU }
+        style: google.maps.MapTypeControlStyle.DROPDOWN_MENU },
+      zoomControl: true,
+      zoomControlOptions: {
+        position: google.maps.ControlPosition.RIGHT_CENTER
+  },
     };
 
     const map = this.refs.map;
