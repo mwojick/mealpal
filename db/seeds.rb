@@ -30,8 +30,12 @@ ActiveRecord::Base.transaction do
   users = [
     {
       email: 'demo',
+      name: "Frodo",
       password: 123456,
-      preferred_city: 'San Francisco'
+      preferred_city: 'San Francisco',
+      treats_left: 15,
+      image_url: "https://vignette.wikia.nocookie.net/p__/images/b/b4/FRODO.jpg/revision/latest?cb=20120124180422&path-prefix=protagonist",
+      company_name: "The Shire"
     },
     {
       email: 'ny',
