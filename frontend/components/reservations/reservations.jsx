@@ -119,7 +119,9 @@ class Reservations extends React.Component {
                 <div className="day-of-week">
                   {fiveDays.slice(-1)[0]}
                 </div>
-                Try something new today!
+                <div className="no-treat-this-day">
+                  Try something new today!
+                </div>
               </div>;
             } else {
 
