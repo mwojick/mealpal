@@ -56,14 +56,14 @@ registerListeners() {
 
 }
 
-updateBounds() {
+updateBounds(search = this.props.search) {
   window.scrollTo(0, 280);
   const { north, south, east, west } = this.map.getBounds().toJSON();
   const bounds = {
     northEast: { lat: north, lng: east },
     southWest: { lat: south, lng: west } };
     this.props.updateFilter(
-      this.props.preferredCity.name, '', 'bounds', bounds);
+      this.props.preferredCity.name, search, 'bounds', bounds);
 }
 
 export const updateFilter = (city, search, filter, bounds) =>
