@@ -60,6 +60,10 @@ export const getCityReservations = (reservations, treats) => {
       cityReses.push(res);
     }
   });
+
+  while (cityReses.length < 5) {
+    cityReses.push([]);
+  }
   return cityReses;
 };
 
@@ -99,6 +103,7 @@ export const getPastFive = (reses) => {
     djs = djs.addDays(-1);
     djs = djs.toJSON();
   }
+
 
   return fiveReses;
 };

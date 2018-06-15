@@ -10,15 +10,17 @@ import { changeFilter } from '../../actions/filter_actions';
 
 const msp = ({entities: {users, treatRes, shopRes, reservations}, session}) => {
 
-  let cityReservations = getCityReservations(reservations, treatRes);
 
+  let cityReservations = getCityReservations(reservations, treatRes);
   cityReservations = cityReservations.sort((a,b) => {
     return new Date(b.date) - new Date(a.date);
   });
 
+
+  let pastFive = [[],[],[],[],[]];
   //get the reservations for the past 5 days
   //(including tomorrow) if there are any. if not, put blank.
-  let pastFive = [];
+
   if (cityReservations.length !== 0) {
     pastFive = getPastFive(cityReservations);
   }
@@ -30,6 +32,7 @@ const msp = ({entities: {users, treatRes, shopRes, reservations}, session}) => {
       resTime = pastFive[0].time;
     }
   }
+
 
   return {
     currentUser: users[session.id],

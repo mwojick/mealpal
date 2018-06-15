@@ -12,23 +12,19 @@ class Reservations extends React.Component {
   }
 
   componentDidMount(){
-    if (this.state.resTime.constructor === Array) {
-    }
-    if (this.state.resTime !== undefined) {
 
-      if (this.state.resTime.constructor !== Array){
-        this.props.changeFilter('restoday', this.props.reservations[0]);
-      }
+    if (this.props.reservations[0].constructor !== Array){
+      this.props.changeFilter('restoday', this.props.reservations[0]);
     }
+
   }
 
   componentWillReceiveProps(newProps) {
-    if (newProps.reservations.length !== 0) {
-      if (this.state.resTime !== newProps.reservations[0].time) {
-        this.setState({resTime: newProps.reservations[0].time});
-      }
+    if (this.state.resTime !== newProps.reservations[0].time) {
+      this.setState({resTime: newProps.reservations[0].time});
     }
   }
+
 
   // componentDidUpdate() {
   //   if (this.state.resTime !== undefined) {
