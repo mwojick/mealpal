@@ -11,7 +11,7 @@ import { changeFilter } from '../../actions/filter_actions';
 const msp = ({entities: {users, treatRes, shopRes, reservations}, session}) => {
 
 
-  let cityReservations = getCityReservations(reservations, treatRes);
+  let cityReservations = getCityReservations(reservations, treatRes, true);
   cityReservations = cityReservations.sort((a,b) => {
     return new Date(b.date) - new Date(a.date);
   });

@@ -5,8 +5,6 @@ import { fetchReservations } from '../../actions/reservation_actions';
 import { withRouter } from 'react-router-dom';
 import History from './history';
 import {
-   getFavorites,
-   getFavTreats,
    getFavIds,
    getCityReservations
     } from '../../util/selectors';
@@ -15,10 +13,7 @@ const msp = ({entities:
   {users, treats, shops, cities, favorites, reservations},
   session, errors, ui}) => {
 
-  let favs = getFavorites(favorites);
-  let treatsFavs = getFavTreats(Object.values(treats), favs, true);
-
-  let cityReses = getCityReservations(reservations, treats);
+  let cityReses = getCityReservations(reservations, treats, false);
 
   let favIds = getFavIds(favorites);
 

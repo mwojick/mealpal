@@ -48,7 +48,7 @@ export const getFavTreats = (treats, favs, isFav) => {
   }
 };
 
-export const getCityReservations = (reservations, treats) => {
+export const getCityReservations = (reservations, treats, sel) => {
   let treatIds = [];
   Object.values(treats).forEach((tr) => {
     treatIds.push(tr.id);
@@ -61,8 +61,10 @@ export const getCityReservations = (reservations, treats) => {
     }
   });
 
-  while (cityReses.length < 5) {
-    cityReses.push([]);
+  if (sel) {
+    while (cityReses.length < 5) {
+      cityReses.push([]);
+    }
   }
   return cityReses;
 };

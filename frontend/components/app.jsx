@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, Route, Switch, Redirect } from 'react-router-dom';
 import GreetingContainer from './greeting/greeting_container';
 import FavoritesContainer from './account/favorites_container';
+import HistoryContainer from './account/history_container';
 import LoginFormContainer from './session_form/login_form_container';
 import SignupFormContainer from './session_form/signup_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
@@ -20,6 +21,7 @@ const App = () => (
           <AuthRoute path="/login" component={LoginFormContainer} />
           <AuthRoute path="/signup" component={SignupFormContainer} />
           <ProtectedRoute path="/favorites" component={FavoritesContainer}/>
+          <ProtectedRoute path="/history" component={HistoryContainer}/>
           <ProtectedRoute path="/" component={GreetingContainer}/>
         </Switch>
       </main>

@@ -36,7 +36,7 @@ class Menu extends React.Component {
               <div><img src="https://res.cloudinary.com/mwojick/image/upload/v1528592001/favorite.png"></img>Favorites</div>
             </li>
 
-            <li>
+            <li onClick={() => this.props.history.push('/history')}>
               <div><img src="https://res.cloudinary.com/mwojick/image/upload/v1528591997/history.png"></img>History</div>
             </li>
 
