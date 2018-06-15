@@ -12,7 +12,7 @@ class Favorites extends React.Component {
   }
 
   render() {
-    let { treats, shops, errors, favorites, favIds } = this.props;
+    let { treats, shops } = this.props;
 
     return (
       <div className="favorites-page">
