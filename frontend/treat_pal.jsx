@@ -33,16 +33,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   //TESTING START:
+
   // window.cf = changeFilter;
   // window.rt = () => store.getState().ui.filters.restoday;
-  window.f = () => store.getState().ui.filters;
-  window.gs = store.getState;
+  // window.f = () => store.getState().ui.filters;
+  // window.gs = store.getState;
   // window.dispatch = store.dispatch;
   // window.fetchTreats = fetchTreats;
   // window.searchTreats = searchTreats;
   // window.fetchCities = fetchCities;
-  //
   // window.updateUser = updateUser;
+  
   //TESTING END:
 
   ReactDOM.render(<Root store={store}/>, root);

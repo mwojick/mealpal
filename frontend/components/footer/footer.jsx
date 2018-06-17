@@ -10,9 +10,9 @@ const Footer = () => (
       <span></span>
       <a href="#">TERMS OF USE</a>
       <span></span>
-      <a href="#">PRIVACY POLICY</a>
+      <a href="https://github.com/mwojick">GITHUB</a>
       <span></span>
-      <a href="#">WE'RE HIRING!</a>
+      <a href="https://www.linkedin.com/in/matthew-wojick-95098b69/">LINKEDIN</a>
     </div>
     <nav>
       <div>
