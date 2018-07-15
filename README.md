@@ -25,7 +25,7 @@ A few of the things you can do with TreatPal:
 
 ## Screenshot
 
-![alt text](https://res.cloudinary.com/mwojick/image/upload/v1529086951/TreatPal-ScreenShot1.png "TreatPal")
+![alt text](TreatPal-ScreenShot1.png "TreatPal")
 
 ## Technologies Used
 
