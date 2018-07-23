@@ -58,12 +58,14 @@
   height: 210px;
   max-width: 100%;
   opacity: 0.3;
+  object-fit: cover;
 
 }
 .resed-img-today {
   height: 210px;
   max-width: 100%;
   filter: brightness(70%);
+  object-fit: cover;
 }
 
 

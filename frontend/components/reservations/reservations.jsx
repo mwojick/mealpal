@@ -94,8 +94,8 @@ class Reservations extends React.Component {
                 </div>
 
 
-                  <img src={treats[res.treatId].imageUrl}
-                    className="resed-img"></img>
+                <img src={treats[res.treatId].imageUrl}
+                  className="resed-img"></img>
 
                 <div className="treat-you-had">
                   You had {shops[treats[res.treatId].shopId].name} on {fiveDays[id]}

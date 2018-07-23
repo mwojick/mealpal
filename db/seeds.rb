@@ -114,6 +114,9 @@ ActiveRecord::Base.transaction do
   puts "Cities created"
 end
 
+# Example reverse geocode
+# https://maps.googleapis.com/maps/api/geocode/json?latlng=34.019022,-118.257957&key=AIzaSyCdt5y8QHtz0FgnzgMLAc4-rfVPXz48B-8
+
 ActiveRecord::Base.transaction do
   Shop.destroy_all
 
