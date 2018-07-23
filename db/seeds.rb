@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require 'open-uri'
 
 # from https://stackoverflow.com/questions/43195899/how-to-generate-random-coordinates-within-a-circle-with-specified-radius
 def random_point_in_disk(max_radius)
@@ -34,7 +35,7 @@ ActiveRecord::Base.transaction do
       password: 123456,
       preferred_city: 'San Francisco',
       treats_left: 15,
-      image_url: "https://static-cdn.jtvnw.net/jtv_user_pictures/bobross-profile_image-0b9dd167a9bb16b5-300x300.jpeg",
+      image_url: "https://res.cloudinary.com/mwojick/image/upload/v1532323181/TreatPal/bobross.jpg",
       company_name: "The Joy of Painting"
     },
     {
@@ -68,6 +69,7 @@ ActiveRecord::Base.transaction do
   users.each do |user|
     User.create!(user)
   end
+  puts "Users created"
 end
 
 ActiveRecord::Base.transaction do
@@ -109,10 +111,15 @@ ActiveRecord::Base.transaction do
   cities.each do |city|
     City.create!(city)
   end
+  puts "Cities created"
 end
 
 ActiveRecord::Base.transaction do
   Shop.destroy_all
+
+  # API key for reverse geocoding
+  key = "AIzaSyCdt5y8QHtz0FgnzgMLAc4-rfVPXz48B-8"
+  count = 0
 
   shops = []
   cities = City.all
@@ -121,11 +128,22 @@ ActiveRecord::Base.transaction do
     lat = cities[i][:latitude]
     long = cities[i][:longitude]
     36.times do |j|
+      count += 1
       loc = random_location(long, lat, 700)
+
+      url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=#{loc[1]},#{loc[0]}&key=#{key}"
+      json = open(url).read
+      result = JSON.parse(json)
+
+      puts "Reverse geocoded #{count} locations"
+
+      address = result["results"][0]["formatted_address"]
+
       shop = {
         name: Faker::Company.name,
         latitude: loc[1],
         longitude: loc[0],
+        address: address,
         city_id: cities[i].id
       }
       shops << shop
@@ -134,9 +152,8 @@ ActiveRecord::Base.transaction do
 
   shops.each_with_index do |shop, i|
     Shop.create!(shop)
-    sleep(1.0/2.0)
-    puts "created #{i} stores"
   end
+  puts "Shops created"
 end
 
 # https://source.unsplash.com/collection/941995/480x480/?sig=1/
@@ -179,6 +196,7 @@ ActiveRecord::Base.transaction do
   treats.each do |treat|
     Treat.create!(treat)
   end
+  puts "Treats created"
 end
 
 ActiveRecord::Base.transaction do
@@ -191,7 +209,7 @@ ActiveRecord::Base.transaction do
       Favorite.create!({shop_id: s.id, user_id: demo.id})
     end
   end
-
+  puts "Favorites created"
 end
 
 ActiveRecord::Base.transaction do
@@ -214,5 +232,5 @@ ActiveRecord::Base.transaction do
       date = date - 1
     end
   end
-
+  puts "Reservations created"
 end

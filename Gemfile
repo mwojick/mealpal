@@ -38,7 +38,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'faker'
 # gem 'random-location'
-gem 'geocoder'
+# gem 'geocoder'
 # gem 'redis', '~> 3.3.5'
 
 group :development, :test do

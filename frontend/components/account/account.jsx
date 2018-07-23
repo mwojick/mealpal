@@ -67,6 +67,7 @@ class Account extends React.Component {
             <strong>YOUR PHOTO:</strong>
             <img src={currentUser.imageUrl}></img>
             <input type="text" placeholder="Input Photo URL"
+              disabled={this.state.email === "demo" ? true : false}
               value={this.state.imageUrl}
               onChange={this.update('imageUrl')}></input>
           </div>
@@ -76,6 +77,7 @@ class Account extends React.Component {
             <div className="account-name">
               <strong>NAME:</strong>
               <input type="text"
+                disabled={this.state.email === "demo" ? true : false}
                 value={this.state.name}
                 onChange={this.update('name')}></input>
             </div>
@@ -92,6 +94,7 @@ class Account extends React.Component {
             <div className="account-company">
               <strong>COMPANY NAME:</strong>
               <input type="text"
+                disabled={this.state.email === "demo" ? true : false}
                 value={this.state.companyName}
                 onChange={this.update('companyName')}></input>
             </div>
