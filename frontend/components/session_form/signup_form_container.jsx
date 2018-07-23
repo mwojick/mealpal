@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { signup, clearErrors } from '../../actions/session_actions';
+import { signup, clearErrors, demo } from '../../actions/session_actions';
 import { fetchCities } from '../../actions/city_actions';
 import SignupForm from './signup_form';
 
@@ -17,6 +17,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
   return {
     processForm: (user) => dispatch(signup(user)),
+    demo: () => dispatch(demo()),
     fetchCities: () => dispatch(fetchCities()),
     clearErrors: () => dispatch(clearErrors())
   };

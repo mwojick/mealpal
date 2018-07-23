@@ -139,7 +139,16 @@ class SignupForm extends React.Component {
             Already have a TreatPal account?
           </div>
           <div className="other-link">
-            {this.props.navLink}
+            <li>
+              {this.props.navLink}
+            </li>
+            <li className="sign-up-separator">
+            </li>
+            <li>
+              <div onClick={() => this.props.demo()}>
+                Demo!
+              </div>
+            </li>
           </div>
         </div>
       </div>
