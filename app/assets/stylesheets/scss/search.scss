@@ -14,33 +14,10 @@
   }
 }
 
-@media (max-width: 600px) {
-  .search-component {
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
-
-    div {
-      margin: 0;
-      margin-bottom: 10px;
-      width: 85%;
-      display: flex;
-    }
-  }
-
-  .search-city {
-    select {
-      margin-top: 10px;
-      width: 100%;
-    }
-  }
-
-
-}
-
 .search-city {
   width: 15%;
   select {
+    cursor: pointer;
     background-color: white;
     padding: 7px;
     text-transform: uppercase;
@@ -102,4 +79,26 @@
   bottom: -2px;
   height: 20px;
   width: 20px;
+}
+
+@media (max-width: 600px) {
+  .search-component {
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+
+    div {
+      margin: 0;
+      margin-bottom: 10px;
+      width: 85%;
+      display: flex;
+    }
+  }
+
+  .search-city {
+    select {
+      margin-top: 10px;
+      width: 100%;
+    }
+  }
 }
