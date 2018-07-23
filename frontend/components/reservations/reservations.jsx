@@ -150,11 +150,11 @@ class Reservations extends React.Component {
                     })}
                 </select>
 
-                <button
+                <div
                   className="cancel-reservation"
                    onClick={()=>this.props.deleteReservation(res.id)}>
                   Cancel
-                </button>
+                </div>
 
               </div>;
             }
