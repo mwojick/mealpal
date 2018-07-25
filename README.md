@@ -1,14 +1,29 @@
 
 - [Introduction](#introduction)
+- [Technologies Used](#technologies-used)
 - [Features](#features)
 - [Screenshot](#screenshot)
-- [Technologies Used](#technologies-used)
 - [Technical Challenges](#technical-challenges)
 - [Build Process](#build-process)
 
 ## Introduction
 
 [TreatPal](https://treat-pal.herokuapp.com/) is a clone of [MealPal](https://mealpal.com/) where you can search for treats/desserts in your preferred location and reserve one at most once per day, and get a discount off the normal price.
+
+## Technologies Used
+
+* Ruby / Ruby on Rails
+* [PostgreSQL](https://www.postgresql.org/)
+* HTML / CSS
+* Javascript
+* [React](https://reactjs.org/) / [Redux](https://redux.js.org/)
+* Webpack
+* NPM
+* [Google Maps API](https://developers.google.com/maps/documentation/javascript/tutorial)
+* [Google Geocoder API](https://developers.google.com/maps/documentation/geocoding/start) (for reverse geocoding)
+* [Heroku](https://heroku.com/)
+* [Faker gem](https://github.com/stympy/faker)
+* [Animate.css](https://daneden.github.io/animate.css/)
 
 ## Features
 
@@ -27,20 +42,6 @@ A few of the things you can do with TreatPal:
 
 ![alt text](TreatPal-ScreenShot1.png "TreatPal")
 
-## Technologies Used
-
-* Ruby / Ruby on Rails
-* [PostgreSQL](https://www.postgresql.org/)
-* HTML / CSS
-* Javascript
-* [React](https://reactjs.org/) / [Redux](https://redux.js.org/)
-* Webpack
-* NPM
-* [Heroku](https://heroku.com/)
-* [Google Maps API](https://developers.google.com/maps/documentation/javascript/tutorial)
-* [Faker gem](https://github.com/stympy/faker)
-* [Geocoder gem](http://www.rubygeocoder.com/)
-* [Animate.css](https://daneden.github.io/animate.css/)
 
 ## Technical Challenges
 
