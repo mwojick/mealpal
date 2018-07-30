@@ -12,7 +12,7 @@ const Footer = () => (
       <span></span>
       <a href="https://github.com/mwojick">GITHUB</a>
       <span></span>
-      <a href="https://www.linkedin.com/in/matthew-wojick-95098b69/">LINKEDIN</a>
+      <a href="https://www.linkedin.com/in/mwojick/">LINKEDIN</a>
     </div>
     <nav>
       <div>
