@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Route, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { NavRoute } from '../../util/route_util';
 
 const Nav = () => (

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchTreats, searchTreats } from '../../actions/treat_actions';
+import { fetchTreats } from '../../actions/treat_actions';
 import { fetchCities } from '../../actions/city_actions';
 import { fetchFavorites } from '../../actions/favorite_actions';
 import { fetchReservations } from '../../actions/reservation_actions';

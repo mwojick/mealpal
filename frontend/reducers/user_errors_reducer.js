@@ -3,7 +3,6 @@ import {
   RECEIVE_USER_ERRORS
 } from '../actions/user_actions';
 
-import merge from 'lodash/merge';
 
 const userErrorsReducer = (oldState = [], action) => {
   Object.freeze(oldState);

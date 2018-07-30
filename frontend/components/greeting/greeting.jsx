@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
+// import { Link, Redirect } from 'react-router-dom';
 import TreatIndexContainer from '../treat_listing/treat_index_container';
 import SearchContainer from '../search/search_container';
 import TreatMapContainer from '../map/treat_map_container';

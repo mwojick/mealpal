@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
+// import { Link, Redirect } from 'react-router-dom';
 import { times, timeVals } from '../../util/time_vars.js';
 
 class Reservations extends React.Component {

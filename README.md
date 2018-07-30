@@ -12,40 +12,39 @@
 
 ## Technologies Used
 
-* Ruby / Ruby on Rails
-* [PostgreSQL](https://www.postgresql.org/)
-* HTML / CSS
-* Javascript
-* [React](https://reactjs.org/) / [Redux](https://redux.js.org/)
-* Webpack
-* NPM
-* [Google Maps API](https://developers.google.com/maps/documentation/javascript/tutorial)
-* [Google Geocoder API](https://developers.google.com/maps/documentation/geocoding/start) (for reverse geocoding)
-* [Heroku](https://heroku.com/)
-* [Faker gem](https://github.com/stympy/faker)
-* [Animate.css](https://daneden.github.io/animate.css/)
+- Ruby / Ruby on Rails
+- [PostgreSQL](https://www.postgresql.org/)
+- HTML / CSS
+- Javascript
+- [React](https://reactjs.org/) / [Redux](https://redux.js.org/)
+- Webpack
+- NPM
+- [Google Maps API](https://developers.google.com/maps/documentation/javascript/tutorial)
+- [Google Geocoder API](https://developers.google.com/maps/documentation/geocoding/start) (for reverse geocoding)
+- [Heroku](https://heroku.com/)
+- [Faker gem](https://github.com/stympy/faker)
+- [Animate.css](https://daneden.github.io/animate.css/)
 
 ## Features
 
 A few of the things you can do with TreatPal:
 
-* See all available treats in the preferred city.
-* Change the preferred city.
-* Search for treats based on treat name and shop.
-* Search based on the map boundaries.
-* Favorite/unfavorite shops, and filter by favorites.
-* Create, update, and cancel reservations for the next day.
-* Menu with links to account page, reservation history, and list of favorites in your city.
-* Mobile responsive design.
+- See all available treats in the preferred city.
+- Change the preferred city.
+- Search for treats based on treat name and shop.
+- Search based on the map boundaries.
+- Favorite/unfavorite shops, and filter by favorites.
+- Create, update, and cancel reservations for the next day.
+- Menu with links to account page, reservation history, and list of favorites in your city.
+- Mobile responsive design.
 
 ## Screenshot
 
 ![alt text](TreatPal-ScreenShot1.png "TreatPal")
 
-
 ## Technical Challenges
 
-##### Google map updates bounds in state and sends a search request:
+### Google map updates bounds in state and sends a search request:
 
 In order to search for places within the bounds of the map, I add two event listeners when the map mounts on the page. One is for after the user drags somewhere else on the map, and one handles zooming. They execute the updateBounds function, which gets the bounds from the map. Then it calls updateFilter, which sends an action to update the bounds in the store (which is also used by the search bar). Then it makes an AJAX request to the server with information about the current city, search query, and map bounds. The treats/shops are filtered on the back-end based on this information and then sent back.
 
@@ -81,10 +80,9 @@ export const updateFilter = (city, search, filter, bounds) =>
 
 ```
 
-##### Timezones, and selecting reservations for the past 5 days:
+### Timezones, and selecting reservations for the past 5 days:
 
 The differences in the way Ruby and Javascript handle timezones made it difficult to take times and dates from the back-end (Rails) and filter them on the front-end (JS/React), since by default the ruby methods for getting date/time are based on local time, whereas JS uses UTC. In order to get the reservations in the past 5 days, I had to create new date objects in JS and convert them to local time using getTimezoneOffset before comparing the current date with the ones received from Rails. I also had to change the timezone in my Heroku database to local time, since by default it uses UTC.
-
 
 ```javascript
 

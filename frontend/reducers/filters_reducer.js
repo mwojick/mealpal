@@ -2,7 +2,6 @@ import {
   UPDATE_FILTER,
   RESET_FILTER
 } from '../actions/filter_actions';
-import merge from 'lodash/merge';
 
 const defaultState = {
   'center': false,

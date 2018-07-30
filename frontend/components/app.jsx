@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Route, Switch, Redirect } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 import GreetingContainer from './greeting/greeting_container';
 import AccountContainer from './account/account_container';
 import FavoritesContainer from './account/favorites_container';

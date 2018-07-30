@@ -4,8 +4,6 @@ import {
   RECEIVE_TREAT_ERRORS
 } from '../actions/treat_actions';
 
-import merge from 'lodash/merge';
-
 const treatErrorsReducer = (oldState = [], action) => {
   Object.freeze(oldState);
   switch (action.type) {

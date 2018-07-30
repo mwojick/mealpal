@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Route, Redirect, withRouter } from 'react-router-dom';
+import { Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import NavLoginContainer from '../components/nav/nav_login_container';
 import MenuContainer from '../components/nav/menu_container';

@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
-import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import Menu from './menu';
 import { logout } from '../../actions/session_actions';
 

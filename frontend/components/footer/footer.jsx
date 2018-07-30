@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link, Route, Redirect } from 'react-router-dom';
 
 const Footer = () => (
   <div className="footer-container">

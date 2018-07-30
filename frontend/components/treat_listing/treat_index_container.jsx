@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchTreats, searchTreats } from '../../actions/treat_actions';
+// import { fetchTreats, searchTreats } from '../../actions/treat_actions';
 import { resetFilter } from '../../actions/filter_actions';
 import { withRouter } from 'react-router-dom';
 import TreatIndex from './treat_index';

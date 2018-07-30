@@ -3,8 +3,6 @@ import {
   RECEIVE_CITY_ERRORS
 } from '../actions/city_actions';
 
-import merge from 'lodash/merge';
-
 const cityErrorsReducer = (oldState = [], action) => {
   Object.freeze(oldState);
   switch (action.type) {

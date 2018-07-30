@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
 import MarkerManager from '../../util/marker_manager';
 import Resizable from 're-resizable';
 

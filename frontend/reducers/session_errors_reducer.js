@@ -3,8 +3,6 @@ import {
   RECEIVE_SESSION_ERRORS
 } from '../actions/session_actions';
 
-import merge from 'lodash/merge';
-
 const sessionErrorsReducer = (oldState = [], action) => {
   Object.freeze(oldState);
   switch (action.type) {
