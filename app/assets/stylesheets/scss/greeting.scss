@@ -10,7 +10,7 @@
   position: relative;
 }
 
-@media (max-width: 800px) {
+@media (max-width: $media2) {
   .treats-and-map {
     display: flex;
     flex-direction: column-reverse;
