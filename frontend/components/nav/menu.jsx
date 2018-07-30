@@ -1,5 +1,6 @@
 import React from 'react';
 
+// import Favorite from '../../img/menu_icons/favorite.png'
 
 class Menu extends React.Component {
   constructor(props) {
@@ -30,28 +31,28 @@ class Menu extends React.Component {
 
         <div className="nav-menu-button" onClick={() => this.toggleClass()}>
           <img className="hamburger"
-            src="https://res.cloudinary.com/mwojick/image/upload/v1528584292/hamburger.png">
+            src="https://res.cloudinary.com/mwojick/image/upload/v1528584292/TreatPal/icons/hamburger.png">
           </img>
           MENU
           <ul className={this.state.active ? "dropdown-active animated fadeIn" : "dropdown animated"}>
             <li onClick={() => this.props.history.push('/')}>
-              <div><img src="https://res.cloudinary.com/mwojick/image/upload/v1528591565/Moon-512.png"></img>Dessert</div>
+              <div><img src="https://res.cloudinary.com/mwojick/image/upload/v1528591565/TreatPal/icons/Moon-512.png"></img>Dessert</div>
             </li>
 
             <li onClick={() => this.props.history.push('/account')}>
-              <div><img src="https://res.cloudinary.com/mwojick/image/upload/v1528590607/profile.png"></img>My Account</div>
+              <div><img src="https://res.cloudinary.com/mwojick/image/upload/v1532988518/TreatPal/icons/profile.png"></img>My Account</div>
             </li>
 
             <li onClick={() => this.props.history.push('/favorites')}>
-              <div><img src="https://res.cloudinary.com/mwojick/image/upload/v1528592001/favorite.png"></img>Favorites</div>
+              <div><img src="https://res.cloudinary.com/mwojick/image/upload/v1532988683/TreatPal/icons/favorite2.png"></img>Favorites</div>
             </li>
 
             <li onClick={() => this.props.history.push('/history')}>
-              <div><img src="https://res.cloudinary.com/mwojick/image/upload/v1528591997/history.png"></img>History</div>
+              <div><img src="https://res.cloudinary.com/mwojick/image/upload/v1528591997/TreatPal/icons/history.png"></img>History</div>
             </li>
 
             <li onClick={this.handleLogout} className="menu-logout">
-              <div><img src="https://res.cloudinary.com/mwojick/image/upload/v1528590545/logout.png"></img>Logout</div>
+              <div><img src="https://res.cloudinary.com/mwojick/image/upload/v1528590545/TreatPal/icons/logout.png"></img>Logout</div>
             </li>
 
           </ul>

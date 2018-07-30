@@ -52,7 +52,7 @@ class TreatIndexItem extends React.Component {
           className={favorite ? "favorited" : "unfavorited"}
           onClick={()=>this.handleToggle()}
           id="favorite-button">
-          <img src={favorite ? "https://res.cloudinary.com/mwojick/image/upload/v1528825174/favorited.png" : "https://res.cloudinary.com/mwojick/image/upload/v1528825174/unfavorited.png"}>
+          <img src={favorite ? "https://res.cloudinary.com/mwojick/image/upload/v1528825174/TreatPal/icons/favorited.png" : "https://res.cloudinary.com/mwojick/image/upload/v1528825174/TreatPal/icons/unfavorited.png"}>
           </img>
         </button>
 

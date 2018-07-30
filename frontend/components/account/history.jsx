@@ -55,7 +55,7 @@ class History extends React.Component {
                     </div>
 
                     <div className="fav-icon">
-                      <img src={favIds[treats[res.treatId].shopId] ? "https://res.cloudinary.com/mwojick/image/upload/v1528825174/favorited.png" : ""}></img>
+                      <img src={favIds[treats[res.treatId].shopId] ? "https://res.cloudinary.com/mwojick/image/upload/v1528825174/TreatPal/icons/favorited.png" : ""}></img>
                     </div>
                   </div>
 

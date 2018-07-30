@@ -31,7 +31,7 @@ class Favorites extends React.Component {
                   </div>
 
                   <div className="fav-icon">
-                    <img src="https://res.cloudinary.com/mwojick/image/upload/v1528825174/favorited.png"></img>
+                    <img src="https://res.cloudinary.com/mwojick/image/upload/v1528825174/TreatPal/icons/favorited.png"></img>
                   </div>
 
                 </div>
