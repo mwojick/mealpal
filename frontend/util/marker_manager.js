@@ -92,6 +92,8 @@ export default class MarkerManager {
 
       this.infoWindows.push(infoWindow);
 
+      // Marker from:
+      // https://www.iconsdb.com/soylent-red-icons/marker-icon.html
       let marker = new google.maps.Marker({
         position: position,
         map: this.map,

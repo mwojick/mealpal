@@ -27,7 +27,7 @@ class TreatMap extends React.Component {
       zoomControl: true,
       zoomControlOptions: {
         position: google.maps.ControlPosition.RIGHT_CENTER
-  },
+      },
     };
 
     const map = this.refs.map;
