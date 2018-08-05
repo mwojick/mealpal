@@ -51,7 +51,7 @@ class Account extends React.Component {
           </div>
           <div className="account-icons">
             {treatType.map( (type, idx) => {
-              return <img key={idx} src={type ? "https://res.cloudinary.com/mwojick/image/upload/v1529051209/TreatPal/icons/ic-used.png" : "https://res.cloudinary.com/mwojick/image/upload/v1529051209/TreatPal/icons/ic-unused.png"}></img>;
+              return <img key={idx} src={type ? "https://res.cloudinary.com/mwojick/image/upload/v1529051209/TreatPal/icons/ic-used.png" : "https://res.cloudinary.com/mwojick/image/upload/v1533444387/TreatPal/icons/ic-unused-c.png"}></img>;
             } )}
           </div>
 
