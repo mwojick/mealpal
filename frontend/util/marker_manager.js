@@ -3,7 +3,14 @@ export default class MarkerManager {
     this.map = map;
     this.shops = shops;
     this.markers = {};
-    this.infoWindows = [];
+    this.openWindow = null;
+
+    google.maps.event.addListener(this.map, "click", (e) => {
+      if (this.openWindow) {
+        this.openWindow.close();
+        this.openWindow = null;
+      }
+    });
   }
 
   updateMarkers(shops) {
@@ -26,9 +33,6 @@ export default class MarkerManager {
     this.removeMarker(this.markers[shopId]));
   // console.warn("3", filter3);
 
-  google.maps.event.addListener(this.map, "click", (e) => {
-    this.infoWindows.forEach(win => win.close());
-  });
 
   }
 
@@ -43,16 +47,22 @@ export default class MarkerManager {
     });
 
     const position = new google.maps.LatLng(shop.latitude, shop.longitude);
+
+    // Marker icon from:
+    // https://www.iconsdb.com/soylent-red-icons/marker-icon.html
     const marker = new google.maps.Marker({
       position,
       map: this.map,
-      shopId: shop.id
+      shopId: shop.id,
+      icon: 'https://res.cloudinary.com/mwojick/image/upload/v1533428003/TreatPal/icons/marker-32-orange.ico'
     });
-
+    
     marker.addListener('click', () => {
-      this.infoWindows.forEach(win => win.close());
-      infoWindow.open(this.map, marker);
-      this.infoWindows.push(infoWindow);
+      if (this.openWindow !== infoWindow) {
+        if (this.openWindow) this.openWindow.close();
+        this.openWindow = infoWindow;
+        infoWindow.open(this.map, marker);
+      }
     });
 
     this.markers[shop.id] = marker;
@@ -60,10 +70,11 @@ export default class MarkerManager {
 
 
   removeMarker(marker) {
-
     this.markers[marker.shopId].setMap(null);
     delete this.markers[marker.shopId];
   }
+
+
 
   drop() {
     this.clearMarkers();
@@ -73,9 +84,6 @@ export default class MarkerManager {
         lng: this.shops[i].longitude
       }, i * 25, this.shops[i]);
     }
-    google.maps.event.addListener(this.map, "click", (e) => {
-      this.infoWindows.forEach(win => win.close());
-    });
   }
 
 
@@ -90,24 +98,25 @@ export default class MarkerManager {
         content: contentString
       });
 
-      this.infoWindows.push(infoWindow);
-
-      // Marker from:
+      // Marker icon from:
       // https://www.iconsdb.com/soylent-red-icons/marker-icon.html
       let marker = new google.maps.Marker({
         position: position,
         map: this.map,
         shopId: shop.id,
-        icon: 'https://res.cloudinary.com/mwojick/image/upload/v1528938958/marker-32.ico',
+        icon: 'https://res.cloudinary.com/mwojick/image/upload/v1533428003/TreatPal/icons/marker-32-orange.ico',
         animation: google.maps.Animation.DROP
       });
 
       marker.addListener('click', () => {
-        infoWindow.open(this.map, marker);
+        if (this.openWindow !== infoWindow) {
+          if (this.openWindow) this.openWindow.close();
+          this.openWindow = infoWindow;
+          infoWindow.open(this.map, marker);
+        }
       });
 
       this.markers[shop.id] = marker;
-
 
     }, timeout);
   }
@@ -119,4 +128,5 @@ export default class MarkerManager {
     });
     this.markers = {};
   }
+  
 }
