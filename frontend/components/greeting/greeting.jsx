@@ -16,6 +16,7 @@ class Greeting extends React.Component {
     this.props.fetchCities();
     this.props.fetchFavorites();
     this.props.fetchReservations();
+    this.props.resetFilter();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -25,6 +26,7 @@ class Greeting extends React.Component {
     if (nextProps.currentUser.preferredCity !==
       this.props.currentUser.preferredCity) {
         this.props.fetchTreats(nextProps.currentUser.preferredCity);
+        this.props.resetFilter();
     }
   }
 

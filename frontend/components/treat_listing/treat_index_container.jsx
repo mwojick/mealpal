@@ -31,7 +31,7 @@ const msp = ({entities:
 
 const mdp = (dispatch) => {
   return {
-    resetFilter: () => dispatch(resetFilter(dispatch))
+    resetFilter: () => dispatch(resetFilter())
   };
 };
 

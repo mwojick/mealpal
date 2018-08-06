@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Link, Redirect } from 'react-router-dom';
 import debounce from 'lodash/debounce';
 
 class Search extends React.Component {

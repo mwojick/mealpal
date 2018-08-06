@@ -12,7 +12,7 @@ export const resetCenter = () => {
   };
 };
 
-export const resetFilter= () => {
+export const resetFilter = () => {
   return {
     type: RESET_FILTER,
     value: {
@@ -48,7 +48,7 @@ export const changeFilter = (filter, value) => {
 };
 
 export const updateFilter = (city, search, filter, bounds) =>
- (dispatch, getState) => {
+ (dispatch) => {
 
   dispatch(changeFilter(filter, bounds));
 
