@@ -8,6 +8,9 @@
   margin: 20px;
   color: $darkest-gray;
 
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+
 }
 
 .reservations-component {

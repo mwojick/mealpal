@@ -9,7 +9,7 @@ class TreatIndex extends React.Component {
   }
 
   render() {
-    let { treats, shops, errors, favorites, favIds } = this.props;
+    let { treats, shops, favorites, favIds } = this.props;
 
     if (treats.length === 0) {
       return <div className="treat-errors">

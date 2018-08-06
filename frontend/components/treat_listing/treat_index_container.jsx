@@ -3,14 +3,14 @@ import { connect } from 'react-redux';
 import { resetFilter } from '../../actions/filter_actions';
 import { withRouter } from 'react-router-dom';
 import TreatIndex from './treat_index';
-import { getPreferredCity,
+import { 
    getFavorites,
    getFavTreats,
    getFavIds } from '../../util/selectors';
 
 const msp = ({entities:
-  {users, treats, shops, cities, favorites},
-  session, errors, ui}) => {
+  {users, treats, shops, favorites},
+  session, ui}) => {
 
   let isFav = ui.filters.favorite;
 
@@ -25,9 +25,7 @@ const msp = ({entities:
     shops: shops,
     favorites: favs,
     favIds: favIds,
-    errors: errors.treats,
-    loading: ui.loading.searchLoading,
-    preferredCity: getPreferredCity(session, users, cities)
+    loading: ui.loading.searchLoading
   };
 };
 
