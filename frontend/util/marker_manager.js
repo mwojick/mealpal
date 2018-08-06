@@ -75,10 +75,10 @@ export default class MarkerManager {
 
   highlightMarker(shopId) {
     if (shopId !== this.highlight) {
-      if (this.highlight) {
+      if (this.highlight && this.markers[this.highlight]) {
         this.markers[this.highlight].setIcon(this.orangeIcon);
       }
-      if (shopId) {
+      if (shopId && this.markers[shopId]) {
         this.markers[shopId].setIcon(this.blueIcon);
       }
 
