@@ -1,15 +1,16 @@
 .map-container {
 
   position: sticky;
-  // position: -webkit-sticky;
+  position: -webkit-sticky;
   align-self: flex-start;
-  // width: 100%;
   top: 60px;
   // width: 100%;
 
-
   display: flex;
   justify-content: center;
+
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 #map {
