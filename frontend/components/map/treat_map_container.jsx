@@ -9,7 +9,7 @@ const msp = ({entities: {users, treats, shops, cities}, session, ui}) => {
 
   return {
     treats: Object.values(treats),
-    shops: shops,
+    shops: Object.values(shops),
     preferredCity: getPreferredCity(session, users, cities),
     center: ui.filters.center,
     search: ui.filters.search

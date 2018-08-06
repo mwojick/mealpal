@@ -12,10 +12,8 @@ class TreatMap extends React.Component {
     super(props);
 
     this.updateBounds = this.updateBounds.bind(this);
-  }
 
-  componentDidMount() {
-    const mapOptions = {
+    this.mapOptions = {
       center: {
         lat: this.props.preferredCity.latitude,
         lng: this.props.preferredCity.longitude
@@ -30,27 +28,28 @@ class TreatMap extends React.Component {
       },
     };
 
-    const map = this.refs.map;
-    this.map = new google.maps.Map(map, mapOptions);
+  }
+
+  componentDidMount() {
+
+    const mapRef = this.refs.map;
+    this.map = new google.maps.Map(mapRef, this.mapOptions);
 
     this.MarkerManager =
-      new MarkerManager(this.map, Object.values(this.props.shops));
+      new MarkerManager(this.map, this.props.shops);
 
-    this.MarkerManager.drop();
-    // this.MarkerManager.updateMarkers(Object.values(this.props.shops));
+    // this.MarkerManager.drop();
+    this.MarkerManager.updateMarkers(this.props.shops);
 
     this.registerListeners();
 
   }
 
   componentDidUpdate() {
-
-    // this.MarkerManager.updateMarkers(Object.values(this.props.shops));
-  }
-
-  componentWillReceiveProps(newProps) {
-
-    if (newProps.center) {
+  
+    this.MarkerManager.updateMarkers(this.props.shops);
+    
+    if (this.props.center) {
 
       let latLng = new google.maps.LatLng(
         this.props.preferredCity.latitude,
@@ -59,13 +58,14 @@ class TreatMap extends React.Component {
       this.map.setCenter(latLng);
       this.map.setZoom(15);
 
-      this.updateBounds(newProps.search);
+      this.updateBounds();
 
       this.props.changeFilter("center", false);
     }
   }
 
-  updateBounds(search = this.props.search) {
+
+  updateBounds() {
 
     window.scrollTo(0, 280);
     const { north, south, east, west } = this.map.getBounds().toJSON();
@@ -73,14 +73,13 @@ class TreatMap extends React.Component {
       northEast: { lat: north, lng: east },
       southWest: { lat: south, lng: west } };
     this.props.updateFilter(
-      this.props.preferredCity.name, search, 'bounds', bounds);
+      this.props.preferredCity.name, this.props.search, 'bounds', bounds);
   }
 
 
   registerListeners() {
     google.maps.event.addListener(this.map, 'dragend', this.updateBounds);
     google.maps.event.addListener(this.map, 'zoom_changed', this.updateBounds);
-
   }
 
   render() {

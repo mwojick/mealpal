@@ -7,13 +7,13 @@ class Api::TreatsController < ApplicationController
       @treats = @city.treats
 
       @shops = bounds ? Shop.in_bounds(bounds) : @city.shops
-      shop_ids = @shops.map {|s| s.id}
+      shop_ids = @shops.map { |s| s.id }
 
-      @treats = @treats.select {|treat| shop_ids.include?(treat.shop_id)}
+      @treats = @treats.select { |treat| shop_ids.include?(treat.shop_id) }
 
       render :index
     else
-      render json: ["No treats found"], status: 200
+      render json: ['No treats found'], status: 200
     end
   end
 
@@ -23,32 +23,32 @@ class Api::TreatsController < ApplicationController
       all_treats = @city.treats.includes(:shop)
       all_shops = bounds ? Shop.in_bounds(bounds) : @city.shops
 
-      shop_ids = all_shops.map {|s| s.id}
-      all_treats = all_treats.select {|treat| shop_ids.include?(treat.shop_id)}
+      shop_ids = all_shops.map { |s| s.id }
+      all_treats = all_treats.select { |treat| shop_ids.include?(treat.shop_id) }
 
-      @shops = all_shops
-
-
+      @shops = []
       @treats = []
+
       all_treats.each do |treat|
         if treat.name.downcase.include?(params[:search].downcase)
 
           @treats << treat
+          @shops << treat.shop
         end
         if treat.shop.name.downcase.include?(params[:search].downcase)
           @treats << treat
+          @shops << treat.shop
         end
       end
 
-
-      unless @treats.empty?
-        render :search
+      if @treats.empty?
+        render json: ['No treats found'], status: 200
       else
-        render json: ["No treats found"], status: 200
+        render :search
       end
 
     else
-      render json: ["No city found"], status: 200
+      render json: ['No city found'], status: 200
     end
   end
 

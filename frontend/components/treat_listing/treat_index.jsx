@@ -11,7 +11,7 @@ class TreatIndex extends React.Component {
   render() {
     let { treats, shops, errors, favorites, favIds } = this.props;
 
-    if (errors.length !== 0 || treats.length === 0) {
+    if (treats.length === 0) {
       return <div className="treat-errors">
         <div className="treat-errors-text">
           <div className="treat-errors-sorry">

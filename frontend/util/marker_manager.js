@@ -25,18 +25,14 @@ export default class MarkerManager {
     .forEach(newShop =>
       this.createMarker(newShop));
 
-  let filter1 = Object.keys(this.markers);
-  // console.warn("1", filter1);
-  let filter2 = filter1.filter(shopId => !shopsObj[shopId]);
-  // console.warn("2", filter2);
-  let filter3 = filter2.forEach((shopId) =>
+  Object.keys(this.markers)
+    .filter(shopId => !shopsObj[shopId])
+    .forEach((shopId) =>
     this.removeMarker(this.markers[shopId]));
-  // console.warn("3", filter3);
-
 
   }
 
-  createMarker(shop) {
+  createMarker(shop, animate = null) {
 
     let contentString = '<div >' +
       `${shop.name}` +
@@ -54,15 +50,14 @@ export default class MarkerManager {
       position,
       map: this.map,
       shopId: shop.id,
-      icon: 'https://res.cloudinary.com/mwojick/image/upload/v1533428003/TreatPal/icons/marker-32-orange.ico'
+      icon: 'https://res.cloudinary.com/mwojick/image/upload/v1533428003/TreatPal/icons/marker-32-orange.ico',
+      animation: animate
     });
     
     marker.addListener('click', () => {
-      if (this.openWindow !== infoWindow) {
-        if (this.openWindow) this.openWindow.close();
-        this.openWindow = infoWindow;
-        infoWindow.open(this.map, marker);
-      }
+      if (this.openWindow) this.openWindow.close();
+      this.openWindow = infoWindow;
+      infoWindow.open(this.map, marker);
     });
 
     this.markers[shop.id] = marker;
@@ -79,44 +74,14 @@ export default class MarkerManager {
   drop() {
     this.clearMarkers();
     for (let i = 0; i < this.shops.length; i++) {
-      this.addMarkerWithTimeout({
-        lat: this.shops[i].latitude,
-        lng: this.shops[i].longitude
-      }, i * 25, this.shops[i]);
+      this.addMarkerWithTimeout(this.shops[i], i * 25);
     }
   }
 
 
-  addMarkerWithTimeout(position, timeout, shop) {
+  addMarkerWithTimeout(shop, timeout) {
     window.setTimeout( () => {
-
-      let contentString = '<div >' +
-        `${shop.name}` +
-        '</div >';
-
-      let infoWindow = new google.maps.InfoWindow({
-        content: contentString
-      });
-
-      // Marker icon from:
-      // https://www.iconsdb.com/soylent-red-icons/marker-icon.html
-      let marker = new google.maps.Marker({
-        position: position,
-        map: this.map,
-        shopId: shop.id,
-        icon: 'https://res.cloudinary.com/mwojick/image/upload/v1533428003/TreatPal/icons/marker-32-orange.ico',
-        animation: google.maps.Animation.DROP
-      });
-
-      marker.addListener('click', () => {
-        if (this.openWindow !== infoWindow) {
-          if (this.openWindow) this.openWindow.close();
-          this.openWindow = infoWindow;
-          infoWindow.open(this.map, marker);
-        }
-      });
-
-      this.markers[shop.id] = marker;
+      this.createMarker(shop, google.maps.Animation.DROP)
 
     }, timeout);
   }
