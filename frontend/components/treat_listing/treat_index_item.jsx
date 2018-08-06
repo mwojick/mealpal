@@ -32,7 +32,7 @@ class TreatIndexItem extends React.Component {
     }
   }
 
-  handleToggle(){
+  handleToggle() {
 
     if (this.props.favorite) {
       this.props.deleteFavorite(this.props.favId);
@@ -44,10 +44,14 @@ class TreatIndexItem extends React.Component {
     }
   }
 
+  handleHover(shopId = null) {
+    this.props.changeFilter('marker', shopId)
+  }
+
   render() {
     let { treat, shop, favorite } = this.props;
     return (
-      <div className="treat-box">
+      <div onMouseEnter={()=>this.handleHover(shop.id)} onMouseLeave={()=>this.handleHover()} className="treat-box">
         <button
           className={favorite ? "favorited" : "unfavorited"}
           onClick={()=>this.handleToggle()}

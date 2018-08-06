@@ -8,7 +8,8 @@ const defaultState = {
   'favorite': false,
   'restoday': [],
   'bounds': {},
-  'search': ''
+  'search': '',
+  'marker': null
 };
 
 const filtersReducer = (state = defaultState, action) => {

@@ -22,7 +22,8 @@ const msp = ({entities: {users, treats, shops, favorites, cities}, session, ui})
     shops: shopVals,
     preferredCity: getPreferredCity(session, users, cities),
     center: ui.filters.center,
-    search: ui.filters.search
+    search: ui.filters.search,
+    marker: ui.filters.marker
   };
 };
 

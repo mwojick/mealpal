@@ -4,6 +4,10 @@ export default class MarkerManager {
     this.shops = shops;
     this.markers = {};
     this.openWindow = null;
+    this.highlight = null;
+
+    this.orangeIcon = "https://res.cloudinary.com/mwojick/image/upload/v1533428003/TreatPal/icons/marker-32-orange.ico";
+    this.blueIcon = "https://res.cloudinary.com/mwojick/image/upload/v1533428003/TreatPal/icons/marker-32-blue.ico";
 
     google.maps.event.addListener(this.map, "click", (e) => {
       if (this.openWindow) {
@@ -50,7 +54,7 @@ export default class MarkerManager {
       position,
       map: this.map,
       shopId: shop.id,
-      icon: 'https://res.cloudinary.com/mwojick/image/upload/v1533428003/TreatPal/icons/marker-32-orange.ico',
+      icon: this.orangeIcon,
       animation: animate
     });
     
@@ -69,6 +73,18 @@ export default class MarkerManager {
     delete this.markers[marker.shopId];
   }
 
+  highlightMarker(shopId) {
+    if (shopId !== this.highlight) {
+      if (this.highlight) {
+        this.markers[this.highlight].setIcon(this.orangeIcon);
+      }
+      if (shopId) {
+        this.markers[shopId].setIcon(this.blueIcon);
+      }
+
+      this.highlight = shopId;
+    }
+  }
 
 
   drop() {
