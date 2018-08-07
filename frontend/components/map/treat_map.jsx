@@ -46,6 +46,9 @@ class TreatMap extends React.Component {
   }
 
   componentDidUpdate() {
+    // console.log(this.props.shops);
+    // console.log(this.props.treats);
+    
   
     this.MarkerManager.updateMarkers(this.props.shops);
     this.MarkerManager.highlightMarker(this.props.marker);
@@ -68,13 +71,21 @@ class TreatMap extends React.Component {
 
   updateBounds() {
 
-    window.scrollTo(0, 280);
-    const { north, south, east, west } = this.map.getBounds().toJSON();
-    const bounds = {
-      northEast: { lat: north, lng: east },
-      southWest: { lat: south, lng: west } };
-    this.props.updateFilter(
-      this.props.preferredCity.name, this.props.search, 'bounds', bounds);
+    let mapBounds = this.map.getBounds();
+
+    //handle edge case where bounds are sometimes not defined on refresh
+    if (mapBounds) {
+      window.scrollTo(0, 280);
+
+      const { north, south, east, west } = mapBounds.toJSON();
+
+      const bounds = {
+        northEast: { lat: north, lng: east },
+        southWest: { lat: south, lng: west } };
+
+      this.props.updateFilter(
+        this.props.preferredCity.name, this.props.search, 'bounds', bounds);
+    }
   }
 
 

@@ -31,22 +31,23 @@ export const getFavorites = (favorites) => {
   return favs;
 };
 
-export const getFavTreats = (treats, favs, isFav) => {
-  if (isFav) {
-
-    let treatsFav = [];
-    treats.forEach((tr) => {
-      if (favs[tr.shopId]) {
-        treatsFav.push(tr);
-      }
-    });
-
-    return treatsFav;
-
-  } else {
-    return treats;
-  }
+export const getFavTreats = (treats, favs) => {
+  return treats.filter((treat) => favs[treat.shopId]);
 };
+
+export const getFavShops = (shops, favs) => {
+  return shops.filter((shop) => favs[shop.id]);
+};
+
+
+export const mapShopIdToTreat = (treats) => {
+  let treatHash = {};
+
+  treats.forEach((treat) => {
+    treatHash[treat.shopId] = treat;
+  });
+  return treatHash;
+}
 
 export const getCityReservations = (reservations, treats, sel) => {
   let treatIds = [];

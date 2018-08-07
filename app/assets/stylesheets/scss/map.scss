@@ -26,6 +26,20 @@
   // right: 0px;
 }
 
+.info-window {
+  width: 70px;
+  display: flex;
+}
+
+.info-win-desc {
+  // display: block;
+  // width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: $main;
+}
+
 @media (max-width: 800px) {
   .map-container {
 

@@ -38,9 +38,13 @@ export default class MarkerManager {
 
   createMarker(shop, animate = null) {
 
-    let contentString = '<div >' +
-      `${shop.name}` +
-      '</div >';
+    let contentString = 
+      `<div class="info-window">
+      
+        <div class="info-win-desc">
+          ${shop.name}
+        </div >
+      </div >`;
 
     let infoWindow = new google.maps.InfoWindow({
       content: contentString
@@ -64,8 +68,18 @@ export default class MarkerManager {
       infoWindow.open(this.map, marker);
     });
 
+    marker.addListener('mouseover', () => {
+      marker.setIcon(this.blueIcon);
+    });
+    
+    marker.addListener('mouseout', () => {
+      marker.setIcon(this.orangeIcon);
+    });
+
     this.markers[shop.id] = marker;
   }
+
+  
 
 
   removeMarker(marker) {

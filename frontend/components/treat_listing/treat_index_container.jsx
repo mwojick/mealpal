@@ -13,15 +13,19 @@ const msp = ({entities:
   session, ui}) => {
 
   let isFav = ui.filters.favorite;
+  let treatVals = Object.values(treats)
 
   let favIds = getFavIds(favorites);
   let favs = getFavorites(favorites);
-  let treatsFavs = getFavTreats(Object.values(treats), favs, isFav);
+
+  if (isFav) {
+    treatVals = getFavTreats(treatVals, favs);
+  }
 
 
   return {
     currentUser: users[session.id],
-    treats: treatsFavs,
+    treats: treatVals,
     shops: shops,
     favorites: favs,
     favIds: favIds,
