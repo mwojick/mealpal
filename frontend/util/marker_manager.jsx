@@ -43,11 +43,14 @@ export default class MarkerManager {
         <img class="info-win-img" src="${treat.imageUrl}"/>
       
         <div class="info-win-desc">
-          <div class="info-win-treatname">
-            ${treat.name}
+          <div class="info-win-name">
+            ${treat.name.toUpperCase()}
           </div >
-          <div class="info-win-shopname">
-            ${shop.name}
+          <div class="info-win-name">
+            ${shop.name.toUpperCase()}
+          </div >
+          <div class="info-win-name info-win-reserve">
+            RESERVE
           </div >
         </div >
       </div >`;
