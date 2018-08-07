@@ -26,9 +26,15 @@
   // right: 0px;
 }
 
+.gm-style-iw {
+  left: 1px !important;
+  top: 8px !important;
+  height: 100px;
+  margin-left: 8px;
+  // border-radius: 3px;
+}
+
 .info-window {
-  width: 250px;
-  height: 100%;
   display: flex;
   font-family: $main-font-family;
 }
@@ -36,12 +42,12 @@
 .info-win-desc {
   display: flex;
   flex-direction: column;
-  // align-items: center;
   justify-content: center;
+
   text-align: center;
   margin-left: 10px;
-
-  // color: $main;
+  height: 100px;
+  width: 125px;
 }
 
 .info-win-img {
@@ -56,7 +62,6 @@
 
   color: $dark-gray-tb;
   font-size: 16px;
-  width: 140px;
 
   margin: 5px 0px 5px 0px;
 }
@@ -71,7 +76,6 @@
 
 @media (max-width: $media2) {
   .map-container {
-
     position: relative;
     top: 0px;
     width: 100%;

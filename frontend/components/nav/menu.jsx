@@ -40,7 +40,7 @@ class Menu extends React.Component {
             </li>
 
             <li onClick={() => this.props.history.push('/account')}>
-              <div><img src="https://res.cloudinary.com/mwojick/image/upload/v1532988518/TreatPal/icons/profile.png"></img>My Account</div>
+              <div><img src="https://res.cloudinary.com/mwojick/image/upload/v1533677351/TreatPal/icons/profile2.png"></img>My Account</div>
             </li>
 
             <li onClick={() => this.props.history.push('/favorites')}>
@@ -48,7 +48,7 @@ class Menu extends React.Component {
             </li>
 
             <li onClick={() => this.props.history.push('/history')}>
-              <div><img src="https://res.cloudinary.com/mwojick/image/upload/v1528591997/TreatPal/icons/history.png"></img>History</div>
+              <div><img src="https://res.cloudinary.com/mwojick/image/upload/v1533677351/TreatPal/icons/history2.png"></img>History</div>
             </li>
 
             <li onClick={this.handleLogout} className="menu-logout">

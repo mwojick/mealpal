@@ -12,6 +12,8 @@ class Greeting extends React.Component {
   }
 
   componentDidMount(){
+    console.log(this.props.currentUser.preferredCity);
+    
     this.props.fetchTreats(this.props.currentUser.preferredCity);
     this.props.fetchCities();
     this.props.fetchFavorites();
@@ -25,6 +27,7 @@ class Greeting extends React.Component {
     }
     if (nextProps.currentUser.preferredCity !==
       this.props.currentUser.preferredCity) {
+        console.log(nextProps.currentUser.preferredCity);
         this.props.fetchTreats(nextProps.currentUser.preferredCity);
         this.props.resetFilter();
     }
