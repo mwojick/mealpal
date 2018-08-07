@@ -36,10 +36,10 @@ class TreatMap extends React.Component {
     this.map = new google.maps.Map(mapRef, this.mapOptions);
 
     this.MarkerManager =
-      new MarkerManager(this.map, this.props.shops);
+      new MarkerManager(this.map);
 
-    // this.MarkerManager.drop();
-    this.MarkerManager.updateMarkers(this.props.shops);
+    // this.MarkerManager.drop(this.props.shops, this.props.treats);
+    this.MarkerManager.updateMarkers(this.props.shops, this.props.treats);
 
     this.registerListeners();
 
@@ -48,9 +48,8 @@ class TreatMap extends React.Component {
   componentDidUpdate() {
     // console.log(this.props.shops);
     // console.log(this.props.treats);
-    
-  
-    this.MarkerManager.updateMarkers(this.props.shops);
+
+    this.MarkerManager.updateMarkers(this.props.shops, this.props.treats);
     this.MarkerManager.highlightMarker(this.props.marker);
     
     if (this.props.center) {

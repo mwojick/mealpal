@@ -1,7 +1,6 @@
 export default class MarkerManager {
-  constructor(map, shops) {
+  constructor(map) {
     this.map = map;
-    this.shops = shops;
     this.markers = {};
     this.openWindow = null;
     this.highlight = null;
@@ -17,7 +16,7 @@ export default class MarkerManager {
     });
   }
 
-  updateMarkers(shops) {
+  updateMarkers(shops, treats) {
   const shopsObj = {};
 
   shops.forEach((shop) => {
@@ -27,7 +26,7 @@ export default class MarkerManager {
   shops
     .filter(shop => !this.markers[shop.id])
     .forEach(newShop =>
-      this.createMarker(newShop));
+      this.createMarker(newShop, treats[newShop.id]));
 
   Object.keys(this.markers)
     .filter(shopId => !shopsObj[shopId])
@@ -36,13 +35,20 @@ export default class MarkerManager {
 
   }
 
-  createMarker(shop, animate = null) {
+  createMarker(shop, treat, animate = null) {
 
     let contentString = 
       `<div class="info-window">
+
+        <img class="info-win-img" src="${treat.imageUrl}"/>
       
         <div class="info-win-desc">
-          ${shop.name}
+          <div class="info-win-treatname">
+            ${treat.name}
+          </div >
+          <div class="info-win-shopname">
+            ${shop.name}
+          </div >
         </div >
       </div >`;
 
@@ -79,8 +85,6 @@ export default class MarkerManager {
     this.markers[shop.id] = marker;
   }
 
-  
-
 
   removeMarker(marker) {
     this.markers[marker.shopId].setMap(null);
@@ -100,18 +104,20 @@ export default class MarkerManager {
     }
   }
 
+  
 
-  drop() {
+
+  drop(shops, treats) {
     this.clearMarkers();
-    for (let i = 0; i < this.shops.length; i++) {
-      this.addMarkerWithTimeout(this.shops[i], i * 25);
+    for (let i = 0; i < shops.length; i++) {
+      this.addMarkerWithTimeout(shops[i], treats[shops[i].id], i * 25);
     }
   }
 
 
-  addMarkerWithTimeout(shop, timeout) {
+  addMarkerWithTimeout(shop, treat, timeout) {
     window.setTimeout( () => {
-      this.createMarker(shop, google.maps.Animation.DROP)
+      this.createMarker(shop, treat, google.maps.Animation.DROP)
 
     }, timeout);
   }
@@ -124,4 +130,5 @@ export default class MarkerManager {
     this.markers = {};
   }
   
+
 }
