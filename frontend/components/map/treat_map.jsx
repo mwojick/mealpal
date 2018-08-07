@@ -46,8 +46,6 @@ class TreatMap extends React.Component {
   }
 
   componentDidUpdate() {
-    // console.log(this.props.shops);
-    // console.log(this.props.treats);
 
     this.MarkerManager.updateMarkers(this.props.shops, this.props.treats);
     this.MarkerManager.highlightMarker(this.props.marker);

@@ -14,7 +14,7 @@
 }
 
 #map {
-  min-width: 30vw;
+  min-width: 33vw;
 
   height: calc(100vh - 60px);
 
@@ -69,7 +69,7 @@
   cursor: pointer;
 }
 
-@media (max-width: 800px) {
+@media (max-width: $media2) {
   .map-container {
 
     position: relative;

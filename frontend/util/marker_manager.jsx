@@ -5,6 +5,8 @@ export default class MarkerManager {
     this.openWindow = null;
     this.highlight = null;
 
+    // Marker icons from:
+    // https://www.iconsdb.com/soylent-red-icons/marker-icon.html
     this.orangeIcon = "https://res.cloudinary.com/mwojick/image/upload/v1533428003/TreatPal/icons/marker-32-orange.ico";
     this.blueIcon = "https://res.cloudinary.com/mwojick/image/upload/v1533428003/TreatPal/icons/marker-32-blue.ico";
 
@@ -61,8 +63,6 @@ export default class MarkerManager {
 
     const position = new google.maps.LatLng(shop.latitude, shop.longitude);
 
-    // Marker icon from:
-    // https://www.iconsdb.com/soylent-red-icons/marker-icon.html
     const marker = new google.maps.Marker({
       position,
       map: this.map,

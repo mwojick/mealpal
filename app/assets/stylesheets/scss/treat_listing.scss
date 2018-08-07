@@ -59,25 +59,25 @@
 
 }
 
-@media (min-width: 600px) {
+@media (min-width: $media0) {
   .treat-listing {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: $media2) {
   .treat-listing {
     width: auto;
   }
 }
 
-@media (min-width: 1000px) {
+@media (min-width: $media2_5) {
   .treat-listing {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media (min-width: 1400px) {
+@media (min-width: $media4) {
   .treat-listing {
     grid-template-columns: repeat(4, 1fr);
   }
