@@ -7,13 +7,11 @@ import ReservationsContainer from '../reservations/reservations_container';
 import LoadingIcon from './loading_icon';
 
 class Greeting extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
   }
 
-  componentDidMount(){
-    console.log(this.props.currentUser.preferredCity);
-    
+  componentDidMount() {
     this.props.fetchTreats(this.props.currentUser.preferredCity);
     this.props.fetchCities();
     this.props.fetchFavorites();
@@ -27,10 +25,33 @@ class Greeting extends React.Component {
     }
     if (nextProps.currentUser.preferredCity !==
       this.props.currentUser.preferredCity) {
-        console.log(nextProps.currentUser.preferredCity);
-        this.props.fetchTreats(nextProps.currentUser.preferredCity);
-        this.props.resetFilter();
+      this.props.fetchTreats(nextProps.currentUser.preferredCity);
+      this.props.resetFilter();
     }
+  }
+
+  handleCollapse() {
+    let arrowR = this.refs.arrowRight;
+    let arrowL = this.refs.arrowLeft;
+    let map = document.getElementById("map");
+    let treatListing = document.getElementsByClassName("treat-listing")[0];
+
+    if (map.style.minWidth !== "0px") {
+      map.classList.toggle("map-transition");
+      map.style.minWidth = "0px";
+      arrowL.style.display = "block";
+      arrowR.style.display = "none";
+      treatListing.classList.toggle("treat-listing-map-collapse")
+    } else {
+      setTimeout(() => {
+        map.classList.toggle("map-transition");
+      }, 300)
+      map.style.minWidth = "33vw";
+      arrowL.style.display = "none";
+      arrowR.style.display = "block";
+      treatListing.classList.toggle("treat-listing-map-collapse")
+    }
+
   }
 
   render() {
@@ -52,11 +73,13 @@ class Greeting extends React.Component {
 
         <div className="treats-and-map">
           <TreatIndexContainer />
+
+          <div ref="coll" onClick={() => this.handleCollapse()} className="collapsible-map">
+            <div ref="arrowLeft" className="arrow arrow-left"></div>
+            <div ref="arrowRight" className="arrow arrow-right"></div>
+          </div>
           <div className="map-container">
             <TreatMapContainer />
-          </div>
-
-          <div id='map-bound'>
           </div>
 
         </div>

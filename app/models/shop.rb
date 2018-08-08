@@ -15,10 +15,6 @@
 class Shop < ApplicationRecord
   validates :name, :latitude, :longitude, presence: true
 
-  # reverse_geocoded_by :latitude, :longitude
-  # # auto-fetch address
-  # after_validation :reverse_geocode
-
   has_many :treats
   has_many :favorites
   belongs_to :city
@@ -29,6 +25,4 @@ class Shop < ApplicationRecord
       .where("longitude > ?", bounds[:southWest][:lng])
       .where("longitude < ?", bounds[:northEast][:lng])
   end
-
-
 end

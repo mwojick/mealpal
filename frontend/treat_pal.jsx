@@ -1,12 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {fetchTreats, searchTreats} from './actions/treat_actions';
-import {fetchCities} from './actions/city_actions';
-
+// import {fetchTreats, searchTreats} from './actions/treat_actions';
+// import {fetchCities} from './actions/city_actions';
 // import {changeFilter} from './actions/filter_actions';
-
-import {updateUser} from './actions/user_actions';
-
+// import {updateUser} from './actions/user_actions';
 // import {fetchTreats, searchTreats} from './util/treat_api_util';
 
 import configureStore from './store/store';
@@ -43,8 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // window.searchTreats = searchTreats;
   // window.fetchCities = fetchCities;
   // window.updateUser = updateUser;
-  
+
   //TESTING END:
 
-  ReactDOM.render(<Root store={store}/>, root);
+  ReactDOM.render(<Root store={store} />, root);
 });

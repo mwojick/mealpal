@@ -1,6 +1,6 @@
 import React from 'react';
 import MarkerManager from '../../util/marker_manager';
-import Resizable from 're-resizable';
+// import Resizable from 're-resizable';
 
 const getCoordsObj = latLng => ({
   lat: latLng.lat(),
@@ -8,7 +8,7 @@ const getCoordsObj = latLng => ({
 });
 
 class TreatMap extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.updateBounds = this.updateBounds.bind(this);
@@ -21,7 +21,8 @@ class TreatMap extends React.Component {
       zoom: 15,
       clickableIcons: false,
       mapTypeControlOptions: {
-        style: google.maps.MapTypeControlStyle.DROPDOWN_MENU },
+        style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+      },
       zoomControl: true,
       zoomControlOptions: {
         position: google.maps.ControlPosition.RIGHT_CENTER
@@ -49,7 +50,7 @@ class TreatMap extends React.Component {
 
     this.MarkerManager.updateMarkers(this.props.shops, this.props.treats);
     this.MarkerManager.highlightMarker(this.props.marker);
-    
+
     if (this.props.center) {
 
       let latLng = new google.maps.LatLng(
@@ -78,7 +79,8 @@ class TreatMap extends React.Component {
 
       const bounds = {
         northEast: { lat: north, lng: east },
-        southWest: { lat: south, lng: west } };
+        southWest: { lat: south, lng: west }
+      };
 
       this.props.updateFilter(
         this.props.preferredCity.name, this.props.search, 'bounds', bounds);
@@ -93,26 +95,10 @@ class TreatMap extends React.Component {
 
   render() {
     return (
-      <Resizable enable={
-        {
-          top: false,
-          right: false,
-          bottom: false,
-          left: false,
-          topRight: false,
-          bottomRight: false,
-          bottomLeft: false,
-          topLeft: false
-        }
-      }
-
-      >
       <div className="map-resize">
         <div id='map' ref='map'>
-
         </div>
       </div>
-      </Resizable>
     );
   }
 }

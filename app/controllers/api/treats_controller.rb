@@ -23,7 +23,15 @@ class Api::TreatsController < ApplicationController
       all_treats = @city.treats.includes(:shop)
       all_shops = bounds ? Shop.in_bounds(bounds) : @city.shops
 
+
+      # p "all treats shop ids....."
+      # p all_treats.map { |tr| tr.shop_id } 
+
       shop_ids = all_shops.map { |s| s.id }
+
+      # p "all shops ids....."
+      # p shop_ids
+
       all_treats = all_treats.select { |treat| shop_ids.include?(treat.shop_id) }
 
       @shops = []
