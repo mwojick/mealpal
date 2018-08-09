@@ -11,7 +11,10 @@ function Modal({ modal, closeModal }) {
   let component;
   switch (modal) {
     case 'reserve':
-      component = <ReservationModal />;
+      component =
+        <ReservationModal
+          treat={modal.treat}
+          shop={modal.shop} />;
       break;
     default:
       return null;

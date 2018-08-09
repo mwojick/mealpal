@@ -3,7 +3,12 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { openModal, closeModal } from '../../actions/modal_actions';
 
-import { handleReserve } from '../../actions/reservation_actions';
+import {
+  createReservation,
+  updateReservation,
+  handleReserve
+} from '../../actions/reservation_actions';
+
 import { times, timeVals } from '../../util/time_vars';
 
 class ReservationModal extends React.Component {
@@ -23,6 +28,8 @@ class ReservationModal extends React.Component {
   render() {
     return (
       <div>
+
+        <div onClick={this.props.closeModal} className="close-x">X &times;</div>
 
         <select
           value={this.state.seltime}
@@ -62,8 +69,10 @@ const msp = (state, ownProps) => {
 
 const mdp = (dispatch) => {
   return {
-    openConfirmModal: () => dispatch(openModal('confirm')),
-    closeModal: () => dispatch(closeModal())
+    openConfirmModal: () => dispatch(openModal({ type: 'confirm' })),
+    closeModal: () => dispatch(closeModal()),
+    createReservation: (res) => dispatch(createReservation(res)),
+    updateReservation: (res) => dispatch(updateReservation(res))
   };
 };
 

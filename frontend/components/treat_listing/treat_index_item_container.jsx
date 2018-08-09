@@ -2,9 +2,14 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import TreatIndexItem from './treat_index_item';
 import { createFavorite, deleteFavorite } from '../../actions/favorite_actions';
-import { createReservation,
-   updateReservation } from '../../actions/reservation_actions';
+
+import {
+  createReservation,
+  updateReservation
+} from '../../actions/reservation_actions';
+
 import { changeFilter } from '../../actions/filter_actions';
+import { openModal } from '../../actions/modal_actions';
 
 const msp = (state, ownProps) => {
   return {
@@ -19,6 +24,7 @@ const msp = (state, ownProps) => {
 
 const mdp = (dispatch) => {
   return {
+    openConfirmModal: () => dispatch(openModal({ type: 'confirm' })),
     createFavorite: (fav) => dispatch(createFavorite(fav)),
     deleteFavorite: (id) => dispatch(deleteFavorite(id)),
     createReservation: (res) => dispatch(createReservation(res)),

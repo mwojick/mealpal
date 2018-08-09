@@ -12,11 +12,11 @@ class Greeting extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchTreats(this.props.currentUser.preferredCity);
-    this.props.fetchCities();
-    this.props.fetchFavorites();
-    this.props.fetchReservations();
-    this.props.resetFilter();
+    this.props.fetchCities()
+      .then(this.props.fetchTreats(this.props.currentUser.preferredCity))
+      .then(this.props.fetchFavorites())
+      .then(this.props.fetchReservations())
+      .then(this.props.resetFilter());
   }
 
   componentWillReceiveProps(nextProps) {
@@ -25,8 +25,8 @@ class Greeting extends React.Component {
     }
     if (nextProps.currentUser.preferredCity !==
       this.props.currentUser.preferredCity) {
-      this.props.fetchTreats(nextProps.currentUser.preferredCity);
-      this.props.resetFilter();
+      this.props.fetchTreats(nextProps.currentUser.preferredCity)
+        .then(this.props.resetFilter());
     }
   }
 
