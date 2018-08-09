@@ -1,5 +1,7 @@
 import * as reservationApiUtil from '../util/reservation_api_util';
-import { changeFilter } from './filter_actions';
+import {
+  changeFilter
+} from './filter_actions';
 
 export const RECEIVE_RESERVATION = "RECEIVE_RESERVATION";
 export const RECEIVE_ALL_RESERVATIONS = "RECEIVE_ALL_RESERVATIONS";
@@ -64,3 +66,22 @@ const receiveErrors = (errors) => {
     errors
   };
 };
+
+
+export const handleReserve = (props, state) => {
+  window.scrollTo(0, 0);
+  if (props.resToday.constructor !== Array) {
+    let newRes = Object.assign({}, props.resToday);
+    newRes.treatId = props.treat.id;
+    newRes.time = state.seltime;
+
+    props.updateReservation(newRes);
+  } else {
+    let newRes = {
+      userId: props.currentUser.id,
+      treatId: props.treat.id,
+      time: state.seltime
+    };
+    props.createReservation(newRes);
+  }
+}
