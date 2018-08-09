@@ -46,6 +46,17 @@ class TreatMap extends React.Component {
 
   }
 
+  // fix for when preferredCity is not available on tab reopen
+  componentWillReceiveProps(nextProps) {
+
+    if (nextProps.preferredCity.latitude !== this.props.preferredCity.latitude) {
+      let latLng = new google.maps.LatLng(
+        nextProps.preferredCity.latitude,
+        nextProps.preferredCity.longitude);
+      this.map.setCenter(latLng);
+    }
+  }
+
   componentDidUpdate() {
 
     this.MarkerManager.updateMarkers(this.props.shops, this.props.treats);

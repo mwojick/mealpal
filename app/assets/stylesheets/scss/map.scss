@@ -23,7 +23,7 @@
   position: -webkit-sticky;
   top: 60px;
   border-left: 1px solid $lightest-gray;
-  width: 40px;
+  min-width: 26px;
   height: calc(100vh - 60px);
   display: flex;
   flex-direction: column;

@@ -1,12 +1,13 @@
-
 export const getPreferredCity = (session, users, cities) => {
   let currentUser = users[session.id];
 
   let preferredCity = Object.values(cities).filter(city =>
     currentUser.preferredCity === city.name);
 
-  preferredCity = preferredCity[Object.keys(preferredCity)[0]]
-  || { latitude: 37.789232, longitude: -122.409499};
+  preferredCity = preferredCity[Object.keys(preferredCity)[0]] || {
+    latitude: 37.789232,
+    longitude: -122.409499
+  };
 
   return preferredCity;
 };
@@ -70,7 +71,7 @@ export const getCityReservations = (reservations, treats, sel) => {
   return cityReses;
 };
 
-Date.prototype.addDays = function(days) {
+Date.prototype.addDays = function (days) {
   var dat = new Date(this.valueOf());
   dat.setDate(dat.getDate() + days);
   return dat;
@@ -96,7 +97,7 @@ export const getPastFive = (reses) => {
   let j = 0;
   for (let i = 0; i < 5; i++) {
 
-    if ( compareDates(reses[j].date, djs) ) {
+    if (compareDates(reses[j].date, djs)) {
       fiveReses.push(reses[j]);
       j = j + 1;
     } else {
@@ -110,9 +111,3 @@ export const getPastFive = (reses) => {
 
   return fiveReses;
 };
-
-
-
-
-
-//

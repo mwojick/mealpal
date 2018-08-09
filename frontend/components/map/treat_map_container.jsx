@@ -5,12 +5,14 @@ import TreatMap from './treat_map';
 import { updateFilter, changeFilter } from '../../actions/filter_actions';
 import { getPreferredCity } from '../../util/selectors';
 
-import { getFavorites, 
+import {
+  getFavorites,
   getFavTreats,
   getFavShops,
-  mapShopIdToTreat } from '../../util/selectors';
+  mapShopIdToTreat
+} from '../../util/selectors';
 
-const msp = ({entities: {users, treats, shops, favorites, cities}, session, ui}) => {
+const msp = ({ entities: { users, treats, shops, favorites, cities }, session, ui }) => {
 
   let isFav = ui.filters.favorite;
   let shopVals = Object.values(shops);
@@ -36,7 +38,7 @@ const msp = ({entities: {users, treats, shops, favorites, cities}, session, ui})
 const mdp = (dispatch) => {
   return {
     updateFilter: (city, search, filter, bounds) =>
-     dispatch(updateFilter(city, search, filter, bounds)),
+      dispatch(updateFilter(city, search, filter, bounds)),
     changeFilter: (filter, value) => dispatch(changeFilter(filter, value))
   };
 };
