@@ -21,9 +21,7 @@ function Modal({ modal, closeModal }) {
   }
   return (
     <div className="modal-background" onClick={closeModal}>
-      <div className="modal-child animated fadeInDown" onClick={e => e.stopPropagation()}>
-        {component}
-      </div>
+      {component}
     </div>
   );
 }

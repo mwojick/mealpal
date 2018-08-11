@@ -73,7 +73,7 @@ class TreatMap extends React.Component {
 
       this.updateBounds();
 
-      this.props.changeFilter("center", false);
+      this.props.changeFilter('center', false);
     }
   }
 

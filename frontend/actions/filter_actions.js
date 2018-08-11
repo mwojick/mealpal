@@ -1,16 +1,10 @@
-import { searchTreats } from './treat_actions';
+import {
+  searchTreats
+} from './treat_actions';
 
 export const UPDATE_FILTER = "UPDATE_FILTER";
 export const RESET_FILTER = "RESET_FILTER";
 
-export const resetCenter = () => {
-  return {
-    type: RESET_FILTER,
-    value: {
-      'center': true
-    }
-  };
-};
 
 export const resetFilter = () => {
   return {
@@ -23,21 +17,6 @@ export const resetFilter = () => {
   };
 };
 
-export const resetFilterSearch = () => {
-  return {
-    type: RESET_FILTER,
-    value: {
-      'favorite': false,
-      'search': ''
-    }
-  };
-};
-//
-// export const resetFilter = (dispatch) => {
-//   dispatch(resetFilterSearch);
-//   dispatch(resetCenter);
-// };
-
 
 export const changeFilter = (filter, value) => {
   return {
@@ -48,13 +27,13 @@ export const changeFilter = (filter, value) => {
 };
 
 export const updateFilter = (city, search, filter, bounds) =>
- (dispatch) => {
+  (dispatch) => {
 
-  dispatch(changeFilter(filter, bounds));
+    dispatch(changeFilter(filter, bounds));
 
-  return searchTreats({
-    bounds: bounds,
-    city: city,
-    search: search
-  })(dispatch);
-};
+    return searchTreats({
+      bounds: bounds,
+      city: city,
+      search: search
+    })(dispatch);
+  };

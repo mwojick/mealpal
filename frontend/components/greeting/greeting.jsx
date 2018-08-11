@@ -41,7 +41,9 @@ class Greeting extends React.Component {
       map.style.minWidth = "0px";
       arrowL.style.display = "block";
       arrowR.style.display = "none";
-      treatListing.classList.toggle("treat-listing-map-collapse")
+      if (treatListing) {
+        treatListing.classList.toggle("treat-listing-map-collapse")
+      }
     } else {
       setTimeout(() => {
         map.classList.toggle("map-transition");
@@ -49,7 +51,9 @@ class Greeting extends React.Component {
       map.style.minWidth = "33vw";
       arrowL.style.display = "none";
       arrowR.style.display = "block";
-      treatListing.classList.toggle("treat-listing-map-collapse")
+      if (treatListing) {
+        treatListing.classList.toggle("treat-listing-map-collapse")
+      }
     }
 
   }
@@ -74,7 +78,7 @@ class Greeting extends React.Component {
         <div className="treats-and-map">
           <TreatIndexContainer />
 
-          <div ref="coll" onClick={() => this.handleCollapse()} className="collapsible-map">
+          <div ref="coll" onClick={() => this.handleCollapse()} className="collapsible-map" id="collapsible-map">
             <div ref="arrowLeft" className="arrow arrow-left"></div>
             <div ref="arrowRight" className="arrow arrow-right"></div>
           </div>

@@ -1,11 +1,30 @@
 import React from 'react';
 // import { Link, Redirect } from 'react-router-dom';
 import TreatIndexItemContainer from
-'../treat_listing/treat_index_item_container';
+  '../treat_listing/treat_index_item_container';
 
 class TreatIndex extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
+  }
+
+  handleClick() {
+    // handles resetting filters when map is collapsed
+    let coll = document.getElementById("collapsible-map");
+    let map = document.getElementById("map");
+    if (map.style.minWidth === "0px") {
+      let myPromise = new Promise((resolve, reject) => {
+        coll.click();
+        setTimeout(() => {
+          resolve();
+        }, 300)
+      });
+      myPromise.then((success) => {
+        this.props.resetFilter()
+      });
+    } else {
+      this.props.resetFilter();
+    }
   }
 
   render() {
@@ -32,7 +51,7 @@ class TreatIndex extends React.Component {
             </li>
           </div>
         </div>
-        <button onClick={()=>this.props.resetFilter()}
+        <button onClick={() => this.handleClick()}
           className="treat-errors-reset">
           RESET ALL!
         </button>
@@ -41,13 +60,13 @@ class TreatIndex extends React.Component {
 
     return (
       <div className="treat-listing">
-        {treats.map( (treat) => {
+        {treats.map((treat) => {
           return <TreatIndexItemContainer
             key={treat.id}
             treat={treat}
             shop={shops[treat.shopId]}
             favorite={favorites[treat.shopId]}
-            favId={favIds[treat.shopId]}/>;
+            favId={favIds[treat.shopId]} />;
         })}
       </div>
     );

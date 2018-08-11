@@ -1,5 +1,6 @@
 .modal-background {
   position: fixed;
+  font-family: 'Lato', sans-serif;
   top: 0;
   bottom: 0;
   right: 0;
@@ -8,11 +9,11 @@
   z-index: 20;
 }
 
-.modal-child {
+.reserve-modal {
   background: white;
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: calc(50% - 200px);
+  left: calc(50% - 400px);
   transform: translate(-50%, -50%);
 }
 
@@ -42,4 +43,14 @@
   right: 10%;
   left: 10%;
   text-align: center;
+}
+
+.close-x {
+  cursor: pointer;
+  font-size: 30px;
+  width: 30px;
+}
+
+.close-x:hover {
+  background: $light-gray;
 }

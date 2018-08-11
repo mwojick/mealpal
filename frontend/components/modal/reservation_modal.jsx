@@ -27,7 +27,7 @@ class ReservationModal extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="reserve-modal animated fadeInDown" onClick={e => e.stopPropagation()}>
 
         <div onClick={this.props.closeModal} className="close-x">&times;</div>
 
