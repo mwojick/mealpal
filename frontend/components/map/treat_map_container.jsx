@@ -5,6 +5,8 @@ import TreatMap from './treat_map';
 import { updateFilter, changeFilter } from '../../actions/filter_actions';
 import { getPreferredCity } from '../../util/selectors';
 
+import { openModal } from '../../actions/modal_actions';
+
 import {
   getFavorites,
   getFavTreats,
@@ -39,7 +41,8 @@ const mdp = (dispatch) => {
   return {
     updateFilter: (city, search, filter, bounds) =>
       dispatch(updateFilter(city, search, filter, bounds)),
-    changeFilter: (filter, value) => dispatch(changeFilter(filter, value))
+    changeFilter: (filter, value) => dispatch(changeFilter(filter, value)),
+    openReserveModal: (treat, shop) => dispatch(openModal({ type: 'reserve', treat: treat, shop: shop }))
   };
 };
 

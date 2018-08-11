@@ -4,6 +4,8 @@ export default class MarkerManager {
     this.markers = {};
     this.openWindow = null;
     this.highlight = null;
+    this.resButton = null;
+    this.reserveFunction = null;
 
     // Marker icons from:
     // https://www.iconsdb.com/soylent-red-icons/marker-icon.html
@@ -12,34 +14,38 @@ export default class MarkerManager {
 
     google.maps.event.addListener(this.map, "click", (e) => {
       if (this.openWindow) {
+        this.resButton.removeEventListener("click", this.reserveFunction);
         this.openWindow.close();
+
         this.openWindow = null;
+        this.resButton = null;
+        this.reserveFunction = null;
       }
     });
   }
 
   updateMarkers(shops, treats) {
-  const shopsObj = {};
+    const shopsObj = {};
 
-  shops.forEach((shop) => {
-    shopsObj[shop.id] = shop;
-  });
+    shops.forEach((shop) => {
+      shopsObj[shop.id] = shop;
+    });
 
-  shops
-    .filter(shop => !this.markers[shop.id])
-    .forEach(newShop =>
-      this.createMarker(newShop, treats[newShop.id]));
+    shops
+      .filter(shop => !this.markers[shop.id])
+      .forEach(newShop =>
+        this.createMarker(newShop, treats[newShop.id]));
 
-  Object.keys(this.markers)
-    .filter(shopId => !shopsObj[shopId])
-    .forEach((shopId) =>
-    this.removeMarker(this.markers[shopId]));
+    Object.keys(this.markers)
+      .filter(shopId => !shopsObj[shopId])
+      .forEach((shopId) =>
+        this.removeMarker(this.markers[shopId]));
 
   }
 
   createMarker(shop, treat, animate = null) {
 
-    let contentString = 
+    let contentString =
       `<div class="info-window">
 
         <img class="info-win-img" src="${treat.imageUrl}"/>
@@ -51,11 +57,13 @@ export default class MarkerManager {
           <div class="info-win-name">
             ${shop.name.toUpperCase()}
           </div >
-          <div class="info-win-name info-win-reserve">
+          <div id="map-reserve" class="info-win-name info-win-reserve">
             RESERVE
           </div >
         </div >
       </div >`;
+
+
 
     let infoWindow = new google.maps.InfoWindow({
       content: contentString
@@ -70,17 +78,28 @@ export default class MarkerManager {
       icon: this.orangeIcon,
       animation: animate
     });
-    
+
     marker.addListener('click', () => {
-      if (this.openWindow) this.openWindow.close();
+      if (this.openWindow) {
+        this.resButton.removeEventListener("click", this.reserveFunction);
+        this.openWindow.close();
+      }
       this.openWindow = infoWindow;
       infoWindow.open(this.map, marker);
+
+      this.resButton = document.getElementById("map-reserve");
+
+      this.reserveFunction = () => {
+        console.log(shop);
+      }
+
+      this.resButton.addEventListener("click", this.reserveFunction)
     });
 
     marker.addListener('mouseover', () => {
       marker.setIcon(this.blueIcon);
     });
-    
+
     marker.addListener('mouseout', () => {
       marker.setIcon(this.orangeIcon);
     });
@@ -107,31 +126,31 @@ export default class MarkerManager {
     }
   }
 
-  
 
 
-  drop(shops, treats) {
-    this.clearMarkers();
-    for (let i = 0; i < shops.length; i++) {
-      this.addMarkerWithTimeout(shops[i], treats[shops[i].id], i * 25);
-    }
-  }
+
+  // drop(shops, treats) {
+  //   this.clearMarkers();
+  //   for (let i = 0; i < shops.length; i++) {
+  //     this.addMarkerWithTimeout(shops[i], treats[shops[i].id], i * 25);
+  //   }
+  // }
 
 
-  addMarkerWithTimeout(shop, treat, timeout) {
-    window.setTimeout( () => {
-      this.createMarker(shop, treat, google.maps.Animation.DROP)
+  // addMarkerWithTimeout(shop, treat, timeout) {
+  //   window.setTimeout(() => {
+  //     this.createMarker(shop, treat, google.maps.Animation.DROP)
 
-    }, timeout);
-  }
+  //   }, timeout);
+  // }
 
-  clearMarkers() {
-    let keys = Object.keys(this.markers);
-    keys.forEach((k) => {
-      this.markers[k].setMap(null);
-    });
-    this.markers = {};
-  }
-  
+  // clearMarkers() {
+  //   let keys = Object.keys(this.markers);
+  //   keys.forEach((k) => {
+  //     this.markers[k].setMap(null);
+  //   });
+  //   this.markers = {};
+  // }
+
 
 }
