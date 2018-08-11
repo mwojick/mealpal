@@ -13,8 +13,14 @@
   background: white;
   position: absolute;
   top: calc(50% - 200px);
-  left: calc(50% - 400px);
-  transform: translate(-50%, -50%);
+  left: calc(50% - 400px); // transform: translate(-50%, -50%);
+}
+
+.confirm-modal {
+  background: white;
+  position: absolute;
+  top: calc(50% - 200px);
+  left: calc(50% - 400px); // transform: translate(-50%, -50%);
 }
 
 .modal-select-time {

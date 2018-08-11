@@ -2,6 +2,7 @@ import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import ReservationModal from './reservation_modal';
+import ConfirmModal from './confirm_modal';
 
 
 function Modal({ modal, closeModal }) {
@@ -15,6 +16,9 @@ function Modal({ modal, closeModal }) {
         <ReservationModal
           treat={modal.treat}
           shop={modal.shop} />;
+      break;
+    case 'confirm':
+      component = <ConfirmModal />;
       break;
     default:
       return null;

@@ -75,13 +75,13 @@ export const handleReserve = (props, state) => {
     newRes.treatId = props.treat.id;
     newRes.time = state.seltime;
 
-    props.updateReservation(newRes);
+    props.updateReservation(newRes).then(() => props.openConfirmModal());
   } else {
     let newRes = {
       userId: props.currentUser.id,
       treatId: props.treat.id,
       time: state.seltime
     };
-    props.createReservation(newRes);
+    props.createReservation(newRes).then(() => props.openConfirmModal());
   }
 }
