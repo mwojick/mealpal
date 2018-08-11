@@ -5,12 +5,41 @@
   right: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.7);
-  z-index: 10;
+  z-index: 20;
 }
 
 .modal-child {
+  background: white;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.modal-select-time {
+  color: $accent;
+  background: white;
+  padding-left: 10px;
+  border: none;
+  z-index: 3;
+  bottom: 75px;
+  height: 35px;
+  width: 80%;
+  right: 10%;
+  left: 10%;
+  appearance: none;
+  border: 1px solid $gray;
+}
+
+.modal-reserve-btn {
+  color: white;
+  background: $accent;
+  border: none;
+  z-index: 3;
+  bottom: 25px;
+  height: 40px;
+  width: 80%;
+  right: 10%;
+  left: 10%;
+  text-align: center;
 }

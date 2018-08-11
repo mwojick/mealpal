@@ -1,6 +1,7 @@
 export default class MarkerManager {
-  constructor(map) {
+  constructor(map, modal) {
     this.map = map;
+    this.modal = modal;
     this.markers = {};
     this.openWindow = null;
     this.highlight = null;
@@ -90,7 +91,7 @@ export default class MarkerManager {
       this.resButton = document.getElementById("map-reserve");
 
       this.reserveFunction = () => {
-        console.log(shop);
+        this.modal(treat, shop);
       }
 
       this.resButton.addEventListener("click", this.reserveFunction)

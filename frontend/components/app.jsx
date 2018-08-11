@@ -9,9 +9,13 @@ import SignupFormContainer from './session_form/signup_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Nav from './nav/nav';
 import Footer from './footer/footer';
+import Modal from './modal/modal';
 
 const App = () => (
   <div>
+
+    <Modal />
+
     <header>
       <Nav />
     </header>
@@ -21,15 +25,15 @@ const App = () => (
         <Switch>
           <AuthRoute path="/login" component={LoginFormContainer} />
           <AuthRoute path="/signup" component={SignupFormContainer} />
-          <ProtectedRoute path="/account" component={AccountContainer}/>
-          <ProtectedRoute path="/favorites" component={FavoritesContainer}/>
-          <ProtectedRoute path="/history" component={HistoryContainer}/>
-          <ProtectedRoute path="/" component={GreetingContainer}/>
+          <ProtectedRoute path="/account" component={AccountContainer} />
+          <ProtectedRoute path="/favorites" component={FavoritesContainer} />
+          <ProtectedRoute path="/history" component={HistoryContainer} />
+          <ProtectedRoute path="/" component={GreetingContainer} />
         </Switch>
       </main>
 
       <footer>
-        <Footer/>
+        <Footer />
       </footer>
     </div>
   </div>

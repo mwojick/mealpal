@@ -1,4 +1,3 @@
-
 //from https://github.com/daneden/animate.css
 .animated {
   animation-duration: 0.4s;
@@ -10,7 +9,6 @@
     opacity: 0;
     transform: translate3d(0, 35%, 0);
   }
-
   to {
     opacity: 1;
     transform: translate3d(0, 0, 0);
@@ -21,12 +19,25 @@
   animation-name: fadeInUp;
 }
 
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInDown {
+  animation-name: fadeInDown;
+}
 
 @keyframes fadeIn {
   from {
     opacity: 0;
   }
-
   to {
     opacity: 1;
   }
@@ -36,12 +47,10 @@
   animation-name: fadeIn;
 }
 
-
 @keyframes fadeOut {
   from {
     opacity: 1;
   }
-
   to {
     opacity: 0;
   }

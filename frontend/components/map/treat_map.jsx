@@ -37,7 +37,7 @@ class TreatMap extends React.Component {
     this.map = new google.maps.Map(mapRef, this.mapOptions);
 
     this.MarkerManager =
-      new MarkerManager(this.map);
+      new MarkerManager(this.map, this.props.openReserveModal);
 
     // this.MarkerManager.drop(this.props.shops, this.props.treats);
     this.MarkerManager.updateMarkers(this.props.shops, this.props.treats);

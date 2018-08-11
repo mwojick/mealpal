@@ -29,12 +29,12 @@ class ReservationModal extends React.Component {
     return (
       <div>
 
-        <div onClick={this.props.closeModal} className="close-x">X &times;</div>
+        <div onClick={this.props.closeModal} className="close-x">&times;</div>
 
         <select
           value={this.state.seltime}
           onChange={this.update('seltime')}
-          className="select-time">
+          className="modal-select-time">
           <option hidden value={null}>Pickup Time</option>
           {timeVals.map((tv, idx) => {
             return <option key={idx}
@@ -45,7 +45,7 @@ class ReservationModal extends React.Component {
 
         <button
           className={this.state.seltime === '' ?
-            "reserve-btn time-not-selected" : "reserve-btn time-selected"}
+            "modal-reserve-btn time-not-selected" : "modal-reserve-btn time-selected"}
           onClick={() => handleReserve(this.props, this.state)}
           id={`reserve-button`}
           disabled={this.state.seltime === ''}>
