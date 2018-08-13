@@ -1,6 +1,6 @@
 .modal-background {
   position: fixed;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   top: 0;
   bottom: 0;
   right: 0;
@@ -20,7 +20,7 @@
   background: white;
   position: absolute;
   top: calc(50% - 200px);
-  left: calc(50% - 400px); // transform: translate(-50%, -50%);
+  left: calc(50% - 400px);
 }
 
 .modal-select-time {

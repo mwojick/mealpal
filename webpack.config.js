@@ -1,14 +1,14 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
   context: __dirname,
-  entry: './frontend/treat_pal.jsx',
+  entry: "./frontend/treat_pal.jsx",
   output: {
-    path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
-    filename: 'bundle.js'
+    path: path.resolve(__dirname, "app", "assets", "javascripts"),
+    filename: "bundle.js"
   },
   resolve: {
-    extensions: ['.js', '.jsx', '*']
+    extensions: [".js", ".jsx", "*"]
   },
   module: {
     rules: [
@@ -16,9 +16,9 @@ module.exports = {
         test: /\.(png|jpg|gif)$/,
         use: [
           {
-            loader: 'file-loader',
+            loader: "file-loader",
             options: {
-              name: '[path][name].[ext]'
+              name: "[path][name].[ext]"
             }
           }
         ]
@@ -27,13 +27,13 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /(node_modules)/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           query: {
-            presets: ['env', 'react']
+            presets: ["env", "stage-0", "react"]
           }
-        },
+        }
       }
     ]
   },
-  devtool: 'source-map'
+  devtool: "source-map"
 };

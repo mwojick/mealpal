@@ -24,4 +24,8 @@ class ApplicationController < ActionController::Base
     render json: ["Unauthorized"] unless logged_in?
   end
 
+  def fallback_index_html
+    render :file => 'app/views/static_pages/root.html.erb'
+  end
+
 end
