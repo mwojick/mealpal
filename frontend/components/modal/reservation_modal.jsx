@@ -24,44 +24,59 @@ class ReservationModal extends React.Component {
   };
 
   render() {
+    let { closeModal, shop, treat } = this.props;
+    let { seltime } = this.state;
+
     return (
       <div
         className="reserve-modal animated fadeInDown"
         onClick={e => e.stopPropagation()}
       >
-        <div onClick={this.props.closeModal} className="close-x">
-          &times;
-        </div>
+        <img className="res-modal-img" src={treat.imageUrl} />
+        <div className="res-modal-right">
+          <div className="modal-top">
+            <div>{treat.name.toUpperCase()}</div>
+            <div onClick={closeModal} className="modal-x-text">
+              &times;
+            </div>
+          </div>
 
-        <select
-          value={this.state.seltime}
-          onChange={this.update("seltime")}
-          className="modal-select-time"
-        >
-          <option hidden value={null}>
-            Pickup Time
-          </option>
-          {timeVals.map((tv, idx) => {
-            return (
-              <option key={idx} value={tv}>
-                {times[idx]}
+          <div className="modal-desc">{treat.description}</div>
+          <div className="modal-shop">{shop.name}</div>
+          <div className="modal-loc">{shop.address}</div>
+
+          <div className="res-modal-sel-btn">
+            <select
+              value={seltime}
+              onChange={this.update("seltime")}
+              className="modal-select-time"
+            >
+              <option hidden value={null}>
+                Pickup Time
               </option>
-            );
-          })}
-        </select>
+              {timeVals.map((tv, idx) => {
+                return (
+                  <option key={idx} value={tv}>
+                    {times[idx]}
+                  </option>
+                );
+              })}
+            </select>
 
-        <button
-          className={
-            this.state.seltime === ""
-              ? "modal-reserve-btn time-not-selected"
-              : "modal-reserve-btn time-selected"
-          }
-          onClick={() => handleReserve(this.props, this.state)}
-          id={`reserve-button`}
-          disabled={this.state.seltime === ""}
-        >
-          RESERVE NOW
-        </button>
+            <button
+              className={
+                seltime === ""
+                  ? "modal-reserve-btn time-not-selected"
+                  : "modal-reserve-btn time-selected"
+              }
+              onClick={() => handleReserve(this.props, this.state)}
+              id={`reserve-button`}
+              disabled={seltime === ""}
+            >
+              RESERVE NOW
+            </button>
+          </div>
+        </div>
       </div>
     );
   }

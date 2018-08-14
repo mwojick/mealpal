@@ -10,32 +10,46 @@
 }
 
 .reserve-modal {
+  width: 680px;
+  height: 250px;
   background: white;
   position: absolute;
-  top: calc(50% - 200px);
-  left: calc(50% - 400px); // transform: translate(-50%, -50%);
+  display: flex;
+  top: calc(50% - 175px);
+  left: calc(50% - 340px); // transform: translate(-50%, -50%);
 }
 
-.confirm-modal {
-  background: white;
-  position: absolute;
-  top: calc(50% - 200px);
-  left: calc(50% - 400px);
+.res-modal-img {
+  width: 250px;
+  height: 250px;
+}
+
+.res-modal-right {
+  display: flex;
+  flex-direction: column;
+  width: 430px;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.res-modal-sel-btn {
+  display: flex;
 }
 
 .modal-select-time {
   color: $accent;
   background: white;
-  padding-left: 10px;
+  padding-left: 2%;
   border: none;
   z-index: 3;
   bottom: 75px;
-  height: 35px;
+  height: 38px;
   width: 80%;
-  right: 10%;
-  left: 10%;
   appearance: none;
   border: 1px solid $gray;
+  margin: 0 2.5% 0 0;
 }
 
 .modal-reserve-btn {
@@ -46,17 +60,63 @@
   bottom: 25px;
   height: 40px;
   width: 80%;
-  right: 10%;
-  left: 10%;
   text-align: center;
+  margin: 0 0 0 2.5%;
 }
 
-.close-x {
-  cursor: pointer;
+.modal-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  font-size: 25px;
+}
+
+.modal-x-text {
   font-size: 30px;
-  width: 30px;
+  padding: 0 10px;
+  cursor: pointer;
 }
 
-.close-x:hover {
-  background: $light-gray;
+.modal-x-text:hover {
+  color: $light-gray;
+}
+
+.modal-desc {
+  color: $darkest-gray;
+  margin-bottom: 20px;
+}
+
+.modal-shop {
+  font-size: 18px;
+  font-weight: bold;
+  color: $main;
+}
+
+.modal-loc {
+  color: $gray;
+  margin: 10px 0 20px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.confirm-modal {
+  background: white;
+  position: absolute;
+  top: calc(50% - 200px);
+  left: calc(50% - 400px);
+}
+
+@media (max-width: $media2) {
+  .reserve-modal {
+    width: 380px;
+    left: calc(50% - 190px);
+  }
+  .res-modal-right {
+    width: 380px;
+  }
+  .res-modal-img {
+    display: none;
+  }
 }
