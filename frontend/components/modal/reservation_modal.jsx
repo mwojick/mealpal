@@ -36,7 +36,7 @@ class ReservationModal extends React.Component {
         <div className="res-modal-right">
           <div className="modal-top">
             <div>{treat.name.toUpperCase()}</div>
-            <div onClick={closeModal} className="modal-x-text">
+            <div onClick={closeModal} className="res-modal-x">
               &times;
             </div>
           </div>

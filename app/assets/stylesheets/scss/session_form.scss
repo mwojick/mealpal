@@ -1,7 +1,7 @@
-
 .login-page {
-
-  background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), image-url("login_page/login_bg.jpeg");
+  // background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), image-url("login_page/login_bg.jpeg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url("https://res.cloudinary.com/mwojick/image/upload/v1528409283/TreatPal/photo-1494390248081-4e521a5940db.jpg");
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
@@ -15,8 +15,7 @@
   width: 100%;
   min-height: calc(100vh - 60px);
 
-  font-family: 'Lato', sans-serif;
-
+  font-family: "Lato", sans-serif;
 }
 
 .login-form-main {
@@ -86,7 +85,6 @@
   white-space: nowrap;
 }
 
-
 .login-errors {
   ul {
     margin-bottom: 10px;
@@ -104,31 +102,30 @@
 }
 
 .login-label {
-    display: flex;
-    flex-direction: column;
-    color: $dark-gray;
-    width: 90%;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
+  display: flex;
+  flex-direction: column;
+  color: $dark-gray;
+  width: 90%;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
 
-    input {
-      color: black;
-      margin-top: 10px;
-      height: 30px;
-      outline: 0px;
-      border-radius: 5px;
-      border-style: solid;
-      border-color: $gray;
-      border-width: 1px;
-      padding-left: 10px;
-    }
+  input {
+    color: black;
+    margin-top: 10px;
+    height: 30px;
+    outline: 0px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: $gray;
+    border-width: 1px;
+    padding-left: 10px;
+  }
 
-    select {
-      margin-top: 10px;
-      padding: 7px;
-      // border-radius: 5px;
-
-    }
+  select {
+    margin-top: 10px;
+    padding: 7px;
+    // border-radius: 5px;
+  }
 }
 
 .login-label select:hover {
@@ -138,7 +135,6 @@
 .login-label input:focus {
   border-color: $main;
 }
-
 
 .session-submit {
   display: flex;
@@ -163,7 +159,6 @@
   border: none;
   color: white;
   background-color: $main;
-
 
   div {
     letter-spacing: 2px;
@@ -218,10 +213,8 @@
     min-width: calc(80vw);
   }
   .login-donthave {
-
   }
   .login-to-account {
-
   }
   .login-form-container {
     padding: 0;
@@ -230,5 +223,4 @@
   .login-welcome {
     width: 60%;
   }
-
 }
