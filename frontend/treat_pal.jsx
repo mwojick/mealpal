@@ -1,16 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 // import {fetchTreats, searchTreats} from './actions/treat_actions';
 // import {fetchCities} from './actions/city_actions';
 // import {changeFilter} from './actions/filter_actions';
 // import {updateUser} from './actions/user_actions';
 // import {fetchTreats, searchTreats} from './util/treat_api_util';
 
-import configureStore from './store/store';
-import Root from './components/root';
+import configureStore from "./store/store";
+import Root from "./components/root";
 
-document.addEventListener('DOMContentLoaded', () => {
-  const root = document.getElementById('root');
+document.addEventListener("DOMContentLoaded", () => {
+  const root = document.getElementById("root");
   let store;
 
   //set preloadedState to current user if there is one
