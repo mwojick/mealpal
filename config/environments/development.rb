@@ -27,6 +27,9 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  # Disable request forgery protection in test environment.
+  config.action_controller.allow_forgery_protection = false
+
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = :local
 
