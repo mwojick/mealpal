@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
   end
 
   def fallback_index_html
-    render :file => 'app/views/static_pages/root.html.erb'
+    render :file => 'public/index.html'
   end
 
 end
