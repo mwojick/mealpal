@@ -11,31 +11,68 @@ import Nav from "./nav/nav";
 import Footer from "./footer/footer";
 import Modal from "./modal/modal";
 
-const App = () => (
-  <div>
-    <Modal />
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import { getCurrentUser } from "../actions/session_actions";
 
-    <header>
-      <Nav />
-    </header>
+class App extends React.Component {
+  // bootstrap user
+  componentDidMount() {
+    this.props.getCurrentUser();
+  }
 
-    <div className="main-body">
-      <main className="main-page">
-        <Switch>
-          <AuthRoute path="/login" component={LoginFormContainer} />
-          <AuthRoute path="/signup" component={SignupFormContainer} />
-          <ProtectedRoute path="/account" component={AccountContainer} />
-          <ProtectedRoute path="/favorites" component={FavoritesContainer} />
-          <ProtectedRoute path="/history" component={HistoryContainer} />
-          <ProtectedRoute path="/" component={GreetingContainer} />
-        </Switch>
-      </main>
+  render() {
+    if (!this.props.fetchedUser) {
+      return null;
+    } else {
+      return (
+        <div>
+          <Modal />
 
-      <footer>
-        <Footer />
-      </footer>
-    </div>
-  </div>
+          <header>
+            <Nav />
+          </header>
+
+          <div className="main-body">
+            <main className="main-page">
+              <Switch>
+                <AuthRoute path="/login" component={LoginFormContainer} />
+                <AuthRoute path="/signup" component={SignupFormContainer} />
+                <ProtectedRoute path="/account" component={AccountContainer} />
+                <ProtectedRoute
+                  path="/favorites"
+                  component={FavoritesContainer}
+                />
+                <ProtectedRoute path="/history" component={HistoryContainer} />
+                <ProtectedRoute path="/" component={GreetingContainer} />
+              </Switch>
+            </main>
+
+            <footer>
+              <Footer />
+            </footer>
+          </div>
+        </div>
+      );
+    }
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    fetchedUser: state.ui.filters.fetchedUser
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    getCurrentUser: () => dispatch(getCurrentUser())
+  };
+};
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(App)
 );
-
-export default App;

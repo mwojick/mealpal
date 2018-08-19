@@ -1,15 +1,13 @@
-import {
-  UPDATE_FILTER,
-  RESET_FILTER
-} from '../actions/filter_actions';
+import { UPDATE_FILTER, RESET_FILTER } from "../actions/filter_actions";
 
 const defaultState = {
-  'center': false,
-  'favorite': false,
-  'restoday': [],
-  'bounds': {},
-  'search': '',
-  'marker': null
+  center: false,
+  favorite: false,
+  restoday: [],
+  bounds: {},
+  search: "",
+  marker: null,
+  fetchedUser: false
 };
 
 const filtersReducer = (state = defaultState, action) => {

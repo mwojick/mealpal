@@ -1,28 +1,48 @@
-import * as sessionApiUtil from '../util/session_api_util';
+import * as sessionApiUtil from "../util/session_api_util";
+import { changeFilter } from "./filter_actions";
 
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const LOGOUT_CURRENT_USER = "LOGOUT_CURRENT_USER";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 
-export const signup = (user) => dispatch => {
-  return sessionApiUtil.signup(user).then((userS) => {
-    return dispatch(receiveCurrentUser(userS));
-  }, (errors) => dispatch(receiveErrors(errors.responseJSON)) );
+export const signup = user => dispatch => {
+  return sessionApiUtil.signup(user).then(
+    userS => {
+      return dispatch(receiveCurrentUser(userS));
+    },
+    errors => dispatch(receiveErrors(errors.responseJSON))
+  );
 };
 
-export const login = (user) => dispatch => {
-  return sessionApiUtil.login(user).then( (userS) => {
-    return dispatch(receiveCurrentUser(userS));
-  }, (errors) => dispatch(receiveErrors(errors.responseJSON)) );
+export const login = user => dispatch => {
+  return sessionApiUtil.login(user).then(
+    userS => {
+      return dispatch(receiveCurrentUser(userS));
+    },
+    errors => dispatch(receiveErrors(errors.responseJSON))
+  );
+};
+
+export const getCurrentUser = () => dispatch => {
+  return sessionApiUtil.getCurrentUser().then(
+    userS => {
+      dispatch(receiveCurrentUser(userS));
+      dispatch(changeFilter("fetchedUser", true));
+    },
+    errors => dispatch(receiveErrors(errors.responseJSON))
+  );
 };
 
 export const logout = () => dispatch => {
-  return sessionApiUtil.logout().then(() => {
-    return dispatch(logoutCurrentUser());
-  }, (errors) => dispatch(receiveErrors(errors.responseJSON)) );
+  return sessionApiUtil.logout().then(
+    () => {
+      return dispatch(logoutCurrentUser());
+    },
+    errors => dispatch(receiveErrors(errors.responseJSON))
+  );
 };
 
-const receiveCurrentUser = (user) => {
+const receiveCurrentUser = user => {
   return {
     type: RECEIVE_CURRENT_USER,
     user
@@ -35,7 +55,7 @@ const logoutCurrentUser = () => {
   };
 };
 
-const receiveErrors = (errors) => {
+const receiveErrors = errors => {
   return {
     type: RECEIVE_SESSION_ERRORS,
     errors
@@ -50,7 +70,7 @@ export const clearErrors = () => {
 };
 
 let demoUser = {
-  email: 'demo',
+  email: "demo",
   password: 123456
 };
 

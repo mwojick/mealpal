@@ -78,6 +78,7 @@ class SignupForm extends React.Component {
                   </ul>
                   <input
                     type="text"
+                    autoComplete="email"
                     value={this.state.email}
                     onChange={this.update("email")}
                     className="login-input"
@@ -91,6 +92,7 @@ class SignupForm extends React.Component {
                   </ul>
                   <input
                     type="password"
+                    autoComplete="current-password"
                     value={this.state.password}
                     onChange={this.update("password")}
                     className="login-input"
@@ -105,6 +107,7 @@ class SignupForm extends React.Component {
                   <select
                     value={this.state.preferredCity}
                     onChange={this.update("preferredCity")}
+                    autoComplete="foo"
                   >
                     <option hidden value={null}>
                       -- Please Select --
