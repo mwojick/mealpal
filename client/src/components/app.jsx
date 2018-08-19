@@ -14,6 +14,7 @@ import Modal from "./modal/modal";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { getCurrentUser } from "../actions/session_actions";
+import LoadingIcon from "./greeting/loading_icon";
 
 class App extends React.Component {
   // bootstrap user
@@ -23,7 +24,12 @@ class App extends React.Component {
 
   render() {
     if (!this.props.fetchedUser) {
-      return null;
+      return (
+        <div>
+          <div style={{ height: "60px" }} />
+          <LoadingIcon />
+        </div>
+      );
     } else {
       return (
         <div>
