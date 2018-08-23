@@ -7,6 +7,11 @@ import "./css/Master.css";
 import configureStore from "./store/store";
 import Root from "./components/root";
 
+// if (process.env.NODE_ENV !== "production") {
+//   const { whyDidYouUpdate } = require("why-did-you-update");
+//   whyDidYouUpdate(React);
+// }
+
 let store;
 store = configureStore();
 

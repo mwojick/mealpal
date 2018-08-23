@@ -1,4 +1,3 @@
-
 //nav (main)
 .nav-main {
   position: fixed;
@@ -16,7 +15,7 @@
   justify-content: space-between;
 
   font-family: sans-serif;
-  box-shadow: 0 0 10px rgba(0,0,0,.25);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
 .nav-main strong {
   font-weight: bold;
@@ -27,7 +26,6 @@
   margin-left: 20px;
   letter-spacing: 1px;
 }
-
 
 //nav login
 .nav-login {
@@ -55,7 +53,6 @@
   letter-spacing: 0.5px;
   font-weight: bold;
   height: 100%;
-
 }
 
 .nav-menu-button {
@@ -67,7 +64,6 @@
   margin-bottom: 10px;
   margin-right: 20px;
   position: relative;
-
 }
 
 .hamburger {
@@ -135,7 +131,6 @@
   margin-right: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
-
 }
 
 .login-link div:hover {
