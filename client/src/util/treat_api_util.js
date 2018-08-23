@@ -1,18 +1,18 @@
-import $ from "jquery";
+import axios from "axios";
 
 export const fetchTreats = city => {
-  return $.ajax({
+  return axios({
     method: "GET",
     url: `/api/treats`,
-    data: { city }
+    params: { city }
   });
 };
 
 export const searchTreats = search => {
-  return $.ajax({
+  return axios({
     method: "GET",
     url: `/api/treats/search`,
-    data: {
+    params: {
       city: search.city,
       search: search.search,
       bounds: search.bounds

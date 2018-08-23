@@ -1,6 +1,4 @@
-import {
-  RECEIVE_ALL_CITIES
-} from '../actions/city_actions';
+import { RECEIVE_ALL_CITIES } from "../actions/city_actions";
 
 const cityReducer = (oldState = {}, action) => {
   Object.freeze(oldState);

@@ -1,7 +1,7 @@
-import $ from "jquery";
+import axios from "axios";
 
 export const fetchCities = () => {
-  return $.ajax({
+  return axios({
     method: "GET",
     url: `/api/cities`
   });

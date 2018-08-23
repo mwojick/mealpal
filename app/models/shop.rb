@@ -20,9 +20,9 @@ class Shop < ApplicationRecord
   belongs_to :city
 
   def self.in_bounds(bounds)
-    self.where("latitude < ?", bounds[:northEast][:lat])
-      .where("latitude > ?", bounds[:southWest][:lat])
-      .where("longitude > ?", bounds[:southWest][:lng])
-      .where("longitude < ?", bounds[:northEast][:lng])
+    self.where("latitude < ?", bounds["northEast"]["lat"])
+      .where("latitude > ?", bounds["southWest"]["lat"])
+      .where("longitude > ?", bounds["southWest"]["lng"])
+      .where("longitude < ?", bounds["northEast"]["lng"])
   end
 end

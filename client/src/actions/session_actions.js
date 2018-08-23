@@ -8,28 +8,30 @@ export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 export const signup = user => dispatch => {
   return sessionApiUtil.signup(user).then(
     userS => {
-      return dispatch(receiveCurrentUser(userS));
+      return dispatch(receiveCurrentUser(userS.data));
     },
-    errors => dispatch(receiveErrors(errors.responseJSON))
+    errors => {
+      return dispatch(receiveErrors(errors.response.data));
+    }
   );
 };
 
 export const login = user => dispatch => {
   return sessionApiUtil.login(user).then(
     userS => {
-      return dispatch(receiveCurrentUser(userS));
+      return dispatch(receiveCurrentUser(userS.data));
     },
-    errors => dispatch(receiveErrors(errors.responseJSON))
+    errors => dispatch(receiveErrors(errors.response.data))
   );
 };
 
 export const getCurrentUser = () => dispatch => {
   return sessionApiUtil.getCurrentUser().then(
     userS => {
-      dispatch(receiveCurrentUser(userS));
+      dispatch(receiveCurrentUser(userS.data));
       dispatch(changeFilter("fetchedUser", true));
     },
-    errors => dispatch(receiveErrors(errors.responseJSON))
+    errors => dispatch(receiveErrors(errors.response.data))
   );
 };
 
@@ -38,7 +40,7 @@ export const logout = () => dispatch => {
     () => {
       return dispatch(logoutCurrentUser());
     },
-    errors => dispatch(receiveErrors(errors.responseJSON))
+    errors => dispatch(receiveErrors(errors.response.data))
   );
 };
 
