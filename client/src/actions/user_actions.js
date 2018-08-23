@@ -6,9 +6,9 @@ export const RECEIVE_USER_ERRORS = "RECEIVE_USER_ERRORS";
 export const updateUser = user => dispatch => {
   return userApiUtil.updateUser(user).then(
     usr => {
-      return dispatch(receiveUser(usr));
+      return dispatch(receiveUser(usr.data));
     },
-    errors => dispatch(receiveErrors(errors.responseJSON))
+    errors => dispatch(receiveErrors(errors.response.data))
   );
 };
 

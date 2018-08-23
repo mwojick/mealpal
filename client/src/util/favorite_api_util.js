@@ -1,14 +1,14 @@
-import $ from "jquery";
+import axios from "axios";
 
 export const fetchFavorites = () => {
-  return $.ajax({
+  return axios({
     method: "GET",
     url: `/api/favorites`
   });
 };
 
 export const createFavorite = favorite => {
-  return $.ajax({
+  return axios({
     method: "POST",
     url: `/api/favorites`,
     data: {
@@ -21,7 +21,7 @@ export const createFavorite = favorite => {
 };
 
 export const deleteFavorite = id => {
-  return $.ajax({
+  return axios({
     method: "DELETE",
     url: `/api/favorites/${id}`
   });

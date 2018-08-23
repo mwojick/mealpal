@@ -1,7 +1,7 @@
-import $ from "jquery";
+import axios from "axios";
 
 export const updateUser = user => {
-  return $.ajax({
+  return axios({
     method: "PATCH",
     url: `api/users/${user.id}`,
     data: {

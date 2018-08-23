@@ -1,14 +1,14 @@
-import $ from "jquery";
+import axios from "axios";
 
 export const fetchReservations = () => {
-  return $.ajax({
+  return axios({
     method: "GET",
     url: `/api/reservations`
   });
 };
 
 export const createReservation = reservation => {
-  return $.ajax({
+  return axios({
     method: "POST",
     url: `/api/reservations`,
     data: {
@@ -22,7 +22,7 @@ export const createReservation = reservation => {
 };
 
 export const updateReservation = reservation => {
-  return $.ajax({
+  return axios({
     method: "PATCH",
     url: `/api/reservations/${reservation.id}`,
     data: {
@@ -36,7 +36,7 @@ export const updateReservation = reservation => {
 };
 
 export const deleteReservation = id => {
-  return $.ajax({
+  return axios({
     method: "DELETE",
     url: `/api/reservations/${id}`
   });
