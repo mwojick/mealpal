@@ -9,6 +9,16 @@ class Api::SessionsController < ApplicationController
     end
   end
 
+  # get current user (fetch on page refresh to bootstrap user)
+  def user
+    @user = current_user
+    if @user
+      render 'api/users/show'
+    else
+      render json: {}
+    end
+  end
+
   def destroy
     if logged_in?
       logout

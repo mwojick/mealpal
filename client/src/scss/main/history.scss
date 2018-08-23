@@ -1,0 +1,57 @@
+.history-title {
+  font-weight: bold;
+  color: $main;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.res-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-top: 1px solid $light-gray;
+  margin-bottom: 20px;
+}
+
+.reserv-image img {
+  margin-top: 30px;
+  width: 130px;
+  height: 130px;
+  margin-right: 20px;
+  border-radius: 10px;
+}
+
+.reserv-text {
+  margin-bottom: 0px;
+  width: 100%;
+}
+
+.res-title-icon {
+  width: 100%;
+
+  margin-top: 0px;
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.res-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: $main;
+}
+
+.res-shopname {
+  margin-bottom: 5px;
+}
+
+.fav-address {
+  color: $dark-gray;
+  margin-bottom: 5px;
+}
+
+.res-date {
+  color: $light-blue;
+}

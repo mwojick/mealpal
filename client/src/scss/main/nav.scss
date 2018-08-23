@@ -1,0 +1,141 @@
+//nav (main)
+.nav-main {
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  z-index: 10;
+
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+
+  background-color: white;
+
+  display: flex;
+  color: $main;
+  justify-content: space-between;
+
+  font-family: sans-serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+.nav-main strong {
+  font-weight: bold;
+}
+.nav-logo {
+  font-size: 25px;
+  margin-top: 15px;
+  margin-left: 20px;
+  letter-spacing: 1px;
+}
+
+//nav login
+.nav-login {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  letter-spacing: 0.5px;
+  font-weight: bold;
+
+  div {
+    cursor: pointer;
+    margin-right: 20px;
+    padding: 10px 0px;
+  }
+
+  a {
+    margin-right: 20px;
+    padding: 10px 0px;
+  }
+}
+
+//nav menu
+.nav-menu {
+  display: flex;
+  letter-spacing: 0.5px;
+  font-weight: bold;
+  height: 100%;
+}
+
+.nav-menu-button {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 20px;
+  position: relative;
+}
+
+.hamburger {
+  width: 25px;
+}
+
+.dropdown {
+  display: none;
+}
+
+.dropdown-active {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid $light-gray;
+  top: 40px;
+  right: 0px;
+  font-weight: lighter;
+  width: 170px;
+  letter-spacing: 1px;
+
+  li {
+    color: $gray-menu;
+    padding: 10px;
+    height: 30px;
+
+    div {
+      display: flex;
+      align-items: center;
+      height: 100%;
+
+      img {
+        height: 100%;
+        width: auto;
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+.dropdown-active li:hover {
+  color: $main;
+}
+
+// .arrow-up {
+//   width: 0;
+//   height: 0;
+//   border-left: 10px solid transparent;
+//   border-right: 10px solid transparent;
+//
+//   border-bottom: 10px solid $accent;
+//
+//   position: absolute;
+//   left: 130px;
+//   bottom: 195px;
+// }
+
+.menu-logout {
+  border-top: 1px solid $light-gray;
+}
+
+.login-link {
+  margin-right: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.login-link div:hover {
+  cursor: pointer;
+}
+.login-link div {
+  padding: 10px 0;
+}

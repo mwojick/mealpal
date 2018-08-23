@@ -6,7 +6,7 @@ class Api::TreatsController < ApplicationController
 
       @treats = @city.treats
 
-      @shops = bounds ? Shop.in_bounds(bounds) : @city.shops
+      @shops = params[:bounds] ? Shop.in_bounds(bounds) : @city.shops
       shop_ids = @shops.map { |s| s.id }
 
       @treats = @treats.select { |treat| shop_ids.include?(treat.shop_id) }
@@ -21,7 +21,7 @@ class Api::TreatsController < ApplicationController
     @city = City.find_by(name: params[:city])
     if @city
       all_treats = @city.treats.includes(:shop)
-      all_shops = bounds ? Shop.in_bounds(bounds) : @city.shops
+      all_shops = params[:bounds] ? Shop.in_bounds(bounds) : @city.shops
       
       shop_ids = all_shops.map { |s| s.id }
 
@@ -56,7 +56,7 @@ class Api::TreatsController < ApplicationController
   private
 
   def bounds
-    params[:bounds]
+    JSON.parse(params[:bounds])
   end
 
 end
